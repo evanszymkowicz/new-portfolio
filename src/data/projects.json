@@ -1,0 +1,41 @@
+[
+  {
+    "title": "Sparks Group",
+    "category": ["website"],
+    "year": "2020",
+    "featured": true,
+    "url": "https://sparks-by-evan.netlify.app",
+    "image": "/images/projects/Sparks/sparks.png"
+  },
+  {
+    "title": "Cava Marketing Email",
+    "category": ["marketing"],
+    "year": "2019",
+    "featured": true,
+    "url": "https://pure-spire-30689.herokuapp.com",
+    "image": "/images/projects/Cava/cava.png"
+  },
+  {
+    "title": "Interactive Strategies",
+    "category": ["website"],
+    "year": "2019",
+    "url": "https://interactive-strategies.netlify.app/",
+    "featured": true,
+    "image": "/images/projects/InteractiveStrategies/marketing-site.png"
+  },
+  {
+    "title": "Washington Design Center",
+    "category": ["website"],
+    "year": "2019",
+    "featured": true,
+    "url": "https://dc-design.netlify.app",
+    "image": "/images/projects/WashingtonDesignCenter/designcenter.png"
+  },
+  {
+    "title": "OVHCloud US",
+    "category": ["website"],
+    "year": "2021",
+    "featured": false,
+    "url": "https://us.ovhcloud.com/contact-sales/"
+  }
+]
