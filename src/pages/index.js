@@ -12,15 +12,3 @@ export function Head() {
     </>
   );
 }
-
-// Simple page component
-
-export default function IndexPage({ location }) {
-  return (
-    <Layout location={location}>
-      <section>
-        <Intro fixed={true} />
-      </section>
-    </Layout>
-  );
-}

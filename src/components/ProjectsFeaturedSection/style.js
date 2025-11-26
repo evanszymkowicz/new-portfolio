@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Carousel } from "react-responsive-carousel";
-import { colors, media } from "../../styles/theme";
+import { colors, media } from "../../style/theme";
 
 export const Wrapper = styled.section`
   display: grid;

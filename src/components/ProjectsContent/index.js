@@ -1,40 +1,37 @@
-import { graphql } from "gatsby";
-import Layout from "../components/Layout";
-import ProjectsContent from "../components/ProjectsContent";
-import { META } from "../utils/constants";
+import React, { useState, useMemo } from "react";
+import { ContentWrapper } from "../../styles/shared";
+import ProjectsListSection from "../ProjectsListSection";
+import ProjectsFeaturedSection from "../ProjectsFeaturedSection";
 
-// MODERN: Simplified page query (no image processing needed)
-export const query = graphql`
-  query ProjectsQuery {
-    projects: allProjectsJson {
-      edges {
-        project: node {
-          title
-          category
-          year
-          url
-          featured
-          image
-        }
-      }
-    }
-  }
-`;
+// MODERN: Functional component with hooks (REPLACES class component)
+export default function ProjectsContent({ data }) {
+  const [category, setCategory] = useState(null);
 
-export function Head() {
+  // Memoized data processing
+  const projects = useMemo(() => {
+    return data?.projects?.edges || [];
+  }, [data]);
+
+  const featuredProjects = useMemo(() => {
+    return projects.filter(({ project }) => project.featured);
+  }, [projects]);
+
+  const filteredProjects = useMemo(() => {
+    return projects.filter(({ project }) => {
+      if (project.featured) return false;
+      if (!category) return true;
+      return project.category.includes(category);
+    });
+  }, [projects, category]);
+
   return (
-    <>
-      <title>{META.projects.title}</title>
-      <meta name="description" content={META.projects.description} />
-      <meta property="og:image" content={META.common.image} />
-    </>
-  );
-}
-
-export default function ProjectsPage({ data, location }) {
-  return (
-    <Layout location={location}>
-      <ProjectsContent data={data} />
-    </Layout>
+    <ContentWrapper>
+      <ProjectsFeaturedSection projects={featuredProjects} />
+      <ProjectsListSection
+        projects={filteredProjects}
+        category={category}
+        setCategory={setCategory}
+      />
+    </ContentWrapper>
   );
 }
