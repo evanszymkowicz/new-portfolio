@@ -1,9 +1,9 @@
 import React from "react";
 import { Wrapper, Title } from "./style";
 
-const Intro = (props) => {
+const Intro = ({ fixed, ...props }) => {
   return (
-    <Wrapper {...props}>
+    <Wrapper $fixed={fixed} {...props}>
       <Title>
         Evan Szymkowicz
         <span>Web Developer</span>

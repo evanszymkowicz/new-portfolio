@@ -46,7 +46,7 @@ export const FilterButton = styled.button`
   }
 
   ${(props) =>
-    props.active
+    props.$active
       ? css`
           color: ${colors.darkYellow};
         `

@@ -3,7 +3,7 @@ import { Wrapper, ProjectTitle, ProjectInfos, ProjectYear } from "./style";
 
 const ProjectsListItem = ({ title, year, url }) => {
   return (
-    <Wrapper hasLink={url !== null}>
+    <Wrapper $hasLink={url !== null}>
       <header>
         <ProjectTitle>{title}</ProjectTitle>
         <ProjectInfos></ProjectInfos>

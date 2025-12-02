@@ -1,8 +1,8 @@
 import React from "react";
 import { Wrapper } from "./style";
 
-const ToggleMenu = (props) => (
-  <Wrapper {...props}>
+const ToggleMenu = ({ $open, ...props }) => (
+  <Wrapper $open={$open} {...props}>
     <span />
     <span />
     <span />

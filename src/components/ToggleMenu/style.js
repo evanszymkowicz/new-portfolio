@@ -1,59 +1,62 @@
 import styled, { css } from "styled-components";
-import { media, colors } from "../../style/theme";
+import { colors, media } from "../../style/theme";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.button`
   display: none;
-  height: 15px;
-  width: 1.75rem;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-  backface-visibility: hidden;
-  transition: transform 0.45s cubic-bezier(0.45, 0, 0.07, 1);
-  will-change: transform;
-
-  span {
-    display: inline-block;
-    height: 1px;
-    background: ${colors.silver};
-  }
-
-  ${(props) =>
-    props.open
-      ? css`
-          transform: rotate(90deg);
-          align-items: center;
-
-          span {
-            &:nth-child(1),
-            &:nth-child(3) {
-              width: 60%;
-            }
-
-            &:nth-child(2) {
-              width: 100%;
-            }
-          }
-        `
-      : css`
-          transform: rotate(0);
-
-          span {
-            &:nth-child(1) {
-              width: 100%;
-            }
-
-            &:nth-child(2) {
-              width: 60%;
-            }
-
-            &:nth-child(3) {
-              width: 80%;
-            }
-          }
-        `}
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
 
   ${media.md`
-    display: flex;
+    display: block;
   `}
+
+  span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: ${colors.darkYellow};
+    position: absolute;
+    left: 0;
+    transition: all 0.3s cubic-bezier(0.45, 0, 0.1, 1);
+
+    &:nth-child(1) {
+      top: 0;
+      ${(props) =>
+        props.$open &&
+        css`
+          top: 50%;
+          transform: translateY(-50%) rotate(45deg);
+        `}
+    }
+
+    &:nth-child(2) {
+      top: 50%;
+      transform: translateY(-50%);
+      ${(props) =>
+        props.$open &&
+        css`
+          opacity: 0;
+        `}
+    }
+
+    &:nth-child(3) {
+      bottom: 0;
+      ${(props) =>
+        props.$open &&
+        css`
+          bottom: 50%;
+          transform: translateY(50%) rotate(-45deg);
+        `}
+    }
+  }
+
+  &:focus {
+    outline: 0;
+  }
 `;
