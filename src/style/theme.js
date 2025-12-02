@@ -1,4 +1,4 @@
-// Migrate from old src/style/constants.js
+// Migrate from old src/style/theme.js
 export const colors = {
   darkGreen: "#013220",
   darkYellow: "#FDB813",
@@ -29,3 +29,19 @@ export const media = {
   lg: `@media (max-width: ${breakpoints.lg})`,
   xl: `@media (max-width: ${breakpoints.xl})`,
 };
+
+const rule = (d, v) => `${d}: ${v};`;
+
+export const getOuterSpace = (p) =>
+  css`
+    ${rule(p, spaces.p500)}
+    ${media.lg`
+      ${rule(p, spaces.p300)}
+    `}
+    ${media.md`
+      ${rule(p, spaces.p300)}
+    `}
+    ${media.sm`
+      ${rule(p, spaces.p200)}
+    `}
+  `;

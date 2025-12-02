@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from "react";
-import { ContentWrapper } from "../../styles/shared";
+import { useState, useMemo } from "react";
+import { ContentWrapper } from "../../style/shared";
 import ProjectsListSection from "../ProjectsListSection";
 import ProjectsFeaturedSection from "../ProjectsFeaturedSection";
 

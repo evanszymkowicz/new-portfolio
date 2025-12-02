@@ -1,8 +1,7 @@
-import React from "react";
 import ProfileIntroSection from "../ProfileIntroSection";
 import ProfileListItem from "../ProfileListItem";
 import JobListItem from "../JobListItem";
-import Head from "../Head";
+import SEO from "../Head";
 import ProfileList from "../ProfileList";
 import { META } from "../../utils/constants";
 import { ContentWrapper } from "../../style/shared";
@@ -13,7 +12,7 @@ export default ({ data }) => {
 
   return (
     <ContentWrapper>
-      <Head {...META.profile} image={META.common.image} />
+      <SEO {...META.profile} image={META.common.image} />
       <ProfileIntroSection
         content={() => (
           <>

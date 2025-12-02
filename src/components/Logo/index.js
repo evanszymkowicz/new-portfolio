@@ -1,8 +1,8 @@
-import Link from "gatsby-link";
+import { Link } from "gatsby";
 import Circle from "./circle.svg";
 import { Wrapper } from "./style";
 
-const Logo = () => (
+export default function Logo() {
   <Wrapper>
     <div>
       <Link to="/">
@@ -10,7 +10,5 @@ const Logo = () => (
       </Link>
       <div className="circle" />
     </div>
-  </Wrapper>
-);
-
-export default Logo;
+  </Wrapper>;
+}

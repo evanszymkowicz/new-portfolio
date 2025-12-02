@@ -1,4 +1,4 @@
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
 import Intro from "../components/Intro";
 import { META } from "../utils/constants";
 

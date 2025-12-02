@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../style/constants";
+import { colors } from "../../style/theme";
 
 export const ListTitle = styled.h2`
   color: #e4e6ec;

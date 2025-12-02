@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { colors } from "../../styles/theme";
+// import { colors } from "../../styles/theme";
 
 // Simple styled img with loading state
 const ImageWrapper = styled.div`

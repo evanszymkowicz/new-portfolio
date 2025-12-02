@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Apollo GraphQL with TypeScript",
+    "url": "https://github.com/evanszymkowicz/glowing-lamp"
+  },
+  {
+    "name": "Contentful",
+    "url": "https://github.com/evanszymkowicz/beach-house"
+  },
+  {
+    "name": "Express",
+    "url": "https://github.com/evanszymkowicz/solid-carnival"
+  },
+  {
+    "name": "HTML/CSS",
+    "url": "https://github.com/evanszymkowicz/augnewsletter-email"
+  },
+  {
+    "name": "JavaScript (Live)",
+    "url": "https://interactive-strategies.netlify.com"
+  },
+  {
+    "name": "TypeScript",
+    "url": "https://github.com/evanszymkowicz/sparks"
+  },
+  {
+    "name": "React",
+    "url": "https://github.com/evanszymkowicz/interior-design-firm"
+  },
+  {
+    "name": "PHP",
+    "url": "https://github.com/evanszymkowicz/react-laravel"
+  },
+  {
+    "name": "SCSS",
+    "url": "https://github.com/evanszymkowicz/agency-site"
+  },
+  {
+    "name": "Testing (Mocha)",
+    "url": "https://github.com/evanszymkowicz/movies-testing"
+  },
+  {
+    "name": "Testing (Custom)",
+    "url": "https://github.com/evanszymkowicz/testing-framework"
+  }
+]

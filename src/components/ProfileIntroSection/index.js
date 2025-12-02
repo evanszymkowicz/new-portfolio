@@ -1,6 +1,6 @@
-import Intro from "./Intro";
+import Intro from "../Intro";
 import { Wrapper, InfoWrapper, Content, StyledImage } from "./style";
-import { Loader } from "../../styled/shared";
+import { Loader } from "../../style/shared";
 
 const ProfileIntroSection = ({ content }) => {
   const profileImage = "/images/profile/evan-szymkowicz.jpeg";
