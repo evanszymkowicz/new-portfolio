@@ -1,3 +1,4 @@
+import React from "react";
 import Layout from "../components/layout";
 import Intro from "../components/Intro";
 import { META } from "../utils/constants";
@@ -10,5 +11,13 @@ export function Head() {
       <meta name="description" content={META.index.description} />
       <meta property="og:image" content={META.common.image} />
     </>
+  );
+}
+
+export default function IndexPage({ location }) {
+  return (
+    <Layout location={location}>
+      <Intro fixed={true} />
+    </Layout>
   );
 }

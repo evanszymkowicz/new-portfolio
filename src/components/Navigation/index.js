@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import Logo from "../Logo";
 import Footer from "../Footer";

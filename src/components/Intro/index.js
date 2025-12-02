@@ -1,3 +1,4 @@
+import React from "react";
 import { Wrapper, Title } from "./style";
 
 const Intro = (props) => {

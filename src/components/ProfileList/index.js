@@ -1,3 +1,4 @@
+import React from "react";
 import { ListTitle } from "./style";
 
 const ProfileList = ({ title, list, className }) => {

@@ -1,3 +1,4 @@
+import React from "react";
 import { GlobalStyle } from "../style/global";
 import Navigation from "./Navigation";
 

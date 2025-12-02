@@ -83,7 +83,7 @@ export const NavItem = styled.li`
     transition: color 0.1s ease;
     line-height: 1em;
     ${(props) =>
-      props.highlight
+      props.$highlight
         ? css`
             color: ${colors.darkYellow};
 

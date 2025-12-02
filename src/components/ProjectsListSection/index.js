@@ -1,3 +1,4 @@
+import React from "react";
 import ProjectsListItem from "../ProjectsListItem";
 import { Wrapper, ProjectsTitle, ButtonsWrapper, FilterButton, NDAWrapper, StyledDivider, StyledEmailMe } from "./style";
 

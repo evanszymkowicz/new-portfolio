@@ -1,4 +1,5 @@
 // Reusable SEO component using Head API
+import React from "react";
 
 export function SEO({ title, description, image, pathname }) {
   const siteUrl = "https://www.evanwolf.tech";

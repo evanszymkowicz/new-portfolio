@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   `}
 
   ${(props) =>
-    props.fixed
+    props.$fixed
       ? css`
           ${getOuterSpace("padding")};
           position: absolute;

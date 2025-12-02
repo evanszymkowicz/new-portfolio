@@ -1,3 +1,4 @@
+import React from "react";
 import EmailMe from "../EmailMe"
 import { Wrapper, Nav, NavItem, NavLink } from "./style";
 

@@ -1,3 +1,4 @@
+import React from "react";
 import Intro from "../Intro";
 import { Wrapper, InfoWrapper, Content, StyledImage } from "./style";
 import { Loader } from "../../style/shared";

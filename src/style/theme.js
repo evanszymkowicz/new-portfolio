@@ -1,4 +1,6 @@
 // Migrate from old src/style/theme.js
+import { css } from "styled-components";
+
 export const colors = {
   darkGreen: "#013220",
   darkYellow: "#FDB813",
@@ -22,15 +24,28 @@ export const breakpoints = {
   xl: "1200px",
 };
 
-export const media = {
-  xs: `@media (max-width: ${breakpoints.xs})`,
-  sm: `@media (max-width: ${breakpoints.sm})`,
-  md: `@media (max-width: ${breakpoints.md})`,
-  lg: `@media (max-width: ${breakpoints.lg})`,
-  xl: `@media (max-width: ${breakpoints.xl})`,
-};
+// Make media helpers that can be used as tagged template literals:
+//   ${media.lg` ... `}
+export const media = Object.keys(breakpoints).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (max-width: ${breakpoints[label]}) {
+      ${css(...args)}
+    }
+  `;
+  return acc;
+}, {});
 
 const rule = (d, v) => `${d}: ${v};`;
+
+export const spaces = {
+  p500: "5rem",
+  p400: "4rem",
+  p300: "3rem",
+  p200: "2rem",
+  p100: "1rem",
+  p50: ".5rem",
+  p25: ".25rem",
+};
 
 export const getOuterSpace = (p) =>
   css`

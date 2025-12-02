@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "gatsby";
 import Circle from "./circle.svg";
 import { Wrapper } from "./style";
@@ -7,7 +8,7 @@ export default function Logo() {
     <Wrapper>
       <div>
         <Link to="/">
-          <Circle width={22} height={22} />
+          <img src={Circle} width={22} height={22} alt="Logo" />
         </Link>
         <div className="circle" />
       </div>

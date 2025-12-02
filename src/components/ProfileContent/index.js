@@ -1,3 +1,4 @@
+import React from "react";
 import ProfileIntroSection from "../ProfileIntroSection";
 import ProfileListItem from "../ProfileListItem";
 import JobListItem from "../JobListItem";
