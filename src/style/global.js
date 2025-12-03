@@ -4,17 +4,10 @@ import reset from "styled-reset";
 import { colors, fonts, media } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
+  /* Fonts are injected into the initial HTML head by gatsby-ssr.js.
+     Do not @import here to avoid double-loading and to enable SSR font loading. */
+
   ${reset}
-
-  @font-face {
-    font-family: stack-mono;
-    src: local(".SFNSText-Light");
-  }
-
-  @font-face {
-    font-family: stack-sans;
-    src: local(".SFNSText-Light");
-  }
 
   html, body {
     height: 100%;
@@ -27,7 +20,8 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background: ${colors.darkGreen};
     color: #E4E6EC;
-    font-family: ${fonts.sansSerif};
+    /* use the theme key that actually exists */
+    font-family: ${fonts.sans};
     backface-visibility: hidden;
   }
 

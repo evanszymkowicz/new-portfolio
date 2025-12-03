@@ -92,7 +92,7 @@ export const NavItem = styled.li`
             }
           `
         : css`
-            color: ${colors.darkRed};
+            color: ${colors.grey};
           `}
   }
 `;

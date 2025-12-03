@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useMemo } from "react";
 import { ContentWrapper } from "../../style/shared";
 import ProjectsListSection from "../ProjectsListSection";

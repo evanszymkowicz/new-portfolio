@@ -7,6 +7,7 @@ const Intro = ({ fixed, ...props }) => {
       <Title>
         Evan Szymkowicz
         <span>Web Developer</span>
+        in Washington, D.C.
       </Title>
     </Wrapper>
   );
