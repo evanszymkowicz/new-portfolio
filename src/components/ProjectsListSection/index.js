@@ -1,7 +1,14 @@
 import React from "react";
 import ProjectsListItem from "../ProjectsListItem";
 import EmailMe from "../EmailMe";
-import { Wrapper, ProjectsTitle, ButtonsWrapper, FilterButton, NDAWrapper, StyledDivider, StyledEmailMe } from "./style";
+import {
+  Wrapper,
+  ProjectsTitle,
+  ButtonsWrapper,
+  FilterButton,
+  StyledDivider,
+  StyledEmailMe,
+} from "./style";
 
 const ProjectsListSection = ({ projects, category, setCategory }) => {
   const categories = ["All", "Web", "Mobile", "Design"];
@@ -25,11 +32,6 @@ const ProjectsListSection = ({ projects, category, setCategory }) => {
           <ProjectsListItem key={index} {...project} />
         ))}
       </div>
-      <NDAWrapper>
-        <StyledDivider />
-        <h2>Some projects are under NDA</h2>
-        <StyledEmailMe />
-      </NDAWrapper>
     </Wrapper>
   );
 };

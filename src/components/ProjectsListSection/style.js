@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import EmailMe from "../EmailMe";
-import Divider from "./divider.svg";
+import DividerImage from "./divider.svg";
 import { colors, fonts, media } from "../../style/theme";
 
 export const Wrapper = styled.section`
@@ -67,9 +67,14 @@ export const NDAWrapper = styled.footer`
   }
 `;
 
-export const StyledDivider = styled(Divider)`
-  color: ${colors.darkRed};
-  margin-bottom: 3rem;
+export const StyledDivider = styled.div`
+  width: 38px;
+  height: 5px;
+  margin: 0 auto 3rem;
+  background-image: url(${DividerImage});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 `;
 
 export const StyledEmailMe = styled(EmailMe)`
