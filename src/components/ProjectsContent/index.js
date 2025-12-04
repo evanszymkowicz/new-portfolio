@@ -1,35 +1,34 @@
-import React from "react";
-import { useState, useMemo } from "react";
+import React, { useState } from "react";
+import Head from "../Head";
+import { META } from "../../utils/constants";
 import { ContentWrapper } from "../../style/shared";
-import ProjectsListSection from "../ProjectsListSection";
 import ProjectsFeaturedSection from "../ProjectsFeaturedSection";
+import ProjectsListSection from "../ProjectsListSection";
 
-// MODERN: Functional component with hooks (REPLACES class component)
 export default function ProjectsContent({ data }) {
+  const { projects } = data;
+  const edges = (projects && projects.edges) || [];
+
+  // Separate featured and other projects
+  const featured = edges.filter(({ project }) => project.featured);
+  const others = edges.filter(({ project }) => !project.featured);
+
   const [category, setCategory] = useState(null);
 
-  // Memoized data processing
-  const projects = useMemo(() => {
-    return data?.projects?.edges || [];
-  }, [data]);
-
-  const featuredProjects = useMemo(() => {
-    return projects.filter(({ project }) => project.featured);
-  }, [projects]);
-
-  const filteredProjects = useMemo(() => {
-    return projects.filter(({ project }) => {
-      if (project.featured) return false;
-      if (!category) return true;
-      return project.category.includes(category);
+  const filterByCategory = (list) => {
+    if (!category) return list;
+    return list.filter(({ project }) => {
+      const cats = project.category || [];
+      return cats.map((c) => c.toLowerCase()).includes(category);
     });
-  }, [projects, category]);
+  };
 
   return (
     <ContentWrapper>
-      <ProjectsFeaturedSection projects={featuredProjects} />
+      <Head {...META.projects} image={META.common.image} />
+      <ProjectsFeaturedSection projects={filterByCategory(featured)} />
       <ProjectsListSection
-        projects={filteredProjects}
+        projects={filterByCategory(others)}
         category={category}
         setCategory={setCategory}
       />

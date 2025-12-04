@@ -5,31 +5,110 @@
     "year": "2020",
     "featured": true,
     "url": "https://sparks-by-evan.netlify.app",
-    "image": "/images/projects/Sparks/sparks.png"
+    "image": {
+      "src": "/images/projects/Sparks/sparks.png",
+      "sources": [
+        {
+          "media": "max-width: 40rem",
+          "srcset": [
+            "/images/projects/Sparks/sparks.png",
+            "/images/projects/Sparks/sparks.png",
+            "/images/projects/Sparks/sparks.png"
+          ]
+        },
+        {
+          "srcset": [
+            "/images/projects/Sparks/sparks.png",
+            "/images/projects/Sparks/sparks.png",
+            "/images/projects/Sparks/sparks.png"
+          ]
+        }
+      ]
+    }
   },
   {
     "title": "Cava Marketing Email",
     "category": ["marketing"],
+    "client": "",
     "year": "2019",
     "featured": true,
     "url": "https://pure-spire-30689.herokuapp.com",
-    "image": "/images/projects/Cava/cava.png"
+    "image": {
+      "src": "/images/projects/Cava/cava.png",
+      "sources": [
+        {
+          "media": "max-width: 40rem",
+          "srcset": [
+            "/images/projects/Cava/cava.png",
+            "/images/projects/Cava/cava.png",
+            "/images/projects/Cava/cava.png"
+          ]
+        },
+        {
+          "srcset": [
+            "/images/projects/Cava/cava.png",
+            "/images/projects/Cava/cava.png",
+            "/images/projects/Cava/cava.png"
+          ]
+        }
+      ]
+    }
   },
   {
     "title": "Interactive Strategies",
     "category": ["website"],
+
     "year": "2019",
     "url": "https://interactive-strategies.netlify.app/",
     "featured": true,
-    "image": "/images/projects/InteractiveStrategies/marketing-site.png"
+    "image": {
+      "src": "/images/projects/InteractiveStrategies/marketing-site.png",
+      "sources": [
+        {
+          "media": "max-width: 40rem",
+          "srcset": [
+            "/images/projects/InteractiveStrategies/marketing-site.png",
+            "/images/projects/InteractiveStrategies/marketing-site.png",
+            "/images/projects/InteractiveStrategies/marketing-site.png"
+          ]
+        },
+        {
+          "srcset": [
+            "/images/projects/InteractiveStrategies/marketing-site.png",
+            "/images/projects/InteractiveStrategies/marketing-site.png",
+            "/images/projects/InteractiveStrategies/marketing-site.png"
+          ]
+        }
+      ]
+    }
   },
   {
     "title": "Washington Design Center",
     "category": ["website"],
+
     "year": "2019",
     "featured": true,
     "url": "https://dc-design.netlify.app",
-    "image": "/images/projects/WashingtonDesignCenter/designcenter.png"
+    "image": {
+      "src": "/images/projects/WashingtonDesignCenter/designcenter.png",
+      "sources": [
+        {
+          "media": "max-width: 40rem",
+          "srcset": [
+            "/images/projects/WashingtonDesignCenter/designcenter.png",
+            "/images/projects/WashingtonDesignCenter/designcenter.png",
+            "/images/projects/WashingtonDesignCenter/designcenter.png"
+          ]
+        },
+        {
+          "srcset": [
+            "/images/projects/WashingtonDesignCenter/designcenter.png",
+            "/images/projects/WashingtonDesignCenter/designcenter.png",
+            "/images/projects/WashingtonDesignCenter/designcenter.png"
+          ]
+        }
+      ]
+    }
   },
   {
     "title": "OVHCloud US",
@@ -37,5 +116,77 @@
     "year": "2021",
     "featured": false,
     "url": "https://us.ovhcloud.com/contact-sales/"
+  },
+  {
+    "title": "The Boss",
+    "category": ["website"],
+    "year": "2020",
+    "featured": false,
+    "url": "https://brave-morse-2885af.netlify.app/"
+  },
+  {
+    "title": "Washington Burger",
+    "category": ["code"],
+    "year": "2020",
+    "url": "https://github.com/evanszymkowicz/react-laravel",
+    "featured": false
+  },
+  {
+    "title": "ALLRISE DC",
+    "category": ["website"],
+    "year": "2019",
+    "url": "https://www.allrisedc.org/",
+    "featured": false
+  },
+  {
+    "title": "Watch ESPN+",
+    "category": ["marketing"],
+    "url": "https://ews-watch-espnplus-emails.herokuapp.com/",
+    "year": "2019",
+    "featured": false
+  },
+  {
+    "title": "What's New This August at Glen's",
+    "category": ["marketing"],
+    "url": "https://sheltered-refuge-25602.herokuapp.com/",
+    "year": "2019",
+    "featured": false
+  },
+  {
+    "title": "WordPress - Theme",
+    "category": ["code"],
+    "client": "",
+    "url": "https://github.com/evanszymkowicz/photo-site",
+    "year": "2019",
+    "featured": false
+  },
+  {
+    "title": "Ecommerce Application",
+    "category": ["code"],
+    "year": "2019",
+    "url": "https://github.com/evanszymkowicz/React-Ecommerce",
+    "featured": false
+  },
+  {
+    "title": "Heroku Newsletter",
+    "category": ["marketing"],
+
+    "url": "https://ews-heroku-marketing.herokuapp.com",
+    "year": "2018",
+    "featured": false
+  },
+  {
+    "title": "Small Business Template",
+    "category": ["code"],
+    "url": "https://github.com/evanszymkowicz/jackrose-site",
+    "year": "2018",
+    "featured": false
+  },
+  {
+    "title": "Visit Banff",
+    "category": ["code"],
+    "url": "https://github.com/evanszymkowicz/visit-banff",
+    "year": "2017",
+    "featured": false
   }
 ]

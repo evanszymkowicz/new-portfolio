@@ -55,7 +55,7 @@ export const FilterButton = styled.button`
         `}
 `;
 
-export const NDAWrapper = styled.footer`
+export const QuestionWrapper = styled.footer`
   padding-top: 4rem;
   text-align: center;
 
@@ -67,16 +67,20 @@ export const NDAWrapper = styled.footer`
   }
 `;
 
-export const StyledDivider = styled.div`
+/* Changed: use an <img> instead of setting background-image.
+   This avoids invalid characters if DividerImage is raw SVG content. */
+export const StyledDivider = styled.img.attrs({
+  src: DividerImage,
+  alt: "divider",
+})`
   width: 38px;
   height: 5px;
   margin: 0 auto 3rem;
-  background-image: url(${DividerImage});
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  display: block;
+  object-fit: contain;
 `;
 
+/* Email me button styling */
 export const StyledEmailMe = styled(EmailMe)`
   color: ${colors.darkYellow};
   font-family: ${fonts.mono};

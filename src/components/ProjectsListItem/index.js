@@ -1,9 +1,11 @@
 import React from "react";
 import { Wrapper, ProjectTitle, ProjectInfos, ProjectYear } from "./style";
 
-const ProjectsListItem = ({ title, year, url }) => {
+const ProjectsListItem = ({ project }) => {
+  const { title, year, url } = project || {};
+
   return (
-    <Wrapper $hasLink={url !== null}>
+    <Wrapper $hasLink={!!url}>
       <header>
         <ProjectTitle>{title}</ProjectTitle>
         <ProjectInfos></ProjectInfos>

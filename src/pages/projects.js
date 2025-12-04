@@ -1,11 +1,9 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { StaticQuery, graphql } from "gatsby";
 import Layout from "../components/layout";
 import ProjectsContent from "../components/ProjectsContent";
-import { META } from "../utils/constants";
 
-// MODERN: Simplified page query (no image processing needed)
-export const query = graphql`
+const projectsQuery = graphql`
   query ProjectsQuery {
     projects: allProjectsJson {
       edges {
@@ -15,27 +13,24 @@ export const query = graphql`
           year
           url
           featured
-          image
+          image {
+            src
+            sources {
+              media
+              srcset
+            }
+          }
         }
       }
     }
   }
 `;
 
-export function Head() {
-  return (
-    <>
-      <title>{META.projects.title}</title>
-      <meta name="description" content={META.projects.description} />
-      <meta property="og:image" content={META.common.image} />
-    </>
-  );
-}
-
-export default function ProjectsPage({ data, location }) {
-  return (
-    <Layout location={location}>
-      <ProjectsContent data={data} />
-    </Layout>
-  );
-}
+export default ({ location }) => (
+  <Layout location={location}>
+    <StaticQuery
+      query={projectsQuery}
+      render={(data) => <ProjectsContent data={data} />}
+    />
+  </Layout>
+);

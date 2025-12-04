@@ -1,39 +1,54 @@
 import React from "react";
 import ProjectsListItem from "../ProjectsListItem";
-import EmailMe from "../EmailMe";
 import {
   Wrapper,
   ProjectsTitle,
   ButtonsWrapper,
   FilterButton,
+  QuestionWrapper,
   StyledDivider,
   StyledEmailMe,
 } from "./style";
 
-const ProjectsListSection = ({ projects, category, setCategory }) => {
-  const categories = ["All", "Web", "Mobile", "Design"];
-
-  return (
-    <Wrapper>
-      <ProjectsTitle>All Projects</ProjectsTitle>
+const ProjectsListSection = ({ projects, category, setCategory }) => (
+  <Wrapper>
+    <header>
+      <ProjectsTitle>Other projects</ProjectsTitle>
       <ButtonsWrapper>
-        {categories.map((cat) => (
-          <FilterButton
-            key={cat}
-            $active={category === cat || (category === null && cat === "All")}
-            onClick={() => setCategory(cat === "All" ? null : cat)}
-          >
-            {cat}
-          </FilterButton>
-        ))}
+        <FilterButton
+          active={category === "website"}
+          onClick={() => setCategory("website")}
+        >
+          web
+        </FilterButton>
+        <FilterButton
+          active={category === "code"}
+          onClick={() => setCategory("code")}
+        >
+          code
+        </FilterButton>
+        <FilterButton
+          active={category === "marketing"}
+          onClick={() => setCategory("marketing")}
+        >
+          marketing
+        </FilterButton>
+        {category && (
+          <FilterButton onClick={() => setCategory(null)}>all</FilterButton>
+        )}
       </ButtonsWrapper>
-      <div>
-        {projects.map((project, index) => (
-          <ProjectsListItem key={index} {...project} />
-        ))}
-      </div>
-    </Wrapper>
-  );
-};
+    </header>
+    <main>
+      {projects.map(({ project }, i) => (
+        <ProjectsListItem key={i} project={project} />
+      ))}
+    </main>
+    <QuestionWrapper>
+      <StyledDivider height={6} width={43} />
+      <h2>Want to know more?</h2>
+      <StyledEmailMe text="Email me" />
+    </QuestionWrapper>
+  </Wrapper>
+);
 
 export default ProjectsListSection;
