@@ -1,8 +1,14 @@
 import styled, { css } from "styled-components";
 import { colors, fonts, media } from "../../style/theme";
 
+export const Link = styled.a`
+  text-decoration: none;
+  color: inherit;
+  display: block;
+`;
+
 export const Wrapper = styled.article`
-  border-bottom: 1px solid ${colors.darkRed};
+  border-bottom: 1px dotted ${colors.silver};
   padding: 1.5rem 0;
   display: grid;
   grid-template-columns: 1fr auto;
@@ -36,5 +42,13 @@ export const ProjectInfos = styled.div`
 `;
 
 export const ProjectYear = styled.span`
-  color: ${colors.darkYellow};
+  color: ${colors.silver};
+
+  &::before {
+    content: "—";
+    color: ${colors.darkYellow};
+    display: inline-block;
+    margin-right: 0.75rem;
+    vertical-align: middle;
+  }
 `;

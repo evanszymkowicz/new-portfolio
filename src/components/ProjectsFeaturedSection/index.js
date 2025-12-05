@@ -25,8 +25,7 @@ export default function ProjectsFeaturedSection({ projects }) {
   const renderProject = ({ project }) => {
     const { title, image, url } = project;
 
-    const hasImage =
-      npm run devimage && (typeof image === "string" ? image.trim().length > 0 : !!image.src);
+    const hasImage = image && (typeof image === "string" ? image.trim().length > 0 : !!image.src);
 
     // If image exists, render it (wrap it with link if url exists).
     if (hasImage) {

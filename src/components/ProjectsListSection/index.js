@@ -13,7 +13,7 @@ import {
 const ProjectsListSection = ({ projects, category, setCategory }) => (
   <Wrapper>
     <header>
-      <ProjectsTitle>Other projects</ProjectsTitle>
+      <ProjectsTitle>Other Work</ProjectsTitle>
       <ButtonsWrapper>
         <FilterButton
           active={category === "website"}

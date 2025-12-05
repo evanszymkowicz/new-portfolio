@@ -1,10 +1,10 @@
 import React from "react";
-import { Wrapper, ProjectTitle, ProjectInfos, ProjectYear } from "./style";
+import { Link, Wrapper, ProjectTitle, ProjectInfos, ProjectYear } from "./style";
 
 const ProjectsListItem = ({ project }) => {
   const { title, year, url } = project || {};
 
-  return (
+  const content = (
     <Wrapper $hasLink={!!url}>
       <header>
         <ProjectTitle>{title}</ProjectTitle>
@@ -13,12 +13,15 @@ const ProjectsListItem = ({ project }) => {
       <ProjectInfos>
         <ProjectYear>{year}</ProjectYear>
       </ProjectInfos>
-      {url && (
-        <a href={url} target="_blank" rel="noopener noreferrer">
-          More Information
-        </a>
-      )}
     </Wrapper>
+  );
+
+  return url ? (
+    <Link href={url} target="_blank" rel="noopener noreferrer">
+      {content}
+    </Link>
+  ) : (
+    content
   );
 };
 
