@@ -1,9 +1,70 @@
 [
   {
+    "title": "Administration for Children & Families",
+    "category": ["website"],
+    "year": "2025",
+    "featured": true,
+    "url": "https://acf.gov/",
+    "image": {
+      "src": "/images/projects/ACF/ACF.png",
+      "sources": [
+        {
+          "media": "max-width: 40rem",
+          "srcset": [
+            "/images/projects/ACF/ACF.png",
+            "/images/projects/ACF/ACF.png",
+            "/images/projects/ACF/ACF.png"
+          ]
+        },
+        {
+          "srcset": [
+            "/images/projects/ACF/ACF.png",
+            "/images/projects/ACF/ACF.png",
+            "/images/projects/ACF/ACF.png"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "title": "DocGuide",
+    "category": ["website"],
+    "year": "2023",
+    "featured": true,
+    "url": "https://docguide.com/",
+    "image": {
+      "src": "/images/projects/DocGuide/DocGuide.png",
+      "sources": [
+        {
+          "media": "max-width: 40rem",
+          "srcset": [
+            "/images/projects/DocGuide/DocGuide.png",
+            "/images/projects/DocGuide/DocGuide.png",
+            "/images/projects/DocGuide/DocGuide.png"
+          ]
+        },
+        {
+          "srcset": [
+            "/images/projects/DocGuide/DocGuide.png",
+            "/images/projects/DocGuide/DocGuide.png",
+            "/images/projects/DocGuide/DocGuide.png"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "title": "OVHCloud US",
+    "category": ["website"],
+    "year": "2021",
+    "featured": false,
+    "url": "https://us.ovhcloud.com/contact-sales/"
+  },
+  {
     "title": "Sparks Group",
     "category": ["website"],
     "year": "2020",
-    "featured": true,
+    "featured": false,
     "url": "https://sparks-by-evan.netlify.app",
     "image": {
       "src": "/images/projects/Sparks/sparks.png",
@@ -31,7 +92,7 @@
     "category": ["marketing"],
     "client": "",
     "year": "2019",
-    "featured": true,
+    "featured": false,
     "url": "https://pure-spire-30689.herokuapp.com",
     "image": {
       "src": "/images/projects/Cava/cava.png",
@@ -111,27 +172,6 @@
     }
   },
   {
-    "title": "OVHCloud US",
-    "category": ["website"],
-    "year": "2021",
-    "featured": false,
-    "url": "https://us.ovhcloud.com/contact-sales/"
-  },
-  {
-    "title": "The Boss",
-    "category": ["website"],
-    "year": "2020",
-    "featured": false,
-    "url": "https://brave-morse-2885af.netlify.app/"
-  },
-  {
-    "title": "Washington Burger",
-    "category": ["code"],
-    "year": "2020",
-    "url": "https://github.com/evanszymkowicz/react-laravel",
-    "featured": false
-  },
-  {
     "title": "ALLRISE DC",
     "category": ["website"],
     "year": "2019",
@@ -153,40 +193,11 @@
     "featured": false
   },
   {
-    "title": "WordPress - Theme",
-    "category": ["code"],
-    "client": "",
-    "url": "https://github.com/evanszymkowicz/photo-site",
-    "year": "2019",
-    "featured": false
-  },
-  {
-    "title": "Ecommerce Application",
-    "category": ["code"],
-    "year": "2019",
-    "url": "https://github.com/evanszymkowicz/React-Ecommerce",
-    "featured": false
-  },
-  {
     "title": "Heroku Newsletter",
     "category": ["marketing"],
 
     "url": "https://ews-heroku-marketing.herokuapp.com",
     "year": "2018",
-    "featured": false
-  },
-  {
-    "title": "Small Business Template",
-    "category": ["code"],
-    "url": "https://github.com/evanszymkowicz/jackrose-site",
-    "year": "2018",
-    "featured": false
-  },
-  {
-    "title": "Visit Banff",
-    "category": ["code"],
-    "url": "https://github.com/evanszymkowicz/visit-banff",
-    "year": "2017",
     "featured": false
   }
 ]
