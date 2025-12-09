@@ -5,9 +5,9 @@ import { ContentWrapper } from "../../style/shared";
 import ProjectsFeaturedSection from "../ProjectsFeaturedSection";
 import ProjectsListSection from "../ProjectsListSection";
 
-export default function ProjectsContent({ data }) {
-  const { projects } = data;
-  const edges = (projects && projects.edges) || [];
+export default function ProjectsContent({  data = {} }) {
+  const projects = data.projects || { edges: [] };
+  const edges = projects.edges || [];
 
   // Separate featured and other projects
   const featured = edges.filter(({ project }) => project.featured);

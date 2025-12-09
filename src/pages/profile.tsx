@@ -1,11 +1,10 @@
 import React from "react";
-import { graphql, PageProps } from "gatsby";
+import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import ProfileContent from "../components/ProfileContent";
+import { SEO } from "../components/SEO";
 import { META } from "../utils/constants";
-import { ProfileData } from "../types";
 
-// Page query
 export const query = graphql`
   query ProfileQuery {
     jobs: allJobsJson {
@@ -28,22 +27,18 @@ export const query = graphql`
   }
 `;
 
-// Head API with typed metadata
 export function Head() {
   return (
-    <>
-      <title>{META.profile.title}</title>
-      <meta name="description" content={META.profile.description} />
-      <meta property="og:image" content={META.common.image} />
-    </>
+    <SEO
+      title={META.profile.title}
+      description={META.profile.description}
+      pathname="/profile"
+      keywords={["about", "experience", "skills", "developer profile"]}
+    />
   );
 }
 
-// Typed page component
-export default function ProfilePage({
-  data,
-  location,
-}: PageProps<ProfileData>) {
+export default function ProfilePage({ data, location }) {
   return (
     <Layout location={location}>
       <ProfileContent data={data} />
