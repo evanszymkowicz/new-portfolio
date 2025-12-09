@@ -25,7 +25,9 @@ export default function ProjectsFeaturedSection({ projects }) {
   const renderProject = ({ project }) => {
     const { title, image, url } = project;
 
-    const hasImage = image && (typeof image === "string" ? image.trim().length > 0 : !!image.src);
+    const hasImage =
+      image &&
+      (typeof image === "string" ? image.trim().length > 0 : !!image.src);
 
     // If image exists, render it (wrap it with link if url exists).
     if (hasImage) {
@@ -40,16 +42,12 @@ export default function ProjectsFeaturedSection({ projects }) {
               rel="noopener noreferrer"
             >
               <div className="card">
-                <div className="image-wrap">
-                  {imageElement}
-                </div>
+                <div className="image-wrap">{imageElement}</div>
               </div>
             </a>
           ) : (
             <div className="card">
-              <div className="image-wrap">
-                {imageElement}
-              </div>
+              <div className="image-wrap">{imageElement}</div>
             </div>
           )}
         </ProjectFeatured>

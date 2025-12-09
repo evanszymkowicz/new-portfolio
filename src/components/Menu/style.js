@@ -32,7 +32,8 @@ export const Wrapper = styled.nav`
         display: block;
         height: 0.3rem;
         width: 0.3rem;
-        transition: transform 0.3s cubic-bezier(0.45, 0, 0.1, 1),
+        transition:
+          transform 0.3s cubic-bezier(0.45, 0, 0.1, 1),
           opacity 0.1s ease;
         will-change: transform, opacity;
       }

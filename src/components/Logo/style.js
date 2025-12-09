@@ -50,6 +50,8 @@ export const Wrapper = styled.div`
   a:hover + .circle {
     opacity: 0;
     transform: translate(-50%, -50%) scale(7.5);
-    transition: transform 1s cubic-bezier(0.45, 0, 0.1, 1), opacity 0.8s ease;
+    transition:
+      transform 1s cubic-bezier(0.45, 0, 0.1, 1),
+      opacity 0.8s ease;
   }
 `;

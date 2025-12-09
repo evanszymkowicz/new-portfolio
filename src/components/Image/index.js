@@ -37,7 +37,7 @@ Image.propTypes = {
     shape({
       media: string,
       srcset: arrayOf(string).isRequired,
-    })
+    }),
   ),
   className: string,
   loader: func.isRequired,

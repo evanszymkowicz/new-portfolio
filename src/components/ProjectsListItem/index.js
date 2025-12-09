@@ -1,5 +1,11 @@
 import React from "react";
-import { Link, Wrapper, ProjectTitle, ProjectInfos, ProjectYear } from "./style";
+import {
+  Link,
+  Wrapper,
+  ProjectTitle,
+  ProjectInfos,
+  ProjectYear,
+} from "./style";
 
 const ProjectsListItem = ({ project }) => {
   const { title, year, url } = project || {};

@@ -14,4 +14,3 @@ const ProfileListItem = ({ name, url }) => (
 );
 
 export default ProfileListItem;
-

@@ -5,7 +5,7 @@ import { Loader } from "../../style/shared";
 
 const ProfileIntroSection = ({ content }) => {
   const profileImage = "/images/profile/evan-szymkowicz.jpeg";
-  
+
   return (
     <Wrapper>
       <InfoWrapper>
