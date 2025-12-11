@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
+    "build:production": "gatsby build --prefix-paths",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "type-check": "tsc --noEmit",
