@@ -70,7 +70,7 @@ export function SEO({
       <meta property="og:image" content={seo.image} />
       <meta property="og:url" content={seo.url} />
       <meta property="og:type" content={article ? "article" : "website"} />
-      <meta property="og:site_name" content="Evan Szymkowicz Portfolio" />
+      <meta property="og:site_name" content="Evan Szymkowicz's Portfolio" />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
