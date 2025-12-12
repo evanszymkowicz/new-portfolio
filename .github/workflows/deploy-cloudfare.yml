@@ -17,7 +17,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node. js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
@@ -31,22 +31,24 @@ jobs:
         env:
           NODE_ENV: production
 
-      - name: Debug secrets
+      - name: Deploy to Cloudflare Pages
+        id: deploy
         run: |
-          echo "API Token length: ${#CLOUDFLARE_API_TOKEN}"
-          echo "Account ID length:  ${#CLOUDFLARE_ACCOUNT_ID}"
-          echo "Project Name:  $CLOUDFLARE_PROJECT_NAME"
+          npx wrangler pages deploy public \
+            --project-name=ews-tech \
+            --branch=main \
+            --commit-hash="${{ github.sha }}" \
+            --commit-message="${{ github.event.head_commit.message }}"
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_PROJECT_NAME: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
 
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: ${{ secrets. CLOUDFLARE_PROJECT_NAME }}
-          directory: public
-          gitHubToken: ${{ secrets. GITHUB_TOKEN }}
-          wranglerVersion: "3" # Added this to force cache refresh
+      - name: Create deployment summary
+        run: |
+          echo "### Deployment Successful!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Your site has been deployed to Cloudflare Pages." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo " **Production URL**: https://ews-tech.pages.dev" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo " **Build Time**: $(date)" >> $GITHUB_STEP_SUMMARY
