@@ -5,7 +5,7 @@ export const META = {
     image: "/images/profile/evan-szymkowicz.jpeg",
   },
   index: {
-    title: "Evan Szymkowicz | Software Developer",
+    title: "Evan Szymkowicz",
     description: "I focus on website development.",
   },
   profile: {
