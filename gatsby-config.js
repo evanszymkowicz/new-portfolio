@@ -94,7 +94,14 @@ module.exports = {
             type: "image/png",
           },
         ],
+        cache_busting_mode: "none", // Required for offline plugin
       },
+    },
+
+    // Service Worker for offline support (MUST come after manifest)
+    {
+      resolve: "gatsby-plugin-offline",
+      options: {},
     },
 
     // Sitemap
