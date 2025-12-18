@@ -137,3 +137,6 @@ public
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Lighthouse CI
+.lighthouseci/

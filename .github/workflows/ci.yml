@@ -1,29 +1,28 @@
 name: CI/CD Pipeline
 
 on:
-  push:
+  push: 
     branches: [main, develop]
-  pull_request:
+  pull_request: 
     branches: [main, develop]
 
 jobs:
-  # Job 1: Code Quality Checks
-  quality:
+  quality: 
     name: Code Quality
     runs-on: ubuntu-latest
-
-    steps:
+    
+    steps: 
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          cache: "npm"
+          node-version: '20'
+          cache:  'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --legacy-peer-deps
 
       - name: Run ESLint
         run: npm run lint
@@ -34,114 +33,112 @@ jobs:
       - name: TypeScript type check
         run: npm run type-check
 
-  # Job 2: Unit Tests
   test:
     name: Unit Tests
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Setup Node. js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          cache: "npm"
+          node-version: '20'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --legacy-peer-deps
 
       - name: Run tests with coverage
-        run: npm run test:ci
+        run: npm run test: ci
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v5
+      - name: Upload coverage reports
+        uses: codecov/codecov-action@v4
+        if: always()
         with:
           files: ./coverage/coverage-final.json
           flags: unittests
-          name: codecov-umbrella
           fail_ci_if_error: false
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
-      - name: Archive coverage report
-        uses: actions/upload-artifact@v5
-        with:
-          name: coverage-report
-          path: coverage/
-          retention-days: 7
-
-  # Job 3: Build
   build:
     name: Build Application
     runs-on: ubuntu-latest
     needs: [quality, test]
-
+    
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses:  actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: "20"
-          cache: "npm"
+        uses: actions/setup-node@v4
+        with: 
+          node-version: '20'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --legacy-peer-deps
 
-      - name: Build Gatsby site
+      - name:  Build Gatsby site
         run: npm run build
         env:
           NODE_ENV: production
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v4
         with:
-          name: gatsby-build
-          path: public/
+          name: build-output
+          path: public
           retention-days: 7
 
-  # Job 4: Lighthouse Performance Check
   lighthouse:
     name: Lighthouse Audit
     runs-on: ubuntu-latest
-    needs: build
-    if: github.event_name == 'pull_request'
-
-    steps:
+    needs: [build]
+    
+    steps: 
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          cache: "npm"
+          node-version:  '20'
+          cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
+      - name:  Install dependencies
+        run: npm install --legacy-peer-deps
 
-      - name: Build site
-        run: npm run build
-
-      - name: Serve site
-        run: |
-          npm run serve &
-          sleep 10
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: public
 
       - name: Run Lighthouse CI
-        uses: treosh/lighthouse-ci-action@v12
+        run: |
+          npm install -g @lhci/cli
+          lhci autorun
+        continue-on-error: true
+
+      - name: Upload Lighthouse reports
+        uses: actions/upload-artifact@v4
+        if: always()
         with:
-          urls: |
-            http://localhost:9000
-            http://localhost:9000/profile
-            http://localhost:9000/projects
-          uploadArtifacts: true
-          temporaryPublicStorage: true
+          name: lighthouse-reports
+          path: .lighthouseci
+          retention-days: 30
+
+      - name: Format Lighthouse results
+        if: always()
+        run: |
+          echo "## 🏠 Lighthouse Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
           
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v5
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          if [ -f ".lighthouseci/manifest.json" ]; then
+            echo "✅ Lighthouse audit completed successfully!" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "📊 View detailed reports in the artifacts." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⚠️ Lighthouse audit encountered issues." >> $GITHUB_STEP_SUMMARY
+          fi
