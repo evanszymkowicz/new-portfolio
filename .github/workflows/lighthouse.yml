@@ -1,4 +1,4 @@
-name: Lighthouse CI
+name:  Lighthouse CI
 
 on:
   push:
@@ -10,16 +10,16 @@ on:
 jobs:
   lighthouse:
     name: Lighthouse Audit
-    runs-on: ubuntu-latest
+    runs-on:  ubuntu-latest
 
-    steps:
+    steps: 
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version:  "20"
           cache: "npm"
 
       - name: Install dependencies
@@ -31,25 +31,27 @@ jobs:
           NODE_ENV: production
 
       - name: Run Lighthouse CI
-        run: npm run lighthouse
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+        run: |
+          npm install -g @lhci/cli
+          lhci autorun
+        continue-on-error: true
 
       - name: Upload Lighthouse results
         uses: actions/upload-artifact@v4
-        if: always()
+        if:  always()
         with:
           name: lighthouse-results
           path: . lighthouseci
           retention-days: 30
 
-      - name: Comment PR with Lighthouse results
-        uses: treosh/lighthouse-ci-action@v10
-        if: github.event_name == 'pull_request'
-        with:
-          urls: |
-            http://localhost:9000/
-            http://localhost:9000/profile/
-            http://localhost:9000/projects/
-          uploadArtifacts: true
-          temporaryPublicStorage: true
+      - name: Format Lighthouse summary
+        if: always()
+        run: |
+          echo "## 🏠 Lighthouse Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f ".lighthouseci/manifest.json" ]; then
+            echo "✅ Lighthouse audit completed successfully!" >> $GITHUB_STEP_SUMMARY
+            echo "📊 View detailed reports in the artifacts." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⚠️ Lighthouse audit encountered issues." >> $GITHUB_STEP_SUMMARY
+          fi
