@@ -30,7 +30,7 @@ jobs:
       - name: Cache Wrangler
         uses: actions/cache@v4
         with:
-          path: ~/. npm
+          path: ~/.npm
           key: ${{ runner.os }}-wrangler-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-wrangler-
