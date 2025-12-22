@@ -32,9 +32,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-wrangler-${{ hashFiles('**/package-lock. json') }}
+          key: ${{ runner.os }}-wrangler-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner. os }}-wrangler-
+            ${{ runner.os }}-wrangler-
 
       - name: Build Gatsby site
         run: npm run build
@@ -46,9 +46,9 @@ jobs:
         run: |
           DEPLOYMENT_OUTPUT=$(npx wrangler pages deploy public \
             --project-name=ews-tech \
-            --branch=preview-pr-${{ github.event. pull_request.number }} \
-            --commit-hash="${{ github. sha }}" \
-            --commit-message="Preview for PR #${{ github.event. pull_request.number }}")
+            --branch=preview-pr-${{ github.event.pull_request.number }} \
+            --commit-hash="${{ github.sha }}" \
+            --commit-message="Preview for PR #${{ github.event.pull_request.number }}")
 
           echo "$DEPLOYMENT_OUTPUT"
 
@@ -80,7 +80,7 @@ jobs:
             - Branch: \`${{ github.head_ref }}\`
             - Deployed at: ${new Date().toLocaleString()}`;
 
-            github.rest.issues. createComment({
+            github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
