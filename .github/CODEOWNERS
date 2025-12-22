@@ -1,0 +1,7 @@
+# Require review from you for all changes
+* @evanszymkowicz
+
+# Specific paths
+/src/ @evanszymkowicz
+/. github/workflows/ @evanszymkowicz
+/gatsby-config.js @evanszymkowicz
