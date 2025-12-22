@@ -101,7 +101,66 @@ module.exports = {
     // Service Worker for offline support (MUST come after manifest)
     {
       resolve: "gatsby-plugin-offline",
-      options: {},
+      options: {
+        workboxConfig: {
+          globPatterns: [
+            "**/*.{js,css,html,png,jpg,jpeg,svg,gif,webp,woff,woff2}",
+          ],
+          runtimeCaching: [
+            {
+              urlPattern: /^https? :.*\/page-data\/.*\. json$/,
+              handler: "StaleWhileRevalidate",
+              options: {
+                cacheName: "gatsby-page-data",
+                expiration: {
+                  maxEntries: 50,
+                  maxAgeSeconds: 7 * 24 * 60 * 60, // 1 week
+                },
+              },
+            },
+            {
+              urlPattern: /^https?:.*\/app-data\. json$/,
+              handler: "StaleWhileRevalidate",
+              options: {
+                cacheName: "gatsby-app-data",
+              },
+            },
+            {
+              urlPattern:
+                /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
+              handler: "StaleWhileRevalidate",
+              options: {
+                cacheName: "static-resources",
+                expiration: {
+                  maxEntries: 100,
+                  maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
+                },
+              },
+            },
+            {
+              urlPattern: /^https?:\/\/fonts\.googleapis\.com\/.*$/,
+              handler: "StaleWhileRevalidate",
+              options: {
+                cacheName: "google-fonts-stylesheets",
+              },
+            },
+            {
+              urlPattern: /^https?:\/\/fonts\.gstatic\.com\/.*$/,
+              handler: "CacheFirst",
+              options: {
+                cacheName: "google-fonts-webfonts",
+                expiration: {
+                  maxEntries: 30,
+                  maxAgeSeconds: 365 * 24 * 60 * 60, // 1 year
+                },
+              },
+            },
+          ],
+          skipWaiting: true,
+          clientsClaim: true,
+          exclude: [/\. map$/, /^manifest.*\. js$/],
+        },
+      },
     },
 
     // Sitemap
