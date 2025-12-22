@@ -3,5 +3,5 @@
 
 # Specific paths
 /src/ @evanszymkowicz
-/. github/workflows/ @evanszymkowicz
+/.github/workflows/ @evanszymkowicz
 /gatsby-config.js @evanszymkowicz
