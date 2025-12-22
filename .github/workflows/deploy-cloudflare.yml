@@ -26,6 +26,15 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
+      # 👇 ADD THIS STEP HERE (after dependencies, before build)
+      - name: Cache Wrangler
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-wrangler-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-wrangler-
+
       - name: Build Gatsby site
         run: npm run build
         env:
@@ -49,6 +58,6 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Your site has been deployed to Cloudflare Pages." >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo " **Production URL**: https://ews-tech.pages.dev" >> $GITHUB_STEP_SUMMARY
+          echo " **Production URL**:  https://ews-tech.pages.dev" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo " **Build Time**: $(date)" >> $GITHUB_STEP_SUMMARY
