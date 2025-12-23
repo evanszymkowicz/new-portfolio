@@ -9,8 +9,7 @@ const Menu = () => (
         <a
           href="https://github.com/evanszymkowicz"
           rel="noopener noreferrer"
-          target="_blank"
-        >
+          target="_blank">
           Github
         </a>
       </NavItem>
@@ -18,8 +17,7 @@ const Menu = () => (
         <a
           href="https://www.linkedin.com/in/evanszymkowicz/"
           rel="noopener noreferrer"
-          target="_blank"
-        >
+          target="_blank">
           LinkedIn
         </a>
       </NavItem>

@@ -12,8 +12,4 @@ EmailMe.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
-EmailMe.defaultProps = {
-  className: "",
-};
-
 export default EmailMe;
