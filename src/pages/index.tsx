@@ -3,6 +3,7 @@ import Layout from "../components/layout";
 import Intro from "../components/Intro";
 import { SEO } from "../components/SEO";
 import { META } from "../utils/constants";
+import { PageProps } from "../types";
 
 // MODERN:  Use Gatsby Head API with reusable SEO component
 export function Head() {
@@ -21,7 +22,7 @@ export function Head() {
   );
 }
 
-export default function IndexPage({ location }) {
+export default function IndexPage({ location }: PageProps) {
   return (
     <Layout location={location}>
       <Intro fixed={true} />

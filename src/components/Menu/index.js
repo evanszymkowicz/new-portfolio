@@ -23,7 +23,7 @@ const Menu = () => (
           LinkedIn
         </a>
       </NavItem>
-      <NavItem highlight>
+      <NavItem $highlight>
         <EmailMe text="Contact" />
       </NavItem>
     </Nav>

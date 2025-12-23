@@ -5,7 +5,7 @@ import { ContentWrapper } from "../../style/shared";
 import ProjectsFeaturedSection from "../ProjectsFeaturedSection";
 import ProjectsListSection from "../ProjectsListSection";
 
-export default function ProjectsContent({  data = {} }) {
+export default function ProjectsContent({ data = {} }) {
   const projects = data.projects || { edges: [] };
   const edges = projects.edges || [];
 

@@ -8,7 +8,7 @@ import { META } from "../../utils/constants";
 import { ContentWrapper } from "../../style/shared";
 import { ListsSection, SkillsList } from "./style";
 
-export default ({ data }) => {
+const ProfileContent = ({ data }) => {
   const { jobs, skills } = data;
 
   return (
@@ -56,3 +56,7 @@ export default ({ data }) => {
     </ContentWrapper>
   );
 };
+
+ProfileContent.displayName = "ProfileContent";
+
+export default ProfileContent;

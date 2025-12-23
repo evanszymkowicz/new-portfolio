@@ -1,6 +1,26 @@
 // Add custom jest matchers from jest-dom
 import "@testing-library/jest-dom";
 
+// Suppress specific React warnings in tests
+const originalError = console.error;
+beforeAll(() => {
+  console.error = (...args) => {
+    if (
+      typeof args[0] === "string" &&
+      (args[0].includes("validateDOMNesting") ||
+        args[0].includes("activeClassName") ||
+        args[0].includes("React does not recognize"))
+    ) {
+      return;
+    }
+    originalError.call(console, ...args);
+  };
+});
+
+afterAll(() => {
+  console.error = originalError;
+});
+
 // Mock Gatsby's global variables
 global.___loader = {
   enqueue: jest.fn(),
