@@ -42,6 +42,9 @@ module.exports = {
     "!src/**/*.stories.{js,jsx,ts,tsx}",
     "!src/**/__tests__/**",
     "!src/style/**",
+    "!src/pages/**", // Exclude page files
+    "!src/**/style.js", // Exclude styled-components
+    "!src/sw-custom.js", // Exclude service worker
   ],
 
   coverageThreshold: {
