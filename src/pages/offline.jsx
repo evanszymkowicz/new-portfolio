@@ -133,7 +133,7 @@ export default OfflinePage;
 
 export const Head = () => (
   <>
-    <title>Offline - Evan Szymkowicz's Portfolio</title>
+    <title>Offline - Evan Szymkowicz&apos;s Portfolio</title>
     <meta name="robots" content="noindex, nofollow" />
   </>
 );
