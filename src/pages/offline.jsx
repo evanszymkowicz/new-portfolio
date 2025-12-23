@@ -105,13 +105,12 @@ const OfflinePage = () => {
   return (
     <OfflineContainer>
       <OfflineIcon>📡</OfflineIcon>
-      <OfflineTitle>You're Offline</OfflineTitle>
+      <OfflineTitle>You&apos;re Offline</OfflineTitle>
       <OfflineMessage>
-        It looks like you've lost your internet connection. You can
-        still browse previously visited pages.
+        It looks like you&apos;ve lost your internet connection. You can still
+        browse previously visited pages.
       </OfflineMessage>
       <RetryButton onClick={handleRetry}>Try Again</RetryButton>
-
       <CachedPagesInfo>
         <h3>Available Offline: </h3>
         <CachedPagesList>

@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { colors, fonts, media, getOuterSpace } from "../../style/theme";
+import { colors, media } from "../../style/theme";
 
 export const Wrapper = styled.div`
   ${media.md`

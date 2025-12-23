@@ -12,6 +12,7 @@ module.exports = {
     browser: true,
     es2022: true,
     node: true,
+    jest: true, // Add Jest globals
   },
   extends: [
     "eslint:recommended",
@@ -32,5 +33,20 @@ module.exports = {
     react: {
       version: "detect",
     },
+  },
+  overrides: [
+    {
+      // Disable TypeScript-specific rules for plain JS/JSX files
+      files: ["*.js", "*.jsx"],
+      parserOptions: {
+        project: null, // Don't require tsconfig for JS files
+      },
+      rules: {
+        "@typescript-eslint/no-unused-vars": "off",
+      },
+    },
+  ],
+  globals: {
+    LAMBDA_ENDPOINT: "readonly", // Define global for webpack DefinePlugin
   },
 };
