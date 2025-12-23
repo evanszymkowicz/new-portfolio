@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import ProfileContent from "../components/ProfileContent";
 import { SEO } from "../components/SEO";
 import { META } from "../utils/constants";
+import { ProfilePageProps } from "../types";
 
 export const query = graphql`
   query ProfileQuery {
@@ -38,7 +39,7 @@ export function Head() {
   );
 }
 
-export default function ProfilePage({ data, location }) {
+export default function ProfilePage({ data, location }: ProfilePageProps) {
   return (
     <Layout location={location}>
       <ProfileContent data={data} />

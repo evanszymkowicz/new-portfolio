@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import ProjectsContent from "../components/ProjectsContent";
 import { SEO } from "../components/SEO";
 import { META } from "../utils/constants";
+import { ProjectsPageProps } from "../types";
 
 export const query = graphql`
   query ProjectsQuery {
@@ -39,7 +40,7 @@ export function Head() {
   );
 }
 
-export default function ProjectsPage({ data, location }) {
+export default function ProjectsPage({ data, location }: ProjectsPageProps) {
   return (
     <Layout location={location}>
       <ProjectsContent data={data} />

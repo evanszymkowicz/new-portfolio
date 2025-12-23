@@ -1,7 +1,14 @@
+// Extend Navigator interface for standalone property
+declare global {
+  interface Navigator {
+    standalone?: boolean;
+  }
+}
+
 export const registerServiceWorker = () => {
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker
-      .register("/sw. js")
+      .register("/sw.js")
       .then((registration) => {
         console.log("Service Worker registered:", registration);
 
@@ -9,15 +16,17 @@ export const registerServiceWorker = () => {
         registration.addEventListener("updatefound", () => {
           const newWorker = registration.installing;
 
-          newWorker.addEventListener("statechange", () => {
-            if (
-              newWorker.state === "installed" &&
-              navigator.serviceWorker.controller
-            ) {
-              // New service worker is installed, show update notification
-              showUpdateNotification();
-            }
-          });
+          if (newWorker) {
+            newWorker.addEventListener("statechange", () => {
+              if (
+                newWorker.state === "installed" &&
+                navigator.serviceWorker.controller
+              ) {
+                // New service worker is installed, show update notification
+                showUpdateNotification();
+              }
+            });
+          }
         });
       })
       .catch((error) => {
@@ -49,10 +58,10 @@ export const checkForUpdates = async () => {
 function showUpdateNotification() {
   // You can integrate with a toast notification library here
   const shouldUpdate = window.confirm(
-    "A new version is available!  Click OK to update."
+    "A new version is available! Click OK to update."
   );
 
-  if (shouldUpdate) {
+  if (shouldUpdate && navigator.serviceWorker.controller) {
     navigator.serviceWorker.controller.postMessage({
       type: "SKIP_WAITING",
     });
@@ -70,7 +79,7 @@ export const isStandalone = () => {
 
 // Prompt user to install PWA
 export const promptInstall = () => {
-  let deferredPrompt;
+  let deferredPrompt: Event | null = null;
 
   window.addEventListener("beforeinstallprompt", (e) => {
     e.preventDefault();
@@ -86,7 +95,13 @@ export const promptInstall = () => {
   });
 };
 
-function showInstallButton(deferredPrompt) {
+interface BeforeInstallPromptEvent extends Event {
+  prompt: () => Promise<void>;
+  userChoice: Promise<{ outcome: "accepted" | "dismissed" }>;
+}
+
+// Then update the function:
+function showInstallButton(deferredPrompt: Event) {
   // Create and show install button
   const installButton = document.createElement("button");
   installButton.textContent = "📱 Install App";
@@ -99,40 +114,21 @@ function showInstallButton(deferredPrompt) {
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    transition: transform 0.2s;
   `;
 
-  installButton.addEventListener("mouseenter", () => {
-    installButton.style.transform = "translateY(-2px)";
-  });
-
-  installButton.addEventListener("mouseleave", () => {
-    installButton.style.transform = "translateY(0)";
-  });
-
   installButton.addEventListener("click", async () => {
-    installButton.style.display = "none";
-
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      console.log(`User response to install prompt: ${outcome}`);
-      deferredPrompt = null;
+    const promptEvent = deferredPrompt as BeforeInstallPromptEvent;
+    if (promptEvent && promptEvent.prompt) {
+      await promptEvent.prompt();
+      const { outcome } = await promptEvent.userChoice;
+      console.log(`User ${outcome} the install prompt`);
+      installButton.remove();
     }
   });
 
   document.body.appendChild(installButton);
-
-  // Auto-hide after 10 second timeout
-  setTimeout(() => {
-    if (installButton.parentElement) {
-      installButton.style.opacity = "0";
-      setTimeout(() => installButton.remove(), 300);
-    }
-  }, 10000);
 }
