@@ -11,7 +11,7 @@ const Menu = () => (
           rel="noopener noreferrer"
           target="_blank"
         >
-          Github
+          GitHub
         </a>
       </NavItem>
       <NavItem>

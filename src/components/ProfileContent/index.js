@@ -17,8 +17,7 @@ const ProfileContent = ({ data }) => {
       <ProfileIntroSection
         content={() => (
           <>
-            <p>I focus on building, launching and fixing web applications. </p>
-            <p>Yes, I am currently looking for new work. </p>
+            <p>Yes, I am currently looking for new work.</p>
             <p>
               {" "}
               <a
@@ -28,7 +27,7 @@ const ProfileContent = ({ data }) => {
               >
                 See what I am working on{" "}
               </a>
-              or contact me to learn more.
+              or contact me to work together.
             </p>
           </>
         )}

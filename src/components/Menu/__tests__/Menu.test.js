@@ -14,7 +14,7 @@ describe("Menu Component", () => {
   it("renders external links", () => {
     render(<Menu />);
 
-    const githubLink = screen.getByText("Github");
+    const githubLink = screen.getByText("GitHub");
     expect(githubLink).toHaveAttribute(
       "href",
       "https://github.com/evanszymkowicz"

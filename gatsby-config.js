@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "Evan Szymkowicz | Software Developer",
-    description: "I focus on website development.",
+    description: "Washington, D.C. based developer and creative.",
     siteUrl: "https://www.evanwolf.tech",
     author: "Evan Szymkowicz",
     image: "/images/profile/evan-szymkowicz.jpeg",

@@ -5,9 +5,7 @@ const Intro = ({ fixed, ...props }) => {
   return (
     <Wrapper $fixed={fixed} {...props}>
       <Title>
-        Evan Szymkowicz
-        <span>Web Developer</span>
-        in Washington, D.C.
+        <span>Evan Szymkowicz</span>
       </Title>
     </Wrapper>
   );

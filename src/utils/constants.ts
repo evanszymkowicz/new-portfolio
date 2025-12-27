@@ -24,7 +24,7 @@ export const META = {
   },
   index: {
     title: "Evan Szymkowicz | Developer",
-    description: "I focus on website development.",
+    description: "Washington, D.C. based developer and creative.",
     keywords: [
       "web developer",
       "software developer",

@@ -12,7 +12,8 @@ const ProfileIntroSection = ({ content }) => {
         <Intro fixed={false} />
         <Content>{content()}</Content>
       </InfoWrapper>
-      <StyledImage
+      {/* Picture hidden - uncomment to show */}
+      {/* <StyledImage
         src={profileImage}
         alt="Evan Szymkowicz - Website Developer"
         loader={({ isLoaded }) => <Loader isLoaded={isLoaded} />}
@@ -25,7 +26,7 @@ const ProfileIntroSection = ({ content }) => {
             srcset: [profileImage, profileImage, profileImage],
           },
         ]}
-      />
+      /> */}
     </Wrapper>
   );
 };

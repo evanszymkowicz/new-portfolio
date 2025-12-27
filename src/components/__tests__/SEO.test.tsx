@@ -11,7 +11,7 @@ describe("SEO Component", () => {
 
     const description = document.querySelector('meta[name="description"]');
     expect(description?.getAttribute("content")).toBe(
-      "I focus on website development."
+      "Washington, D.C. based developer and creative."
     );
   });
 
