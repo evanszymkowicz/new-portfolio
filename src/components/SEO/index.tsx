@@ -27,7 +27,8 @@ export function SEO({
 
   const seo = {
     title: title || "Evan Szymkowicz | Software Developer",
-    description: description || "I focus on website development.",
+    description:
+      description || "Washington, D.C. based developer and creative.",
     image: image
       ? `${siteUrl}${image}`
       : `${siteUrl}/images/profile/evan-szymkowicz. jpeg`,
