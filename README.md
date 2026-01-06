@@ -152,7 +152,7 @@ npm run clean        # Clean Gatsby cache
 ### Low Priority Items:
 
 1. **Implement Service Worker**:
-   - Installed `gatsby-plugin-offline
+   - Installed `gatsby-plugin-offline`
    - Configured caching:
      - `staleWhileRevalidate` for content
      - `cacheFirst` for fonts
@@ -173,3 +173,26 @@ npm run clean        # Clean Gatsby cache
    - Splash screen
 
 ### Future Items:
+
+1. **Code Optimization**:
+   - There is a mix of function and class based components and styling
+   - Code can be refactored to use optional chaining and nullish coalescing
+   - Limited type safety
+
+2. **Remove Duplicate Files**:
+   - src/utils/constants.js
+
+3. **Modernize Styled Components**:
+   - Retire object reduce and use fromEntries across component library
+
+4. **Atomic Design System**:
+   - Low priority feature.
+   - Would not normally make sense for a site of this size.
+   - Implement design tokens
+   - Add Storybook
+
+5. **E2E Testing with Playwright**:
+   - Playwright Setup
+   - Test structure
+   - Create test examples
+   - CI integration
