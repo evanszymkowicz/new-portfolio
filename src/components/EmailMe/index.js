@@ -2,7 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const EmailMe = ({ className = "", text }) => (
-  <a className={className} rel="noopener" href="mailto:ews-tech.pages.dev@protonmail.com">
+  <a
+    className={className}
+    rel="noopener"
+    href="mailto:ews-tech.pages.dev@protonmail.com"
+  >
     {text}
   </a>
 );
