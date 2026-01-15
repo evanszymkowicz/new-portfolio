@@ -1,4 +1,15 @@
 const React = require("react");
+const { GlobalStyle } = require("./src/style/global");
+
+// Wrap the root element with global styles for SSR
+exports.wrapRootElement = ({ element }) => {
+  return React.createElement(
+    React.Fragment,
+    null,
+    React.createElement(GlobalStyle),
+    element
+  );
+};
 
 exports.onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
