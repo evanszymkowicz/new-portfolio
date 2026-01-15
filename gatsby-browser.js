@@ -1,5 +1,17 @@
-//  Register the service worker
+import React from "react";
+import { GlobalStyle } from "./src/style/global";
 
+// Wrap the root element with global styles
+export const wrapRootElement = ({ element }) => {
+  return (
+    <>
+      <GlobalStyle />
+      {element}
+    </>
+  );
+};
+
+// Register the service worker
 export const onServiceWorkerUpdateReady = () => {
   console.log("A new Service Worker is ready: refreshing the page...");
 };

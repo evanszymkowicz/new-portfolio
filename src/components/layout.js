@@ -1,12 +1,10 @@
 import React from "react";
-import { GlobalStyle } from "../style/global";
 import Navigation from "./Navigation";
 
-// MODERN: Functional component (replaces class component)
+// GlobalStyle is now applied at root level via gatsby-browser.js and gatsby-ssr.js
 export default function Layout({ children, location }) {
   return (
     <>
-      <GlobalStyle />
       <main>{children}</main>
       <Navigation location={location} />
     </>
