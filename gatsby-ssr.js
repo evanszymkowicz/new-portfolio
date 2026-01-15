@@ -1,17 +1,17 @@
-const React = require("react");
-const { GlobalStyle } = require("./src/style/global");
+import React from "react";
+import { GlobalStyle } from "./src/style/global";
 
 // Wrap the root element with global styles for SSR
-exports.wrapRootElement = ({ element }) => {
-  return React.createElement(
-    React.Fragment,
-    null,
-    React.createElement(GlobalStyle),
-    element
+export const wrapRootElement = ({ element }) => {
+  return (
+    <>
+      <GlobalStyle />
+      {element}
+    </>
   );
 };
 
-exports.onRenderBody = ({ setHeadComponents }) => {
+export const onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
     React.createElement("link", {
       rel: "preconnect",
