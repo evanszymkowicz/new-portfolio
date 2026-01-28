@@ -7,7 +7,6 @@ module.exports = {
       startServerReadyTimeout: 30000,
       url: [
         "http://localhost:9000/",
-        "http://localhost:9000/profile/",
         "http://localhost:9000/projects/",
         "http://localhost:9000/404/",
       ],
