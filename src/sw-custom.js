@@ -4,7 +4,7 @@
 const CACHE_NAME = "evan-portfolio-v1";
 
 // Assets to cache on install
-const PRECACHE_ASSETS = ["/", "/profile/", "/projects/", "/offline/"];
+const PRECACHE_ASSETS = ["/", "/projects/", "/offline/"];
 
 // Install event - cache critical assets
 self.addEventListener("install", (event) => {

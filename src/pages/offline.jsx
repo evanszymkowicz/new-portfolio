@@ -118,9 +118,6 @@ const OfflinePage = () => {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/profile/">Profile</a>
-          </li>
-          <li>
             <a href="/projects/">Projects</a>
           </li>
         </CachedPagesList>

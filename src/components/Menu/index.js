@@ -34,9 +34,6 @@ const Menu = () => (
       <NavItem>
         <NavLink to="/projects">Featured</NavLink>
       </NavItem>
-      <NavItem>
-        <NavLink to="/profile">Profile</NavLink>
-      </NavItem>
     </Nav>
   </Wrapper>
 );
