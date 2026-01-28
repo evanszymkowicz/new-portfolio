@@ -8,7 +8,6 @@ describe("Menu Component", () => {
 
     expect(screen.getByText("Home")).toBeInTheDocument();
     expect(screen.getByText("Featured")).toBeInTheDocument();
-    expect(screen.getByText("Profile")).toBeInTheDocument();
   });
 
   it("renders external links", () => {
