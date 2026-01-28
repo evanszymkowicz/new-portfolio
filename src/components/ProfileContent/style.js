@@ -2,19 +2,29 @@ import styled from "styled-components";
 import { media } from "../../style/theme";
 import ProfileList from "../ProfileList";
 
-export const ListsSection = styled.section`
+export const MainWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto auto;
-  grid-column-gap: 3rem;
-  grid-row-gap: 5rem;
-  padding: 8rem 0 0;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
 
   ${media.sm`
-    grid-template-columns: repeat(1, 1fr);
-    grid-column-gap: 0;
-    grid-row-gap: 3rem;
-    padding: 4rem 0 0;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  `}
+`;
+
+export const ListsSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 0;
+  margin-top: 6rem;
+
+  ${media.sm`
+    gap: 3rem;
+    padding: 0;
+    margin-top: 0;
   `}
 `;
 

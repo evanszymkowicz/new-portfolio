@@ -1,11 +1,33 @@
 import React from "react";
+import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import Intro from "../components/Intro";
+import ProfileContent from "../components/ProfileContent";
 import { SEO } from "../components/SEO";
 import { META } from "../utils/constants";
-import { PageProps } from "../types";
+import { ProfilePageProps } from "../types";
 
-// MODERN:  Use Gatsby Head API with reusable SEO component
+export const query = graphql`
+  query HomePageQuery {
+    jobs: allJobsJson {
+      edges {
+        job: node {
+          company
+          position
+          year
+        }
+      }
+    }
+    skills: allSkillsJson {
+      edges {
+        skill: node {
+          name
+          url
+        }
+      }
+    }
+  }
+`;
+
 export function Head() {
   return (
     <SEO
@@ -17,15 +39,18 @@ export function Head() {
         "portfolio",
         "React",
         "Gatsby",
+        "about",
+        "experience",
+        "skills",
       ]}
     />
   );
 }
 
-export default function IndexPage({ location }: PageProps) {
+export default function IndexPage({ data, location }: ProfilePageProps) {
   return (
     <Layout location={location}>
-      <Intro fixed={true} />
+      <ProfileContent data={data} />
     </Layout>
   );
 }

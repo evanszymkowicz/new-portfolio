@@ -6,7 +6,7 @@ import SEO from "../Head";
 import ProfileList from "../ProfileList";
 import { META } from "../../utils/constants";
 import { ContentWrapper } from "../../style/shared";
-import { ListsSection, SkillsList } from "./style";
+import { MainWrapper, ListsSection, SkillsList } from "./style";
 
 const ProfileContent = ({ data }) => {
   const { jobs, skills } = data;
@@ -14,44 +14,46 @@ const ProfileContent = ({ data }) => {
   return (
     <ContentWrapper>
       <SEO {...META.profile} image={META.common.image} />
-      <ProfileIntroSection
-        content={() => (
-          <>
-            <p>Yes, I am currently looking for new work.</p>
-            <p>
-              {" "}
-              <a
-                href="https://github.com/evanszymkowicz"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                See what I am working on{" "}
-              </a>
-              or contact me to work together.
-            </p>
-          </>
-        )}
-      />
-      <ListsSection>
-        {jobs.edges.length > 0 && (
-          <ProfileList
-            title="Experience"
-            list={() =>
-              jobs.edges.map(({ job }, i) => <JobListItem key={i} {...job} />)
-            }
-          />
-        )}
-        {skills.edges.length > 0 && (
-          <SkillsList
-            title="Technology"
-            list={() =>
-              skills.edges.map(({ skill }, i) => (
-                <ProfileListItem key={i} {...skill} />
-              ))
-            }
-          />
-        )}
-      </ListsSection>
+      <MainWrapper>
+        <ProfileIntroSection
+          content={() => (
+            <>
+              <p>Yes, I am currently looking for new work.</p>
+              <p>
+                {" "}
+                <a
+                  href="https://github.com/evanszymkowicz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  See what I am working on{" "}
+                </a>
+                or contact me to work together.
+              </p>
+            </>
+          )}
+        />
+        <ListsSection>
+          {jobs.edges.length > 0 && (
+            <ProfileList
+              title="Experience"
+              list={() =>
+                jobs.edges.map(({ job }, i) => <JobListItem key={i} {...job} />)
+              }
+            />
+          )}
+          {skills.edges.length > 0 && (
+            <SkillsList
+              title="Technology"
+              list={() =>
+                skills.edges.map(({ skill }, i) => (
+                  <ProfileListItem key={i} {...skill} />
+                ))
+              }
+            />
+          )}
+        </ListsSection>
+      </MainWrapper>
     </ContentWrapper>
   );
 };
