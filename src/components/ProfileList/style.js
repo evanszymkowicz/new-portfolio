@@ -8,7 +8,7 @@ export const ListTitle = styled.h2`
   margin-bottom: 1rem;
 
   &::after {
-    content: "";
+    content: " ";
     width: 1rem;
     height: 1px;
     background: ${colors.darkRed};
