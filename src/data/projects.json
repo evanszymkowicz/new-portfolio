@@ -87,34 +87,7 @@
       ]
     }
   },
-  {
-    "title": "Cava Marketing Email",
-    "category": ["marketing"],
-    "client": "",
-    "year": "2019",
-    "featured": false,
-    "url": "https://pure-spire-30689.herokuapp.com",
-    "image": {
-      "src": "/images/projects/Cava/cava.png",
-      "sources": [
-        {
-          "media": "max-width: 40rem",
-          "srcset": [
-            "/images/projects/Cava/cava.png",
-            "/images/projects/Cava/cava.png",
-            "/images/projects/Cava/cava.png"
-          ]
-        },
-        {
-          "srcset": [
-            "/images/projects/Cava/cava.png",
-            "/images/projects/Cava/cava.png",
-            "/images/projects/Cava/cava.png"
-          ]
-        }
-      ]
-    }
-  },
+
   {
     "title": "Interactive Strategies",
     "category": ["website"],
@@ -176,28 +149,6 @@
     "category": ["website"],
     "year": "2019",
     "url": "https://www.allrisedc.org/",
-    "featured": false
-  },
-  {
-    "title": "Watch ESPN+",
-    "category": ["marketing"],
-    "url": "https://ews-watch-espnplus-emails.herokuapp.com/",
-    "year": "2019",
-    "featured": false
-  },
-  {
-    "title": "What's New This August at Glen's",
-    "category": ["marketing"],
-    "url": "https://sheltered-refuge-25602.herokuapp.com/",
-    "year": "2019",
-    "featured": false
-  },
-  {
-    "title": "Heroku Newsletter",
-    "category": ["marketing"],
-
-    "url": "https://ews-heroku-marketing.herokuapp.com",
-    "year": "2018",
     "featured": false
   }
 ]
