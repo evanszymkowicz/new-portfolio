@@ -1,19 +1,25 @@
+import type { IGatsbyImageData } from "gatsby-plugin-image";
+
 // Project types
-export interface ProjectImage {
-  src: string;
-  sources: {
-    media: string;
-    srcset: string;
-  }[];
-}
+// export interface ProjectImage {
+//   src: string;
+//   sources: {
+//     media: string;
+//     srcset: string;
+//   }[];
+// }
 
 export interface Project {
   title: string;
-  category: string;
+  category: string[];
   year: string;
-  url: string;
+  url?: string;
   featured: boolean;
-  image: ProjectImage;
+
+  // New:
+  // Using Gatsby's image data type for optimized images
+  imageRelativePath?: string; // Relative path to the image in the project
+  imageData?: IGatsbyImageData; // Gatsby image data for optimized rendering 
 }
 
 export interface ProjectEdge {
@@ -24,6 +30,16 @@ export interface ProjectsData {
   projects: {
     edges: ProjectEdge[];
   };
+
+  //  New: updated GraphQl query to include image data
+  projectImages?: {
+    nodes: Array<{
+      relativePath: string;
+      childImageSharp?: {
+        gatsbyImageData: IGatsbyImageData;
+      };
+    }>;
+  }
 }
 
 // Job types
