@@ -54,7 +54,7 @@ export const ProjectFeatured = styled.div`
   /* image area inside the card (fixed height, same for all cards) */
   .image-wrap {
     width: 100%;
-    height: 360px;
+    aspect-ratio: 4 / 3;
     background: #0a0a0a;
     display: block;
   }

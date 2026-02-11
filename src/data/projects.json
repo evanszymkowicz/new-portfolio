@@ -5,6 +5,15 @@
     "year": "2025",
     "featured": true,
     "url": "https://acf.gov/",
+    "imageRelativePath": "projects/ACF/acf.png"
+  },
+  {
+    "title": "National Heart, Lung, and Blood Institute",
+    "category": ["website"],
+    "year": "2024",
+    "featured": true,
+    "url": "https://www.nhlbi.nih.gov/",
+    "imageRelativePath": "projects/ACF/nhlbi.png",
     "image": {
       "src": "/images/projects/ACF/ACF.png",
       "sources": [
@@ -26,12 +35,14 @@
       ]
     }
   },
+
   {
     "title": "DocGuide",
     "category": ["website"],
     "year": "2023",
     "featured": true,
     "url": "https://docguide.com/",
+    "imageRelativePath": "projects/DocGuide/docguide.png",
     "image": {
       "src": "/images/projects/DocGuide/DocGuide.png",
       "sources": [
@@ -94,7 +105,7 @@
 
     "year": "2019",
     "url": "https://interactive-strategies.netlify.app/",
-    "featured": true,
+    "featured": false,
     "image": {
       "src": "/images/projects/InteractiveStrategies/marketing-site.png",
       "sources": [
@@ -123,6 +134,7 @@
     "year": "2019",
     "featured": true,
     "url": "https://dc-design.netlify.app",
+    "imageRelativePath": "projects/WashingtonDesignCenter/designcenter.png",
     "image": {
       "src": "/images/projects/WashingtonDesignCenter/designcenter.png",
       "sources": [
