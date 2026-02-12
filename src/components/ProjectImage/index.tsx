@@ -1,0 +1,28 @@
+import React from "react";
+import type { IGatsbyImageData } from "gatsby-plugin-image";
+import { ImageWrapper, StyledImage } from "./style";
+
+export type ProjectImageProps = {
+  imageData?: IGatsbyImageData;
+  alt?: string;
+  className?: string;
+};
+
+export default function ProjectImage({
+  imageData,
+  alt = "",
+  className,
+}: ProjectImageProps) {
+  if (!imageData) return null;
+
+  return (
+    <ImageWrapper className={className}>
+      <StyledImage
+        image={imageData}
+        alt={alt}
+        objectFit="cover"
+        objectPosition="center"
+      />
+    </ImageWrapper>
+  );
+}
