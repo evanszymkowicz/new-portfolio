@@ -16,19 +16,19 @@ const ProjectsListSection = ({ projects, category, setCategory }) => (
       <ProjectsTitle>Other Work</ProjectsTitle>
       <ButtonsWrapper>
         <FilterButton
-          active={category === "website"}
+          $active={category === "website"}
           onClick={() => setCategory("website")}
         >
           web
         </FilterButton>
         <FilterButton
-          active={category === "code"}
+          $active={category === "code"}
           onClick={() => setCategory("code")}
         >
           code
         </FilterButton>
         <FilterButton
-          active={category === "marketing"}
+          $active={category === "marketing"}
           onClick={() => setCategory("marketing")}
         >
           marketing
