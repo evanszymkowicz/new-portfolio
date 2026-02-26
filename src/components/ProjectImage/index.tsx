@@ -1,5 +1,4 @@
 import React from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
 import type { IGatsbyImageData } from "gatsby-plugin-image";
 import { ImageWrapper, StyledGatsbyImage } from "./style";
 

@@ -6,86 +6,85 @@ import { ContentWrapper } from "../../style/shared";
 import ProjectsFeaturedSection from "../ProjectsFeaturedSection";
 import ProjectsListSection from "../ProjectsListSection";
 
+type BaseProject = {
+  title: string;
+  category?: string[];
+  year?: string;
+  url?: string;
+  featured?: boolean;
+  imageRelativePath?: string | null;
+};
+
+type ProjectWithImageData = BaseProject & {
+  imageData?: IGatsbyImageData;
+};
+
+type ProjectEdge = {
+  project: ProjectWithImageData;
+};
+
 type ProjectsQueryData = {
-  projects: {
-    edges: Array<{
-      project: {
-        title: string;
-        category?: string[];
-        year?: string;
-        url?: string;
-        featured?: boolean;
-        imageRelativePath?: string | null;
-      };
-    }>;
+  projects?: {
+    edges?: {
+      project: BaseProject;
+    }[];
   };
-  projectImages: {
-    nodes: Array<{
+  projectImages?: {
+    nodes: {
       relativePath: string;
       childImageSharp?: {
         gatsbyImageData: IGatsbyImageData;
       } | null;
-    }>;
+    }[];
   };
 };
 
-type ProjectWithImageData = ProjectsQueryData["projects"]["edges"][number]["project"] & {
-  imageData?: IGatsbyImageData;
-};
+function normalizeRelativePath(path?: string | null): string {
+  if (!path) return "";
+  return path
+    .replace(/^\/+/, "")
+    .replace(/^images\//, "")
+    .replace(/^static\//, "");
+}
 
-type EdgeWithImageData = {
-  project: ProjectWithImageData;
-};
-
-export default function ProjectsContent({ data }: { data: ProjectsQueryData }) {
-  const edges = data?.projects?.edges ?? [];
-
-  // 1) Map "projects/ACF/ACF.png" -> gatsbyImageData
-  const imageDataByRelativePath = useMemo(() => {
-    const map = new Map<string, IGatsbyImageData>();
-    const nodes = data?.projectImages?.nodes ?? [];
-
-    for (const node of nodes) {
-      const key = node?.relativePath;
-      const imageData = node?.childImageSharp?.gatsbyImageData;
-      if (key && imageData) map.set(key, imageData);
-    }
-
-    return map;
-  }, [data]);
-
-  // 2) Attach imageData onto each project
-  const edgesWithImages: EdgeWithImageData[] = useMemo(() => {
-    return edges.map((edge) => {
-      const project = edge.project;
-      const key = project.imageRelativePath ?? undefined;
-
-      return {
-        project: {
-          ...project,
-          imageData: key ? imageDataByRelativePath.get(key) : undefined,
-        },
-      };
-    });
-  }, [edges, imageDataByRelativePath]);
-
-  // 3) Separate featured + others
-  const featured = edgesWithImages.filter((e) => !!e.project.featured);
-  const others = edgesWithImages.filter((e) => !e.project.featured);
-
+export default function ProjectsContent({ data = {} }: { data?: ProjectsQueryData }) {
   const [category, setCategory] = useState<string | null>(null);
 
-  const filterByCategory = (list: EdgeWithImageData[]) => {
+  const edgesWithImages = useMemo<ProjectEdge[]>(() => {
+    const rawEdges = data.projects?.edges ?? [];
+    const imageNodes = data.projectImages?.nodes ?? [];
+
+    const imageMap = new Map<string, IGatsbyImageData>();
+
+    for (const node of imageNodes) {
+      const normalized = normalizeRelativePath(node.relativePath);
+      const imageData = node.childImageSharp?.gatsbyImageData;
+      if (normalized && imageData) {
+        imageMap.set(normalized, imageData);
+      }
+    }
+
+    return rawEdges.map(({ project }) => {
+      const rel = normalizeRelativePath(project.imageRelativePath);
+      const imageData = rel ? imageMap.get(rel) : undefined;
+      return { project: { ...project, imageData } };
+    });
+  }, [data.projects?.edges, data.projectImages?.nodes]);
+
+  const featured = edgesWithImages.filter((e) => Boolean(e.project.featured));
+  const others = edgesWithImages.filter((e) => !e.project.featured);
+
+  const filterByCategory = (list: ProjectEdge[]) => {
     if (!category) return list;
     return list.filter(({ project }) => {
       const cats = project.category ?? [];
-      return cats.map((c) => c.toLowerCase()).includes(category);
+      return cats.map((c: string) => c.toLowerCase()).includes(category);
     });
   };
 
   return (
     <ContentWrapper>
-      <Head {...META.projects} image={META.common.image} />
+      <Head {...META.projects} image={META.common.image} pathname="/projects" />
       <ProjectsFeaturedSection projects={filterByCategory(featured)} />
       <ProjectsListSection
         projects={filterByCategory(others)}
