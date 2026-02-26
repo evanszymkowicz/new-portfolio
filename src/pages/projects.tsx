@@ -24,7 +24,7 @@ export const query = graphql`
     projectImages: allFile(
       filter: {
         sourceInstanceName: { eq: "images" }
-        relativeDirectory: { regex: "/^projects//" }
+        relativeDirectory: { regex: "/^projects\\//" }
         extension: { in: ["png", "jpg", "jpeg", "webp", "avif"] }
       }
     ) {

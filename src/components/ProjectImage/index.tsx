@@ -1,6 +1,7 @@
 import React from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
 import type { IGatsbyImageData } from "gatsby-plugin-image";
-import { ImageWrapper, StyledImage } from "./style";
+import { ImageWrapper, StyledGatsbyImage } from "./style";
 
 export type ProjectImageProps = {
   imageData?: IGatsbyImageData;
@@ -17,7 +18,7 @@ export default function ProjectImage({
 
   return (
     <ImageWrapper className={className}>
-      <StyledImage
+      <StyledGatsbyImage
         image={imageData}
         alt={alt}
         objectFit="cover"

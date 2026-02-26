@@ -13,9 +13,9 @@
     "year": "2024",
     "featured": true,
     "url": "https://www.nhlbi.nih.gov/",
-    "imageRelativePath": "projects/ACF/nhlbi.png",
+    "imageRelativePath": "projects/NHLBI/nhlbi.png",
     "image": {
-      "src": "/images/projects/ACF/ACF.png",
+      "src": "/images/projects/NHLBI/nhlbi.png",
       "sources": [
         {
           "media": "max-width: 40rem",
@@ -44,7 +44,7 @@
     "url": "https://docguide.com/",
     "imageRelativePath": "projects/DocGuide/docguide.png",
     "image": {
-      "src": "/images/projects/DocGuide/DocGuide.png",
+      "src": "projects/DocGuide/DocGuide.png",
       "sources": [
         {
           "media": "max-width: 40rem",

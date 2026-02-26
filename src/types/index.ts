@@ -39,7 +39,7 @@ export interface ProjectsData {
         gatsbyImageData: IGatsbyImageData;
       };
     }>;
-  }
+  };
 }
 
 // Job types

@@ -6,10 +6,6 @@ import { ContentWrapper } from "../../style/shared";
 import ProjectsFeaturedSection from "../ProjectsFeaturedSection";
 import ProjectsListSection from "../ProjectsListSection";
 
-//  New TypeScript projects content implemenatation
-//  Ongoing TS migration, this is a work in progress, expect some changes in the future
-//  PNG files for featired images were data.projects now project.imageData
-
 type ProjectsQueryData = {
   projects: {
     edges: Array<{
@@ -19,7 +15,7 @@ type ProjectsQueryData = {
         year?: string;
         url?: string;
         featured?: boolean;
-        imageRelativePath?: string | null; //   result or null
+        imageRelativePath?: string | null;
       };
     }>;
   };
@@ -27,16 +23,15 @@ type ProjectsQueryData = {
     nodes: Array<{
       relativePath: string;
       childImageSharp?: {
-        gatsbyImageData: IGatsbyImageData; //   result or null
+        gatsbyImageData: IGatsbyImageData;
       } | null;
     }>;
   };
 };
 
-type ProjectWithImageData =
-  ProjectsQueryData["projects"]["edges"][number]["project"] & {
-    imageData?: IGatsbyImageData;
-  };
+type ProjectWithImageData = ProjectsQueryData["projects"]["edges"][number]["project"] & {
+  imageData?: IGatsbyImageData;
+};
 
 type EdgeWithImageData = {
   project: ProjectWithImageData;
@@ -45,7 +40,7 @@ type EdgeWithImageData = {
 export default function ProjectsContent({ data }: { data: ProjectsQueryData }) {
   const edges = data?.projects?.edges ?? [];
 
-  //  1: useMemo() to map "projects/project-name/image.png" to GatsbyImageData
+  // 1) Map "projects/ACF/ACF.png" -> gatsbyImageData
   const imageDataByRelativePath = useMemo(() => {
     const map = new Map<string, IGatsbyImageData>();
     const nodes = data?.projectImages?.nodes ?? [];
@@ -59,7 +54,7 @@ export default function ProjectsContent({ data }: { data: ProjectsQueryData }) {
     return map;
   }, [data]);
 
-  //  2: Attach imageData to each project
+  // 2) Attach imageData onto each project
   const edgesWithImages: EdgeWithImageData[] = useMemo(() => {
     return edges.map((edge) => {
       const project = edge.project;
