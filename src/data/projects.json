@@ -5,49 +5,60 @@
     "year": "2025",
     "featured": true,
     "url": "https://acf.gov/",
+    "imageRelativePath": "projects/ACF/acf.png"
+  },
+  {
+    "title": "National Heart, Lung, and Blood Institute",
+    "category": ["website"],
+    "year": "2024",
+    "featured": true,
+    "url": "https://www.nhlbi.nih.gov/",
+    "imageRelativePath": "projects/NHLBI/nhlbi.png",
     "image": {
-      "src": "/images/projects/ACF/ACF.png",
+      "src": "/images/projects/NHLBI/nhlbi.png",
       "sources": [
         {
           "media": "max-width: 40rem",
           "srcset": [
-            "/images/projects/ACF/ACF.png",
-            "/images/projects/ACF/ACF.png",
-            "/images/projects/ACF/ACF.png"
+            "/images/projects/ACF/acf.png",
+            "/images/projects/ACF/acf.png",
+            "/images/projects/ACF/acf.png"
           ]
         },
         {
           "srcset": [
-            "/images/projects/ACF/ACF.png",
-            "/images/projects/ACF/ACF.png",
-            "/images/projects/ACF/ACF.png"
+            "/images/projects/ACF/acf.png",
+            "/images/projects/ACF/acf.png",
+            "/images/projects/ACF/acf.png"
           ]
         }
       ]
     }
   },
+
   {
     "title": "DocGuide",
     "category": ["website"],
     "year": "2023",
     "featured": true,
     "url": "https://docguide.com/",
+    "imageRelativePath": "projects/DocGuide/docguide.png",
     "image": {
-      "src": "/images/projects/DocGuide/DocGuide.png",
+      "src": "/images/projects/DocGuide/docguide.png",
       "sources": [
         {
           "media": "max-width: 40rem",
           "srcset": [
-            "/images/projects/DocGuide/DocGuide.png",
-            "/images/projects/DocGuide/DocGuide.png",
-            "/images/projects/DocGuide/DocGuide.png"
+            "/images/projects/DocGuide/docguide.png",
+            "/images/projects/DocGuide/docguide.png",
+            "/images/projects/DocGuide/docguide.png"
           ]
         },
         {
           "srcset": [
-            "/images/projects/DocGuide/DocGuide.png",
-            "/images/projects/DocGuide/DocGuide.png",
-            "/images/projects/DocGuide/DocGuide.png"
+            "/images/projects/DocGuide/docguide.png",
+            "/images/projects/DocGuide/docguide.png",
+            "/images/projects/DocGuide/docguide.png"
           ]
         }
       ]
@@ -94,23 +105,23 @@
 
     "year": "2019",
     "url": "https://interactive-strategies.netlify.app/",
-    "featured": true,
+    "featured": false,
     "image": {
-      "src": "/images/projects/InteractiveStrategies/marketing-site.png",
+      "src": "/images/projects/InteractiveStrategies/marketingsite.png",
       "sources": [
         {
           "media": "max-width: 40rem",
           "srcset": [
-            "/images/projects/InteractiveStrategies/marketing-site.png",
-            "/images/projects/InteractiveStrategies/marketing-site.png",
-            "/images/projects/InteractiveStrategies/marketing-site.png"
+            "/images/projects/InteractiveStrategies/marketingsite.png",
+            "/images/projects/InteractiveStrategies/marketingsite.png",
+            "/images/projects/InteractiveStrategies/marketingsite.png"
           ]
         },
         {
           "srcset": [
-            "/images/projects/InteractiveStrategies/marketing-site.png",
-            "/images/projects/InteractiveStrategies/marketing-site.png",
-            "/images/projects/InteractiveStrategies/marketing-site.png"
+            "/images/projects/InteractiveStrategies/marketingsite.png",
+            "/images/projects/InteractiveStrategies/marketingsite.png",
+            "/images/projects/InteractiveStrategies/marketingsite.png"
           ]
         }
       ]
@@ -123,6 +134,7 @@
     "year": "2019",
     "featured": true,
     "url": "https://dc-design.netlify.app",
+    "imageRelativePath": "projects/WashingtonDesignCenter/designcenter.png",
     "image": {
       "src": "/images/projects/WashingtonDesignCenter/designcenter.png",
       "sources": [

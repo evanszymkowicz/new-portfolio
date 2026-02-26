@@ -24,7 +24,7 @@ export const ButtonsWrapper = styled.div`
 `;
 
 export const FilterButton = styled.button`
-  color: ${colors.rookwoodAmber};
+  color: ${({ $active }) => ($active ? "#f2b211" : "#7c9a8f")};
   border: 0;
   background: 0;
   padding: 0;

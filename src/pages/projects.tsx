@@ -16,13 +16,27 @@ export const query = graphql`
           year
           url
           featured
-          image {
-            src
-            sources {
-              media
-              srcset
-            }
-          }
+          imageRelativePath
+        }
+      }
+    }
+
+    projectImages: allFile(
+      filter: {
+        sourceInstanceName: { eq: "images" }
+        relativeDirectory: { regex: "/^projects//" }
+        extension: { in: ["png", "jpg", "jpeg", "webp", "avif"] }
+      }
+    ) {
+      nodes {
+        relativePath
+        childImageSharp {
+          gatsbyImageData(
+            layout: CONSTRAINED
+            placeholder: BLURRED
+            formats: [AUTO, AVIF, WEBP]
+            quality: 80
+          )
         }
       }
     }
