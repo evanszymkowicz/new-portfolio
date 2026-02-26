@@ -5,105 +5,105 @@ import ProjectImage from "../ProjectImage";
 import type { IGatsbyImageData } from "gatsby-plugin-image";
 
 type FeaturedProject = {
-	title: string;
-	url?: string;
-	imageData?: IGatsbyImageData;
+  title: string;
+  url?: string;
+  imageData?: IGatsbyImageData;
 };
 
 type FeaturedProjectEdge = {
-	project: FeaturedProject;
+  project: FeaturedProject;
 };
 
 type ProjectsFeaturedSectionProps = {
-	projects?: FeaturedProjectEdge[];
+  projects?: FeaturedProjectEdge[];
 };
 
 export default function ProjectsFeaturedSection({
-	projects = [],
+  projects = [],
 }: ProjectsFeaturedSectionProps) {
-	const [isMobile, setIsMobile] = useState(false);
-	const [isLoaded, setIsLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-	useEffect(() => {
-		// treat widths below 768px as "mobile" so only one card shows at a time
-		const handleResize = () => {
-			setIsMobile(window.innerWidth < 768);
-		};
+  useEffect(() => {
+    // treat widths below 768px as "mobile" so only one card shows at a time
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
 
-		handleResize(); // Initial check
-		setIsLoaded(true);
+    handleResize(); // Initial check
+    setIsLoaded(true);
 
-		window.addEventListener("resize", handleResize);
-		return () => window.removeEventListener("resize", handleResize);
-	}, []);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-	const projectsList = useMemo(() => {
-		const renderProject = ({ project }: FeaturedProjectEdge) => {
-			const { title, imageData, url } = project;
-			const hasImage = !!imageData;
+  const projectsList = useMemo(() => {
+    const renderProject = ({ project }: FeaturedProjectEdge) => {
+      const { title, imageData, url } = project;
+      const hasImage = !!imageData;
 
-			if (hasImage) {
-				const imageElement = <ProjectImage imageData={imageData} alt={title} />;
+      if (hasImage) {
+        const imageElement = <ProjectImage imageData={imageData} alt={title} />;
 
-				return (
-					<ProjectFeatured key={title}>
-						{url ? (
-							<a
-								className="image-link"
-								href={url}
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<div className="card">
-									<div className="image-wrap">{imageElement}</div>
-								</div>
-							</a>
-						) : (
-							<div className="card">
-								<div className="image-wrap">{imageElement}</div>
-							</div>
-						)}
-					</ProjectFeatured>
-				);
-			}
+        return (
+          <ProjectFeatured key={title}>
+            {url ? (
+              <a
+                className="image-link"
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="card">
+                  <div className="image-wrap">{imageElement}</div>
+                </div>
+              </a>
+            ) : (
+              <div className="card">
+                <div className="image-wrap">{imageElement}</div>
+              </div>
+            )}
+          </ProjectFeatured>
+        );
+      }
 
-			// No image: show CTA button if there's a url, otherwise nothing.
-			return (
-				<ProjectFeatured key={title}>
-					<div className="card">
-						<div className="card-footer">
-							{url ? (
-								<a
-									className="cta"
-									href={url}
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									More Info
-								</a>
-							) : null}
-						</div>
-					</div>
-				</ProjectFeatured>
-			);
-		};
+      // No image: show CTA button if there's a url, otherwise nothing.
+      return (
+        <ProjectFeatured key={title}>
+          <div className="card">
+            <div className="card-footer">
+              {url ? (
+                <a
+                  className="cta"
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  More Info
+                </a>
+              ) : null}
+            </div>
+          </div>
+        </ProjectFeatured>
+      );
+    };
 
-		return (projects || []).map(renderProject).filter(Boolean);
-	}, [projects]);
+    return (projects || []).map(renderProject).filter(Boolean);
+  }, [projects]);
 
-	if (!isLoaded) return null;
+  if (!isLoaded) return null;
 
-	return isMobile ? (
-		<StyledCarousel
-			showArrows={false}
-			showThumbs={false}
-			showStatus={false}
-			interval={10000}
-			autoPlay
-		>
-			{projectsList}
-		</StyledCarousel>
-	) : (
-		<Wrapper>{projectsList}</Wrapper>
-	);
+  return isMobile ? (
+    <StyledCarousel
+      showArrows={false}
+      showThumbs={false}
+      showStatus={false}
+      interval={10000}
+      autoPlay
+    >
+      {projectsList}
+    </StyledCarousel>
+  ) : (
+    <Wrapper>{projectsList}</Wrapper>
+  );
 }

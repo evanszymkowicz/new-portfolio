@@ -47,7 +47,11 @@ function normalizeRelativePath(path?: string | null): string {
     .replace(/^static\//, "");
 }
 
-export default function ProjectsContent({ data = {} }: { data?: ProjectsQueryData }) {
+export default function ProjectsContent({
+  data = {},
+}: {
+  data?: ProjectsQueryData;
+}) {
   const [category, setCategory] = useState<string | null>(null);
 
   const edgesWithImages = useMemo<ProjectEdge[]>(() => {
