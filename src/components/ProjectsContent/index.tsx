@@ -25,8 +25,8 @@ type BaseProject = {
 
 //  UI data
 //  Extends BaseProject with Gatsby image payload for use with image rendering components.
-//  The imageData field is optional because not all projects have an image. 
-//  The component should be able to handle cases where image data is missing without breaking. 
+//  The imageData field is optional because not all projects have an image.
+//  The component should be able to handle cases where image data is missing without breaking.
 //  This type is used for after image data is added.
 type ProjectWithImageData = BaseProject & {
   imageData?: IGatsbyImageData;
@@ -79,14 +79,14 @@ export default function ProjectsContent({
   const [category, setCategory] = useState<string | null>(null);
 
   //  useMemo is used to compute the edges with image data only when the relevant parts of the data change.
-  //  Use graceful checks data.projects?.edges ?? [] and gracefully check data.projectImages?.nodes ?? [] to handle cases where the data might be missing. 
+  //  Use graceful checks data.projects?.edges ?? [] and gracefully check data.projectImages?.nodes ?? [] to handle cases where the data might be missing.
   //  Good defensive programming practice to prevent runtime errors and ensure the component can still render even if some data is missing.
   const edgesWithImages = useMemo<ProjectEdge[]>(() => {
     const rawEdges = data.projects?.edges ?? [];
     const imageNodes = data.projectImages?.nodes ?? [];
     //  Create a map of normalized relative paths to image data for efficient lookup.
     const imageMap = new Map<string, IGatsbyImageData>();
-    //  For each project normalize imageRelativePath and look up matching image data. 
+    //  For each project normalize imageRelativePath and look up matching image data.
     for (const node of imageNodes) {
       const normalized = cleanRelativePath(node.relativePath);
       const imageData = node.childImageSharp?.gatsbyImageData;
