@@ -13,27 +13,7 @@
     "year": "2024",
     "featured": true,
     "url": "https://www.nhlbi.nih.gov/",
-    "imageRelativePath": "projects/NHLBI/nhlbi.png",
-    "image": {
-      "src": "/images/projects/NHLBI/nhlbi.png",
-      "sources": [
-        {
-          "media": "max-width: 40rem",
-          "srcset": [
-            "/images/projects/ACF/acf.png",
-            "/images/projects/ACF/acf.png",
-            "/images/projects/ACF/acf.png"
-          ]
-        },
-        {
-          "srcset": [
-            "/images/projects/ACF/acf.png",
-            "/images/projects/ACF/acf.png",
-            "/images/projects/ACF/acf.png"
-          ]
-        }
-      ]
-    }
+    "imageRelativePath": "projects/NHLBI/nhlbi.png"
   },
 
   {
@@ -42,27 +22,7 @@
     "year": "2023",
     "featured": true,
     "url": "https://docguide.com/",
-    "imageRelativePath": "projects/DocGuide/docguide.png",
-    "image": {
-      "src": "/images/projects/DocGuide/docguide.png",
-      "sources": [
-        {
-          "media": "max-width: 40rem",
-          "srcset": [
-            "/images/projects/DocGuide/docguide.png",
-            "/images/projects/DocGuide/docguide.png",
-            "/images/projects/DocGuide/docguide.png"
-          ]
-        },
-        {
-          "srcset": [
-            "/images/projects/DocGuide/docguide.png",
-            "/images/projects/DocGuide/docguide.png",
-            "/images/projects/DocGuide/docguide.png"
-          ]
-        }
-      ]
-    }
+    "imageRelativePath": "projects/DocGuide/docguide.png"
   },
   {
     "title": "OVHCloud US",
@@ -76,27 +36,7 @@
     "category": ["website"],
     "year": "2020",
     "featured": false,
-    "url": "https://sparks-by-evan.netlify.app",
-    "image": {
-      "src": "/images/projects/Sparks/sparks.png",
-      "sources": [
-        {
-          "media": "max-width: 40rem",
-          "srcset": [
-            "/images/projects/Sparks/sparks.png",
-            "/images/projects/Sparks/sparks.png",
-            "/images/projects/Sparks/sparks.png"
-          ]
-        },
-        {
-          "srcset": [
-            "/images/projects/Sparks/sparks.png",
-            "/images/projects/Sparks/sparks.png",
-            "/images/projects/Sparks/sparks.png"
-          ]
-        }
-      ]
-    }
+    "url": "https://sparks-by-evan.netlify.app"
   },
 
   {
@@ -105,27 +45,7 @@
 
     "year": "2019",
     "url": "https://interactive-strategies.netlify.app/",
-    "featured": false,
-    "image": {
-      "src": "/images/projects/InteractiveStrategies/marketingsite.png",
-      "sources": [
-        {
-          "media": "max-width: 40rem",
-          "srcset": [
-            "/images/projects/InteractiveStrategies/marketingsite.png",
-            "/images/projects/InteractiveStrategies/marketingsite.png",
-            "/images/projects/InteractiveStrategies/marketingsite.png"
-          ]
-        },
-        {
-          "srcset": [
-            "/images/projects/InteractiveStrategies/marketingsite.png",
-            "/images/projects/InteractiveStrategies/marketingsite.png",
-            "/images/projects/InteractiveStrategies/marketingsite.png"
-          ]
-        }
-      ]
-    }
+    "featured": false
   },
   {
     "title": "Washington Design Center",
@@ -134,27 +54,7 @@
     "year": "2019",
     "featured": true,
     "url": "https://dc-design.netlify.app",
-    "imageRelativePath": "projects/WashingtonDesignCenter/designcenter.png",
-    "image": {
-      "src": "/images/projects/WashingtonDesignCenter/designcenter.png",
-      "sources": [
-        {
-          "media": "max-width: 40rem",
-          "srcset": [
-            "/images/projects/WashingtonDesignCenter/designcenter.png",
-            "/images/projects/WashingtonDesignCenter/designcenter.png",
-            "/images/projects/WashingtonDesignCenter/designcenter.png"
-          ]
-        },
-        {
-          "srcset": [
-            "/images/projects/WashingtonDesignCenter/designcenter.png",
-            "/images/projects/WashingtonDesignCenter/designcenter.png",
-            "/images/projects/WashingtonDesignCenter/designcenter.png"
-          ]
-        }
-      ]
-    }
+    "imageRelativePath": "projects/WashingtonDesignCenter/designcenter.png"
   },
   {
     "title": "ALLRISE DC",
