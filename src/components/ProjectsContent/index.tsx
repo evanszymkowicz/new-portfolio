@@ -108,7 +108,6 @@ export default function ProjectsContent({
 
   //  Type safe category filter.
   //  Explicit type (category: string | null).
-
   const filterByCategory = (list: ProjectEdge[]) => {
     if (!category) return list;
     return list.filter(({ project }) => {
