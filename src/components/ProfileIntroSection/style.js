@@ -55,7 +55,7 @@ export const StyledImage = styled(Image)`
   `}
 `;
 export const InfoWrapper = styled.header`
-  grid-row: 2 / 4;
+  grid-row: 1 / 3;
   grid-column: 1 / 6;
   z-index: 3;
   ${media.md`
@@ -68,7 +68,6 @@ export const InfoWrapper = styled.header`
 `;
 
 export const Content = styled.main`
-  margin-top: 1rem;
   line-height: 1.8em;
   color: ${colors.grey};
   ${media.sm`

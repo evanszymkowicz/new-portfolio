@@ -19,7 +19,7 @@ export const ListsSection = styled.section`
   flex-direction: column;
   gap: 3rem;
   padding: 0;
-  margin-top: 6rem;
+  margin-top: 1rem;
 
   ${media.md`
     gap: 3rem;
