@@ -8,7 +8,7 @@ export const MainWrapper = styled.div`
   gap: 3rem;
   align-items: start;
 
-  ${media.md`
+  ${media.lg`
     grid-template-columns: 1fr;
     gap: 4rem;
   `}
@@ -21,7 +21,7 @@ export const ListsSection = styled.section`
   padding: 0;
   margin-top: 1rem;
 
-  ${media.md`
+  ${media.lg`
     gap: 3rem;
     padding: 0;
     margin-top: 0;
