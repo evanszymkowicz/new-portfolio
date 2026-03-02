@@ -57,6 +57,7 @@ export const FilterButton = styled.button`
 
 export const QuestionWrapper = styled.footer`
   padding-top: 4rem;
+  padding-bottom: 4rem;
   text-align: center;
 
   h2 {
