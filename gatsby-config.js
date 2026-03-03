@@ -38,6 +38,10 @@ module.exports = {
       options: {
         displayName: process.env.NODE_ENV !== "production",
         fileName: false,
+        ssr: true,  // For consistent SSR rendering
+        minify: true, //  Reduce CSS size
+        transpileTemplateLiterals: true,  //  For better compatibility with older browsers
+        pure: true, //  Enable dead code elimination for unused styles
       },
     },
 
