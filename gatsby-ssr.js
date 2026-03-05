@@ -41,24 +41,33 @@ export const onRenderBody = ({ setHeadComponents }) => {
         `,
       },
     }),
-    // Preconnect to Google Fonts servers to reduce latency
+    //  Preload the three most-used Roboto weights from own origin.
+    //  Self-hosted fonts are stable URLs that will not 404.
+    //  Eliminates FOUT flash and ensures fonts are available immediately on first paint, improving perceived performance and preventing layout shifts.
+    //  crossOrigin="anonymous" is required even for same-origin font preloads because font fetches always use CORS mode.
     React.createElement("link",{
-      rel: "preconnect",
-      href: "https://fonts.googleapis.com",
-      key: "gf-preconnect-1",
-    }),
-    React.createElement("link",{
-      rel: "preconnect",
-      href: "https://fonts.gstatic.com",
+      rel: "preload",
+      href: "/fonts/roboto-400.woff2",
+      as: "font",
+      type: "font/woff2",
       crossOrigin: "anonymous",
-      key: "gf-preconnect-2",
+      key: "roboto-400-preload",
     }),
-    // Google Fonts stylesheet: display=swap shows fallback font immediately,
-    // swaps to Roboto when loaded. No blank page, no FOUT blocking.
     React.createElement("link",{
-      href: "https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Roboto+Mono:wght@300;400;700&display=swap",
-      rel: "stylesheet",
-      key: "gf-stylesheet",
+      rel: "preload",
+      href: "/fonts/roboto-300.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+      key: "roboto-300-preload",
+    }),
+    React.createElement("link",{
+      rel: "preload",
+      href: "/fonts/roboto-700.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+      key: "roboto-700-preload",
     }),
   ]);
 };
