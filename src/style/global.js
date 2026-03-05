@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
-import { colors,fonts,media } from "./theme";
+import { colors, fonts, media } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
   /* Self-hosted fonts served from /static/fonts/.
