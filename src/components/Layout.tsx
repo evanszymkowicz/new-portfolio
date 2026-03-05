@@ -1,9 +1,11 @@
 import React, { ReactNode, useEffect } from "react";
-import { GlobalStyle } from "../style/global";
 import Navigation from "./Navigation";
 import styled from "styled-components";
 import ServiceWorkerUpdate from "./ServiceWorkerUpdate";
 import { promptInstall } from "../utils/serviceWorkerHelper";
+
+// GlobalStyle is applied at the root level via gatsby-ssr.js and gatsby-browser.js.
+// Do not apply it here to avoid duplicate injection and SSR/hydration class name mismatches.
 
 const LayoutWrapper = styled.div`
   min-height: 100vh;
@@ -11,9 +13,16 @@ const LayoutWrapper = styled.div`
   flex-direction: column;
 `;
 
+// Uses a minimal location type rather than the full browser Location interface.
+// Only pathname is consumed by this component and its children (Navigation).
+// This keeps the type honest and allows tests to pass a simple { pathname: string }
+interface LocationProp {
+  pathname: string;
+}
+
 interface LayoutProps {
   children: ReactNode;
-  location: Location;
+  location: LocationProp;
 }
 
 export default function Layout({ children, location }: LayoutProps) {
@@ -24,7 +33,6 @@ export default function Layout({ children, location }: LayoutProps) {
 
   return (
     <LayoutWrapper>
-      <GlobalStyle />
       <main>{children}</main>
       <Navigation location={location} />
       <ServiceWorkerUpdate />

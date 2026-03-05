@@ -1,7 +1,7 @@
 // This file will be merged with Gatsby's generated service worker
 
 // Cache name
-const CACHE_NAME = "evan-portfolio-v1";
+const CACHE_NAME = "evan-portfolio-x";
 
 // Assets to cache on install
 const PRECACHE_ASSETS = ["/", "/projects/", "/offline/"];

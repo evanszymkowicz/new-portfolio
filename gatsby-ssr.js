@@ -1,7 +1,9 @@
 import React from "react";
 import { GlobalStyle } from "./src/style/global";
 
-// Wrap the root element with global styles for SSR
+//  Wrap the root element with global styles for SSR
+//  Global style is injected here instead of Layout.tsx so that it is applied once at project root during SSR and on the client via gatsby-browser.js to avoid duplication and prevent hash mismatch.
+//  Style flash was caused by server-rendered HTML and client hydration pass.
 export const wrapRootElement = ({ element }) => {
   return (
     <>
@@ -11,17 +13,20 @@ export const wrapRootElement = ({ element }) => {
   );
 };
 
-export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
-  // Add critical inline styles and theme color meta tag to prevent white flash
+//  onRenderBody is called by Gatsby during SSR for each page.
+//  Use this to inject critical styles and font loading tags as early as possible.
+export const onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
-    // Critical theme color meta tag to prevent white flash before CSS loads
-    React.createElement("meta", {
+    React.createElement("meta",{
       name: "theme-color",
       content: "#013220",
       key: "theme-color",
     }),
-    // Inline background color and hide body until fonts load to prevent FOUT
-    React.createElement("style", {
+    //  Critical inline styles — background color only. No opacity gating.
+    //  TypeError can't access property classList of null was caused by hydration running in <head> before <body> existed in the DOM.
+    //  fonts-loaded was never added and the body stayed invisible on every reload.
+    //  Background color and rules are kept to prevent white flash on first paint without blocking content visibility.
+    React.createElement("style",{
       key: "critical-style",
       dangerouslySetInnerHTML: {
         __html: `
@@ -32,93 +37,40 @@ export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
           body {
             background: #013220;
             color: #E4E6EC;
-            opacity: 0;
-            transition: opacity 0.1s ease-in;
-          }
-          body.fonts-loaded {
-            opacity: 1;
           }
         `,
       },
     }),
-    // Preconnect to Google Fonts
-    //  hook to prioritize styled components loading in the head
-    React.createElement("link", {
+    // Preconnect to Google Fonts servers to reduce latency
+    React.createElement("link",{
       rel: "preconnect",
       href: "https://fonts.googleapis.com",
       key: "gf-preconnect-1",
     }),
-    React.createElement("link", {
+    React.createElement("link",{
       rel: "preconnect",
       href: "https://fonts.gstatic.com",
       crossOrigin: "anonymous",
       key: "gf-preconnect-2",
     }),
-    // Preload critical font files to start downloading immediately
-    React.createElement("link", {
-      rel: "preload",
-      href: "https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2",
-      as: "font",
-      type: "font/woff2",
-      crossOrigin: "anonymous",
-      key: "roboto-400-preload",
-    }),
-    React.createElement("link", {
-      rel: "preload",
-      href: "https://fonts.gstatic.com/s/roboto/v32/KFOlCnqEu92Fr1MmWUlfAA.woff2",
-      as: "font",
-      type: "font/woff2",
-      crossOrigin: "anonymous",
-      key: "roboto-300-preload",
-    }),
-    React.createElement("link", {
-      rel: "preload",
-      href: "https://fonts.gstatic.com/s/roboto/v32/KFOiCnqEu92Fr1Mu51QAM25VFUg.woff2",
-      as: "font",
-      type: "font/woff2",
-      crossOrigin: "anonymous",
-      key: "roboto-700-preload",
-    }),
-    // Use display=block to prevent FOUT (flash of unstyled text)
-    React.createElement("link", {
-      href: "https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Roboto+Mono:wght@300;400;700&display=block",
+    // Google Fonts stylesheet: display=swap shows fallback font immediately,
+    // swaps to Roboto when loaded. No blank page, no FOUT blocking.
+    React.createElement("link",{
+      href: "https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Roboto+Mono:wght@300;400;700&display=swap",
       rel: "stylesheet",
       key: "gf-stylesheet",
-    }),
-    // Font Loading API to detect when fonts are ready
-    React.createElement("script", {
-      key: "font-load-api",
-      dangerouslySetInnerHTML: {
-        __html: `
-          if ('fonts' in document) {
-            Promise.all([
-              document.fonts.load('300 1em Roboto'),
-              document.fonts.load('400 1em Roboto'),
-              document.fonts.load('700 1em Roboto'),
-            ]).then(function() {
-              document.body.classList.add('fonts-loaded');
-            });
-          } else {
-            // Fallback for browsers without Font Loading API
-            window.addEventListener('load', function() {
-              document.body.classList.add('fonts-loaded');
-            });
-          }
-        `,
-      },
     }),
   ]);
 };
 
-// Optimize styled-components in SSR by moving critical styles to the head
-//  Needs a onPreRenderHTML hook to ensure styles are included in the head for better performance and to prevent FOUC
+//  Optimize styled-components in SSR by moving critical styles to the head
+//  Needs a onPreRenderHTML hook to ensure styles are included in the head for better performance and prevent FOUC
 export const onPreRenderHTML = ({
   getHeadComponents,
   replaceHeadComponents,
 }) => {
   const headComponents = getHeadComponents();
-  headComponents.sort((a, b) => {
-    // Prioritize styled-components styles and critical inline styles at the top
+  headComponents.sort((a,b) => {  //  Prioritize styled-components styles and critical inline styles at the top
     const aIsStyle =
       a.type === "style" || (a.props && a.props["data-styled"]);
     const bIsStyle =
