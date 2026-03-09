@@ -18,7 +18,7 @@ const ProfileContent = ({ data }) => {
         <ProfileIntroSection
           content={() => (
             <>
-              <p>Yes, I am currently looking for new work.</p>
+              <p>Yes, I am looking for new work.</p>
               <p>
                 {" "}
                 <a

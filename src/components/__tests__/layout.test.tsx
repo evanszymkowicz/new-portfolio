@@ -1,9 +1,5 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-// CHANGED: Updated import from "../layout" to "../Layout" to match the correct
-// file after the old lowercase layout.js was deleted as part of the duplicate
-// component cleanup. On case-sensitive filesystems (Linux/CI) this import was
-// silently resolving to the deleted file and would cause a module-not-found error.
 import Layout from "../Layout";
 
 // Mock Navigation component
