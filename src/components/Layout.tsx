@@ -1,7 +1,6 @@
 import React, { ReactNode, useEffect } from "react";
 import Navigation from "./Navigation";
 import styled from "styled-components";
-import ServiceWorkerUpdate from "./ServiceWorkerUpdate";
 import { promptInstall } from "../utils/serviceWorkerHelper";
 
 // GlobalStyle is applied at the root level via gatsby-ssr.js and gatsby-browser.js.
@@ -35,7 +34,6 @@ export default function Layout({ children, location }: LayoutProps) {
     <LayoutWrapper>
       <main>{children}</main>
       <Navigation location={location} />
-      <ServiceWorkerUpdate />
     </LayoutWrapper>
   );
 }

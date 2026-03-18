@@ -9,13 +9,6 @@ jest.mock("../Navigation", () => {
   };
 });
 
-// Mock ServiceWorkerUpdate component
-jest.mock("../ServiceWorkerUpdate", () => {
-  return function ServiceWorkerUpdate() {
-    return null;
-  };
-});
-
 // Mock promptInstall utility
 jest.mock("../../utils/serviceWorkerHelper", () => ({
   promptInstall: jest.fn(),
@@ -24,8 +17,6 @@ jest.mock("../../utils/serviceWorkerHelper", () => ({
 describe("Layout Component", () => {
   it("renders children and navigation", () => {
     render(
-      // CHANGED: { pathname: "/" } now satisfies the LocationProp type since
-      // Layout.tsx was updated to use a minimal location interface instead of the full browser Location type, which required ancestorOrigins, hash,
       <Layout location={{ pathname: "/" }}>
         <div>child-content</div>
       </Layout>
