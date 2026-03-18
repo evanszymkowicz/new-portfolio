@@ -42,8 +42,7 @@ module.exports = {
     "!src/**/*.stories.{js,jsx,ts,tsx}",
     "!src/**/__tests__/**",
     "!src/**/style.js",
-    "!src/**/style.ts",
-    "!src/components/ServiceWorkerUpdate.tsx",
+    "!src/**/style.ts"
   ],
 
   coverageThreshold: {
@@ -60,5 +59,5 @@ module.exports = {
     __PATH_PREFIX__: "",
   },
 
-  testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+  testMatch: ["**/__tests__/**/*.[jt]s?(x)","**/?(*.)+(spec|test).[jt]s?(x)"],
 };
