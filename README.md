@@ -151,26 +151,26 @@ npm run clean        # Clean Gatsby cache
 
 ### Low Priority Items:
 
-1. **Implement Service Worker**:
-   - Installed `gatsby-plugin-offline`
-   - Configured caching:
-     - `staleWhileRevalidate` for content
-     - `cacheFirst` for fonts
-     - Runtime caching for images and assets
-   - Created `serviceWorkerUpdate.tsx` component for update notifications
-   - Created `serviceWorkerHelper.ts` utility functions
-     - `promptInstall()` - PWA install prompt
-     - `cacheFirst` for fonts
-     - `isStandalone()` to detect installed app
-     - `checkForUpdates()` for update check
-   - Integrated into Layout.tsx
-   - Full offline support for visited pages
-   - Automatic background updates
-   - User-controlled update activation
+~~1. **Implement Service Worker**:~~
+- ~~Installed `gatsby-plugin-offline`~~
+   - ~~Configured caching:~~
+     - ~~`staleWhileRevalidate` for content~~
+     - ~~`cacheFirst` for fonts~~
+     - ~~Runtime caching for images and assets~~
+   - ~~Created `serviceWorkerUpdate.tsx` component for update notifications~~
+   - ~~Created `serviceWorkerHelper.ts` utility functions~~
+     - ~~`promptInstall()` - PWA install prompt~~
+     - ~~`cacheFirst` for fonts~~
+     - ~~`isStandalone()` to detect installed app~~
+     - ~~`checkForUpdates()` for update check~~
+   - ~~Integrated into Layout.tsx~~
+   - ~~Full offline support for visited pages~~
+   - ~~Automatic background updates~~
+   - ~~User-controlled update activation~~
 
-   **Impact**:
-   - PWA with offline support
-   - Splash screen
+   ~~**Impact**:~~
+   - ~~PWA with offline support`~~
+   - ~~Splash screen~~
 
 ### Future Items:
 
