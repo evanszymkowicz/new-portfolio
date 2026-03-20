@@ -3,46 +3,85 @@
     "title": "Administration for Children & Families",
     "category": ["website"],
     "year": "2025",
-    "featured": true,
     "url": "https://acf.gov/",
-    "imageRelativePath": "projects/ACF/acf.png"
+    "imageRelativePath": "projects/ACF/acf.png",
+    "featured": true
+  },
+  {
+    "title": "Portfolio Website Code",
+    "category": ["code"],
+    "year": "2025",
+    "url": "https://github.com/evanszymkowicz/new-portfolio",
+    "featured": false
   },
   {
     "title": "National Heart, Lung, and Blood Institute",
     "category": ["website"],
     "year": "2024",
-    "featured": true,
     "url": "https://www.nhlbi.nih.gov/",
-    "imageRelativePath": "projects/NHLBI/nhlbi.png"
+    "imageRelativePath": "projects/NHLBI/nhlbi.png",
+    "featured": true
   },
-
   {
     "title": "DocGuide",
     "category": ["website"],
     "year": "2023",
-    "featured": true,
     "url": "https://docguide.com/",
-    "imageRelativePath": "projects/DocGuide/docguide.png"
+    "imageRelativePath": "projects/DocGuide/docguide.png",
+    "featured": true
   },
   {
     "title": "OVHCloud US",
     "category": ["website"],
     "year": "2021",
-    "featured": false,
-    "url": "https://us.ovhcloud.com/contact-sales/"
+    "url": "https://us.ovhcloud.com/contact-sales/",
+    "featured": false
   },
   {
     "title": "Sparks Group",
     "category": ["website"],
     "year": "2020",
-    "featured": false,
-    "url": "https://sparks-by-evan.netlify.app"
+    "url": "https://sparks-by-evan.netlify.app",
+    "featured": false
   },
-
+  {
+    "title": "ALLRISE DC",
+    "category": ["website"],
+    "year": "2020",
+    "url": "https://www.allrisedc.org/",
+    "featured": false
+  },
+  {
+    "title": "Promotional Email Campaign",
+    "category": ["email"],
+    "year": "2019",
+    "url": "https://github.com/evanszymkowicz/tmobile-email",
+    "featured": false
+  },
+  {
+    "title": "Monthly Newsletter",
+    "category": ["email"],
+    "year": "2019",
+    "url": "https://github.com/evanszymkowicz/augnewsletter-email",
+    "featured": false
+  },
+  {
+    "title": "Upcoming Schedule Email",
+    "category": ["email"],
+    "year": "2019",
+    "url": "https://github.com/evanszymkowicz/upcoming-schedule-email",
+    "featured": false
+  },
+  {
+    "title": "Weekly Promotional Email",
+    "category": ["email"],
+    "year": "2019",
+    "url": "https://github.com/evanszymkowicz/restaurant-emails",
+    "featured": false
+  },
   {
     "title": "Interactive Strategies",
     "category": ["website"],
-
     "year": "2019",
     "url": "https://interactive-strategies.netlify.app/",
     "featured": false
@@ -50,17 +89,9 @@
   {
     "title": "Washington Design Center",
     "category": ["website"],
-
     "year": "2019",
     "featured": true,
     "url": "https://dc-design.netlify.app",
     "imageRelativePath": "projects/WashingtonDesignCenter/designcenter.png"
-  },
-  {
-    "title": "ALLRISE DC",
-    "category": ["website"],
-    "year": "2019",
-    "url": "https://www.allrisedc.org/",
-    "featured": false
   }
 ]
