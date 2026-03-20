@@ -28,10 +28,10 @@ const ProjectsListSection = ({ projects, category, setCategory }) => (
           code
         </FilterButton>
         <FilterButton
-          $active={category === "marketing"}
-          onClick={() => setCategory("marketing")}
+          $active={category === "email"}
+          onClick={() => setCategory("email")}
         >
-          marketing
+          email
         </FilterButton>
         {category && (
           <FilterButton onClick={() => setCategory(null)}>all</FilterButton>
