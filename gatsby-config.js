@@ -66,7 +66,7 @@ module.exports = {
       options: {
         workboxConfig: {
           globPatterns: [
-            "**/*.{js,css,html,png,jpg,jpeg,svg,gif,webp,woff,woff2}",
+            "**/*.{js,css,html,png,jpg,jpeg,svg,gif,webp,woff,woff2,ttf}",
           ],
           runtimeCaching: [
             {

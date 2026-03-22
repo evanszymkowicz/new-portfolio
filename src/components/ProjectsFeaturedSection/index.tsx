@@ -91,7 +91,8 @@ export default function ProjectsFeaturedSection({
     return (projects || []).map(renderProject).filter(Boolean);
   }, [projects]);
 
-  if (!isLoaded) return null;
+  //  Render a placeholder that matches the server output
+  if (!isLoaded) return <Wrapper />;
 
   return isMobile ? (
     <StyledCarousel
