@@ -1,17 +1,4 @@
 import React from "react";
-import { GlobalStyle } from "./src/style/global";
-
-//  Wrap the root element with global styles for SSR
-//  Global style is injected here instead of Layout.tsx so that it is applied once at project root during SSR and on the client via gatsby-browser.js to avoid duplication and prevent hash mismatch.
-//  Style flash was caused by server-rendered HTML and client hydration pass.
-export const wrapRootElement = ({ element }) => {
-  return (
-    <>
-      <GlobalStyle />
-      {element}
-    </>
-  );
-};
 
 //  onRenderBody is called by Gatsby during SSR for each page.
 //  Use this to inject critical styles and font loading tags as early as possible.

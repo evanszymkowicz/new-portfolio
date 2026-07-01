@@ -27,7 +27,7 @@
 
 - Styled Components 6 for all styling. Design tokens (colors, breakpoints, spacing, `media` helpers) live in `src/style/theme.js` — use them; no magic values.
 - Shared layout primitives (e.g. `ContentWrapper`) live in `src/style/shared.js`.
-- **Do not** apply `GlobalStyle` inside `Layout.tsx`. Global styles are injected via `wrapRootElement` in `gatsby-browser.js` / `gatsby-ssr.js` — applying it in `Layout` causes SSR hydration mismatches / FOUC.
+- `GlobalStyle` is rendered from `Layout.tsx`, inside the page tree. **Do not** move it into `wrapRootElement` in `gatsby-browser.js` / `gatsby-ssr.js` — the site's own `wrapRootElement` composes outside `gatsby-plugin-styled-components`'s `StyleSheetManager` in Gatsby's plugin order, so styles rendered there never make it into the SSR'd HTML, causing FOUC in production only.
 - No inline styles.
 
 ## File Organization & Naming

@@ -2,9 +2,7 @@ import React, { ReactNode, useEffect } from "react";
 import Navigation from "./Navigation";
 import styled from "styled-components";
 import { promptInstall } from "../utils/serviceWorkerHelper";
-
-// GlobalStyle is applied at the root level via gatsby-ssr.js and gatsby-browser.js.
-// Do not apply it here to avoid duplicate injection and SSR/hydration class name mismatches.
+import { GlobalStyle } from "../style/global";
 
 const LayoutWrapper = styled.div`
   min-height: 100vh;
@@ -32,6 +30,7 @@ export default function Layout({ children, location }: LayoutProps) {
 
   return (
     <LayoutWrapper>
+      <GlobalStyle />
       <main>{children}</main>
       <Navigation location={location} />
     </LayoutWrapper>
