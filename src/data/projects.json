@@ -8,10 +8,10 @@
     "featured": true
   },
   {
-    "title": "Portfolio Website Code",
-    "category": ["code"],
-    "year": "2025",
-    "url": "https://github.com/evanszymkowicz/new-portfolio",
+    "title": "DevMemory: Store your Developer Knowledge",
+    "category": ["website", "code"],
+    "year": "2026",
+    "url": "https://devmem-chi.vercel.app/",
     "featured": false
   },
   {

@@ -27,7 +27,7 @@
 
 - Styled Components 6 for all styling. Design tokens (colors, breakpoints, spacing, `media` helpers) live in `src/style/theme.js` — use them; no magic values.
 - Shared layout primitives (e.g. `ContentWrapper`) live in `src/style/shared.js`.
-- `GlobalStyle` is rendered from `Layout.tsx`, inside the page tree. **Do not** move it into `wrapRootElement` in `gatsby-browser.js` / `gatsby-ssr.js` — the site's own `wrapRootElement` composes outside `gatsby-plugin-styled-components`'s `StyleSheetManager` in Gatsby's plugin order, so styles rendered there never make it into the SSR'd HTML, causing FOUC in production only.
+- `GlobalStyle` is rendered from `wrapPageElement` in `gatsby-ssr.js` and `gatsby-browser.js` (kept in sync between the two). **Do not** move it into `wrapRootElement` — the site's own `wrapRootElement` composes outside `gatsby-plugin-styled-components`'s `StyleSheetManager` in Gatsby's plugin order, so styles rendered there never make it into the SSR'd HTML, causing FOUC in production only. **Do not** move it into `Layout.tsx` either — `Layout` is re-mounted on every client-side page transition, which tears down a `GlobalStyle` nested inside it and leaves subsequent pages (and even the original page, once navigated away from) unstyled.
 - No inline styles.
 
 ## File Organization & Naming
@@ -57,4 +57,4 @@
 
 - No commented-out code, unused imports, or unused variables (`@typescript-eslint/no-unused-vars` is an error; prefix intentional unused args with `_`).
 - Keep the `npm run lint` and `npm run type-check` output clean for files you touch.
-- Retire migration artifacts (`*.legacy.js`, duplicate `constants.js`) rather than extending them.
+- Retire migration artifacts rather than extending them.
