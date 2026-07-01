@@ -1,3 +1,18 @@
+import React from "react";
+import { GlobalStyle } from "./src/style/global";
+
+//  Must mirror gatsby-ssr.js's wrapPageElement exactly so client hydration matches
+//  the server-rendered markup. See gatsby-ssr.js for why this lives here instead of
+//  wrapRootElement or Layout.tsx.
+export const wrapPageElement = ({ element }) => {
+  return (
+    <>
+      <GlobalStyle />
+      {element}
+    </>
+  );
+};
+
 let hasRefreshedOnUpdate = false;
 
 export const onServiceWorkerUpdateReady = () => {

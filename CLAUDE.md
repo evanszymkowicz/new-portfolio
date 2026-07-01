@@ -39,13 +39,13 @@ npx jest src/components/__tests__/layout.test.tsx
 
 **Data flow**: Content lives in `src/data/*.json` (jobs, projects, skills). Gatsby's `gatsby-transformer-json` exposes these as GraphQL at build time. Pages query GraphQL and pass typed data props down to content components. The canonical types are in `src/types/index.ts`.
 
-**Styling**: Styled Components 6 with SSR enabled via `gatsby-plugin-styled-components`. Design tokens (colors, breakpoints, spacing, `media` helpers) live in `src/style/theme.js`. `GlobalStyle` (`src/style/global.js`) is rendered from `Layout.tsx`, inside the page tree — this ensures its CSS is captured by `gatsby-plugin-styled-components`'s SSR sheet. Do not move it into `wrapRootElement` in `gatsby-browser.js`/`gatsby-ssr.js`: the site's own `wrapRootElement` composes *outside* (after) `gatsby-plugin-styled-components`'s `StyleSheetManager` in Gatsby's plugin order, so styles rendered there are silently dropped from the server-rendered HTML, causing a flash of unstyled text in production only. `src/style/shared.js` holds shared layout primitives like `ContentWrapper`.
+**Styling**: Styled Components 6 with SSR enabled via `gatsby-plugin-styled-components`. Design tokens (colors, breakpoints, spacing, `media` helpers) live in `src/style/theme.js`. `GlobalStyle` (`src/style/global.js`) is rendered from `wrapPageElement` in both `gatsby-ssr.js` and `gatsby-browser.js` (the two must stay in sync to avoid hydration mismatches). `wrapPageElement` composes *inside* `gatsby-plugin-styled-components`'s `StyleSheetManager` (unlike `wrapRootElement`, which composes outside/after it — styles rendered there are silently dropped from the server-rendered HTML, causing a flash of unstyled text in production only) and sits at a stable position in Gatsby's route tree, so it isn't torn down on client-side page transitions the way a `GlobalStyle` nested inside per-page `Layout.tsx` usage would be (each page mounts `Layout` separately, so a `GlobalStyle` placed there gets unmounted and never reliably reinstated after the first client-side navigation). Do not move `GlobalStyle` into `wrapRootElement` or back into `Layout.tsx`. `src/style/shared.js` holds shared layout primitives like `ContentWrapper`.
 
 **SEO**: Each page exports a `Head` function using the `<SEO>` component (`src/components/SEO/index.tsx`), which renders meta tags, Open Graph, Twitter Card, and JSON-LD structured data. Per-page metadata constants are in `src/utils/constants.ts` under the `META` object.
 
 **Images**: `gatsby-plugin-image` + `gatsby-transformer-sharp` handle optimized images. Project images are stored in `static/images/projects/<ProjectName>/`. The `imageRelativePath` field in `projects.json` is matched against `childImageSharp.gatsbyImageData` inside `ProjectsContent/index.tsx` using a normalized path map.
 
-**Projects page**: `ProjectsContent` splits projects into `featured` (carousel via `ProjectsFeaturedSection`) and non-featured list (filterable by category in `ProjectsListSection`). Category filter state is lifted into `ProjectsContent`. The `index.legacy.js` files are kept as reference during the TS migration.
+**Projects page**: `ProjectsContent` splits projects into `featured` (carousel via `ProjectsFeaturedSection`) and non-featured list (filterable by category in `ProjectsListSection`). Category filter state is lifted into `ProjectsContent`.
 
 **Layout**: `Layout.tsx` wraps every page with `Navigation` (bottom nav) and calls `promptInstall()` on mount for the PWA install prompt. Navigation uses `location.pathname` to highlight the active route.
 
@@ -55,6 +55,4 @@ npx jest src/components/__tests__/layout.test.tsx
 
 ## Known state
 
-- `src/utils/constants.js` is a duplicate of `src/utils/constants.ts` — the `.ts` version is authoritative; the `.js` file is a known leftover to remove.
-- `src/components/ProjectsContent/index.legacy.js` and `src/components/ProjectsFeaturedSection/index.legacy.js` are migration artifacts; they are not imported anywhere.
 - The codebase is ~94% JS / 6% TS. New components should be TypeScript.

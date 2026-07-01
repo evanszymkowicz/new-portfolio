@@ -2,7 +2,14 @@ import React, { ReactNode, useEffect } from "react";
 import Navigation from "./Navigation";
 import styled from "styled-components";
 import { promptInstall } from "../utils/serviceWorkerHelper";
-import { GlobalStyle } from "../style/global";
+
+// GlobalStyle is rendered once from wrapPageElement (gatsby-ssr.js / gatsby-browser.js),
+// not here. Layout is re-mounted on every client-side page transition (each page
+// nests it separately), so a GlobalStyle instance placed here gets torn down and
+// never reliably reinstated after the first client-side navigation. wrapPageElement
+// sits at a stable position in Gatsby's route tree that survives page swaps, while
+// still composing inside gatsby-plugin-styled-components' StyleSheetManager so SSR
+// output is unaffected.
 
 const LayoutWrapper = styled.div`
   min-height: 100vh;
@@ -30,7 +37,6 @@ export default function Layout({ children, location }: LayoutProps) {
 
   return (
     <LayoutWrapper>
-      <GlobalStyle />
       <main>{children}</main>
       <Navigation location={location} />
     </LayoutWrapper>
