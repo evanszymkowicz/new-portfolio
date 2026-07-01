@@ -1,17 +1,4 @@
 import React from "react";
-import { GlobalStyle } from "./src/style/global";
-
-//  wrapPageElement (unlike wrapRootElement) composes inside gatsby-plugin-styled-components'
-//  StyleSheetManager and sits at a stable position in Gatsby's route tree, so GlobalStyle
-//  survives client-side page transitions instead of being torn down with each page's Layout.
-export const wrapPageElement = ({ element }) => {
-  return (
-    <>
-      <GlobalStyle />
-      {element}
-    </>
-  );
-};
 
 //  onRenderBody is called by Gatsby during SSR for each page.
 //  Use this to inject critical styles and font loading tags as early as possible.
