@@ -1,16 +1,3 @@
-import React from "react";
-import { GlobalStyle } from "./src/style/global";
-
-// Wrap the root element with global styles
-export const wrapRootElement = ({ element }) => {
-  return (
-    <>
-      <GlobalStyle />
-      {element}
-    </>
-  );
-};
-
 let hasRefreshedOnUpdate = false;
 
 export const onServiceWorkerUpdateReady = () => {

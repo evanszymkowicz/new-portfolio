@@ -1,7 +1,5 @@
 import React, { useMemo, useState } from "react";
 import type { IGatsbyImageData } from "gatsby-plugin-image";
-import Head from "../Head";
-import { META } from "../../utils/constants";
 import { ContentWrapper } from "../../style/shared";
 import ProjectsFeaturedSection from "../ProjectsFeaturedSection";
 import ProjectsListSection from "../ProjectsListSection";
@@ -116,12 +114,8 @@ export default function ProjectsContent({
     });
   };
 
-  //  Now passes required pathname="/projects" to the Head component.
-  //  Fix missing required prop error in TypeScript.
-  //  Render order is Head, ProjectsFeaturedSection, ProjectsListSection.
   return (
     <ContentWrapper>
-      <Head {...META.projects} image={META.common.image} pathname="/projects" />
       <ProjectsFeaturedSection projects={filterByCategory(featured)} />
       <ProjectsListSection
         projects={filterByCategory(others)}
