@@ -15,7 +15,6 @@ const ProfileContent = ({ data }) => {
         <ProfileIntroSection
           content={() => (
             <>
-              <p>Yes, I am looking for new work.</p>
               <p>
                 {" "}
                 <a
@@ -23,7 +22,7 @@ const ProfileContent = ({ data }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  See what I am working on{" "}
+                  See what I am building{" "}
                 </a>
                 or contact me to work together.
               </p>
