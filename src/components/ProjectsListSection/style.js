@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import EmailMe from "../EmailMe";
 import DividerImage from "./divider.svg";
 import { colors, fonts, media } from "../../style/theme";
+import { focusVisible } from "../../style/shared";
 
 export const Wrapper = styled.section`
   max-width: 80%;
@@ -38,12 +39,10 @@ export const FilterButton = styled.button`
     content: "-";
     display: inline-block;
     margin: 0 0.5rem;
-    color: ${colors.grey};
+    color: ${colors.creamMuted};
   }
 
-  &:focus {
-    outline: 0;
-  }
+  ${focusVisible}
 
   ${(props) =>
     props.$active
@@ -51,7 +50,7 @@ export const FilterButton = styled.button`
           color: ${colors.darkYellow};
         `
       : css`
-          color: ${colors.grey};
+          color: ${colors.creamMuted};
         `}
 `;
 
@@ -62,7 +61,7 @@ export const QuestionWrapper = styled.footer`
 
   h2 {
     font-size: 1.1rem;
-    color: #e4e6ec;
+    color: ${colors.cream};
     margin-bottom: 0.75rem;
     line-height: 1.4em;
   }

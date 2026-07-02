@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { colors, media } from "../../style/theme";
+import { focusVisible } from "../../style/shared";
 
 export const Wrapper = styled.button`
   display: none;
@@ -56,7 +57,5 @@ export const Wrapper = styled.button`
     }
   }
 
-  &:focus {
-    outline: 0;
-  }
+  ${focusVisible}
 `;

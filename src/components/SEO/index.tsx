@@ -1,4 +1,5 @@
 import React from "react";
+import { META, SITE_CONFIG } from "../../utils/constants";
 
 interface SEOProps {
   title?: string;
@@ -12,26 +13,24 @@ interface SEOProps {
   children?: React.ReactNode;
 }
 
+const { siteUrl, author: defaultAuthor, social } = SITE_CONFIG;
+
 export function SEO({
   title,
   description,
   image,
   pathname = "/",
   article = false,
-  author = "Evan Szymkowicz",
+  author = defaultAuthor,
   keywords = [],
   lang = "en",
   children,
 }: SEOProps) {
-  const siteUrl = "https://www.evanwolf.tech";
-
   const seo = {
-    title: title || "Evan Szymkowicz | Software Developer",
+    title: title || `${defaultAuthor} | Software Developer`,
     description:
       description || "Washington, D.C. based developer and creative.",
-    image: image
-      ? `${siteUrl}${image}`
-      : `${siteUrl}/images/profile/evan-szymkowicz. jpeg`,
+    image: `${siteUrl}${image || META.common.image}`,
     url: `${siteUrl}${pathname}`,
   };
 
@@ -76,9 +75,9 @@ export function SEO({
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={seo.title} />
-      <meta name="twitter: description" content={seo.description} />
+      <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={seo.image} />
-      <meta name="twitter:creator" content="@evanszymkowicz" />
+      <meta name="twitter:creator" content={social.twitter} />
 
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json">

@@ -4,6 +4,7 @@ import ProfileListItem from "../ProfileListItem";
 import JobListItem from "../JobListItem";
 import ProfileList from "../ProfileList";
 import { ContentWrapper } from "../../style/shared";
+import { SITE_CONFIG } from "../../utils/constants";
 import { MainWrapper, ListsSection, SkillsList } from "./style";
 
 const ProfileContent = ({ data }) => {
@@ -18,7 +19,7 @@ const ProfileContent = ({ data }) => {
               <p>
                 {" "}
                 <a
-                  href="https://github.com/evanszymkowicz"
+                  href={SITE_CONFIG.social.github}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

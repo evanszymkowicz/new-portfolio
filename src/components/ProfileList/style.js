@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colors } from "../../style/theme";
 
 export const ListTitle = styled.h2`
-  color: #e4e6ec;
+  color: ${colors.cream};
   font-size: 1.1rem;
   font-weight: 400;
   margin-bottom: 1rem;

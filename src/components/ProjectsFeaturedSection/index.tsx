@@ -2,17 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Wrapper, ProjectFeatured, StyledCarousel } from "./style";
 import ProjectImage from "../ProjectImage";
-import type { IGatsbyImageData } from "gatsby-plugin-image";
-
-type FeaturedProject = {
-  title: string;
-  url?: string;
-  imageData?: IGatsbyImageData;
-};
-
-type FeaturedProjectEdge = {
-  project: FeaturedProject;
-};
+import type { FeaturedProjectEdge } from "../../types";
 
 type ProjectsFeaturedSectionProps = {
   projects?: FeaturedProjectEdge[];

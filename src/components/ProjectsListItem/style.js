@@ -38,7 +38,7 @@ export const ProjectTitle = styled.h3`
 export const ProjectInfos = styled.div`
   font-family: ${fonts.mono};
   font-size: 0.85rem;
-  color: ${colors.grey};
+  color: ${colors.creamMuted};
 `;
 
 export const ProjectYear = styled.span`

@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/Layout";
 import ProfileContent from "../components/ProfileContent";
 import { SEO } from "../components/SEO";
 import { META } from "../utils/constants";
@@ -39,10 +38,6 @@ export function Head() {
   );
 }
 
-export default function ProfilePage({ data, location }: ProfilePageProps) {
-  return (
-    <Layout location={location}>
-      <ProfileContent data={data} />
-    </Layout>
-  );
+export default function ProfilePage({ data }: ProfilePageProps) {
+  return <ProfileContent data={data} />;
 }

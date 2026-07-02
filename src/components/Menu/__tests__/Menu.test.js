@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import Menu from "../index";
+import { SITE_CONFIG } from "../../../utils/constants";
 
 describe("Menu Component", () => {
   it("renders navigation links", () => {
@@ -14,18 +15,12 @@ describe("Menu Component", () => {
     render(<Menu />);
 
     const githubLink = screen.getByText("GitHub");
-    expect(githubLink).toHaveAttribute(
-      "href",
-      "https://github.com/evanszymkowicz"
-    );
+    expect(githubLink).toHaveAttribute("href", SITE_CONFIG.social.github);
     expect(githubLink).toHaveAttribute("target", "_blank");
     expect(githubLink).toHaveAttribute("rel", "noopener noreferrer");
 
     const linkedinLink = screen.getByText("LinkedIn");
-    expect(linkedinLink).toHaveAttribute(
-      "href",
-      "https://www.linkedin.com/in/evanszymkowicz/"
-    );
+    expect(linkedinLink).toHaveAttribute("href", SITE_CONFIG.social.linkedin);
     expect(linkedinLink).toHaveAttribute("target", "_blank");
   });
 

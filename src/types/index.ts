@@ -42,6 +42,28 @@ export interface ProjectsData {
   };
 }
 
+// Query payload for ProjectsContent, defensive against missing/null fields
+// (unlike ProjectsData, which models the page-level query result as always present).
+export interface ProjectsQueryData {
+  projects?: {
+    edges?: ProjectEdge[];
+  };
+  projectImages?: {
+    nodes: Array<{
+      relativePath: string;
+      childImageSharp?: {
+        gatsbyImageData: IGatsbyImageData;
+      } | null;
+    }>;
+  };
+}
+
+export type FeaturedProject = Pick<Project, "title" | "url" | "imageData">;
+
+export interface FeaturedProjectEdge {
+  project: FeaturedProject;
+}
+
 // Job types
 export interface Job {
   company: string;

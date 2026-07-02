@@ -22,9 +22,20 @@ export const ContentWrapper = styled.div`
   `}
 `;
 
+export const focusVisible = css`
+  &:focus {
+    outline: 0;
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${colors.darkYellow};
+    outline-offset: 2px;
+  }
+`;
+
 export const ListItem = styled.li`
   font-size: 1rem;
-  color: ${colors.grey};
+  color: ${colors.creamMuted};
   padding: 0.3rem 0;
   line-height: 1.6em;
 `;

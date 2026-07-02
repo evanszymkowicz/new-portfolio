@@ -1,17 +1,6 @@
 import React from "react";
+import Layout from "./src/components/Layout";
 import { GlobalStyle } from "./src/style/global";
-
-//  Must mirror gatsby-ssr.js's wrapPageElement exactly so client hydration matches
-//  the server-rendered markup. See gatsby-ssr.js for why this lives here instead of
-//  wrapRootElement or Layout.tsx.
-export const wrapPageElement = ({ element }) => {
-  return (
-    <>
-      <GlobalStyle />
-      {element}
-    </>
-  );
-};
 
 let hasRefreshedOnUpdate = false;
 
@@ -30,7 +19,7 @@ export const onServiceWorkerUpdateReady = () => {
       }
 
       // Ensure we refresh once the new SW takes control.
-      navigator.serviceWorker.addEventListener("controllerchange",() => {
+      navigator.serviceWorker.addEventListener("controllerchange", () => {
         if (hasRefreshedOnUpdate) return;
         hasRefreshedOnUpdate = true;
         window.location.reload();
@@ -41,10 +30,10 @@ export const onServiceWorkerUpdateReady = () => {
         if (hasRefreshedOnUpdate) return;
         hasRefreshedOnUpdate = true;
         window.location.reload();
-      },1000);
+      }, 1000);
     })
     .catch((err) => {
-      console.error("Service Worker ready() failed:",err);
+      console.error("Service Worker ready() failed:", err);
       // If SW is in a weird state, a simple reload is often the best recovery.
       if (!hasRefreshedOnUpdate) {
         hasRefreshedOnUpdate = true;
@@ -68,3 +57,16 @@ export const onServiceWorkerUpdateFound = () => {
 export const onServiceWorkerRedundant = () => {
   console.log("Service Worker: Redundant");
 };
+
+// Mounts Layout once via Gatsby's router-level wrapper instead of inside
+// each page, so route changes swap only `element` and Layout's effects
+// (e.g. the PWA install-prompt listeners) don't re-run on every navigation.
+// GlobalStyle is rendered here too (must mirror gatsby-ssr.js exactly so client
+// hydration matches the server-rendered markup) rather than in wrapRootElement
+// or Layout.tsx — see gatsby-ssr.js for why.
+export const wrapPageElement = ({ element, props }) => (
+  <>
+    <GlobalStyle />
+    <Layout location={props.location}>{element}</Layout>
+  </>
+);
