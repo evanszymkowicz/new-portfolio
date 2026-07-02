@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
-import Layout from "../components/Layout";
 import { SEO } from "../components/SEO";
 import { fonts, colors, media } from "../style/theme";
 
@@ -15,7 +14,7 @@ const Subtitle = styled.h1`
   text-align: center;
   font-size: 1.1rem;
   font-family: ${fonts.mono};
-  color: ${colors.grey};
+  color: ${colors.creamMuted};
   margin: 1rem 0;
 
   span {
@@ -59,16 +58,14 @@ export function Head() {
   );
 }
 
-const NotFoundPage = ({ location }) => (
-  <Layout location={location}>
-    <Wrapper>
-      <header>
-        <Title>Sorry</Title>
-        <Subtitle>You have reached a dead end</Subtitle>
-        <BackToHome to="/">Go Home</BackToHome>
-      </header>
-    </Wrapper>
-  </Layout>
+const NotFoundPage = () => (
+  <Wrapper>
+    <header>
+      <Title>Sorry</Title>
+      <Subtitle>You have reached a dead end</Subtitle>
+      <BackToHome to="/">Go Home</BackToHome>
+    </header>
+  </Wrapper>
 );
 
 export default NotFoundPage;

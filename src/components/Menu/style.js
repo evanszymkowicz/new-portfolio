@@ -44,7 +44,7 @@ export const Wrapper = styled.nav`
       }
 
       &:hover {
-        color: #e4e6ec;
+        color: ${colors.cream};
 
         &::before {
           transform: translate(0, -50%);
@@ -93,7 +93,7 @@ export const NavItem = styled.li`
             }
           `
         : css`
-            color: ${colors.grey};
+            color: ${colors.creamMuted};
           `}
   }
 `;
@@ -102,7 +102,7 @@ export const NavLink = styled(Link).attrs({
   activeClassName: "active",
 })`
   &.active {
-    color: #e4e6ec;
+    color: ${colors.cream};
 
     &::before {
       transform: translate(0, -50%);

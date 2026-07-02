@@ -6,8 +6,8 @@ export const colors = {
   darkYellow: "#FDB813",
   darkRed: "#8B0000",
   silver: "#C0C0C0",
-  grey: "#808080",
-  white: "#FFFFFF",
+  cream: "#F5E9C8",
+  creamMuted: "#C2A878",
   black: "#000000",
 };
 

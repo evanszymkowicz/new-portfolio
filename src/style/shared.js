@@ -35,7 +35,7 @@ export const focusVisible = css`
 
 export const ListItem = styled.li`
   font-size: 1rem;
-  color: ${colors.grey};
+  color: ${colors.creamMuted};
   padding: 0.3rem 0;
   line-height: 1.6em;
 `;

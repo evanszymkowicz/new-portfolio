@@ -14,8 +14,13 @@ export const isStandalone = () => {
   );
 };
 
+let installPromptInitialized = false;
+
 // Prompt user to install PWA
 export const promptInstall = () => {
+  if (installPromptInitialized) return;
+  installPromptInitialized = true;
+
   let deferredPrompt: Event | null = null;
 
   window.addEventListener("beforeinstallprompt", (e) => {

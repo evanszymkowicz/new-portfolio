@@ -69,7 +69,7 @@ export const InfoWrapper = styled.header`
 
 export const Content = styled.main`
   line-height: 1.8em;
-  color: ${colors.grey};
+  color: ${colors.creamMuted};
   ${media.sm`
     margin-top: 1rem;
   `}
@@ -79,7 +79,7 @@ export const Content = styled.main`
   }
 
   a {
-    color: #fff;
+    color: ${colors.cream};
     border-bottom: 1px dotted ${colors.darkRed};
 
     &:hover {

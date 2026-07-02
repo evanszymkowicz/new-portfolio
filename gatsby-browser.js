@@ -1,3 +1,6 @@
+import React from "react";
+import Layout from "./src/components/Layout";
+
 let hasRefreshedOnUpdate = false;
 
 export const onServiceWorkerUpdateReady = () => {
@@ -15,7 +18,7 @@ export const onServiceWorkerUpdateReady = () => {
       }
 
       // Ensure we refresh once the new SW takes control.
-      navigator.serviceWorker.addEventListener("controllerchange",() => {
+      navigator.serviceWorker.addEventListener("controllerchange", () => {
         if (hasRefreshedOnUpdate) return;
         hasRefreshedOnUpdate = true;
         window.location.reload();
@@ -26,10 +29,10 @@ export const onServiceWorkerUpdateReady = () => {
         if (hasRefreshedOnUpdate) return;
         hasRefreshedOnUpdate = true;
         window.location.reload();
-      },1000);
+      }, 1000);
     })
     .catch((err) => {
-      console.error("Service Worker ready() failed:",err);
+      console.error("Service Worker ready() failed:", err);
       // If SW is in a weird state, a simple reload is often the best recovery.
       if (!hasRefreshedOnUpdate) {
         hasRefreshedOnUpdate = true;
@@ -53,3 +56,10 @@ export const onServiceWorkerUpdateFound = () => {
 export const onServiceWorkerRedundant = () => {
   console.log("Service Worker: Redundant");
 };
+
+// Mounts Layout once via Gatsby's router-level wrapper instead of inside
+// each page, so route changes swap only `element` and Layout's effects
+// (e.g. the PWA install-prompt listeners) don't re-run on every navigation.
+export const wrapPageElement = ({ element, props }) => (
+  <Layout location={props.location}>{element}</Layout>
+);

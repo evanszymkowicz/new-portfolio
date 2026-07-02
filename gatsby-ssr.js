@@ -1,10 +1,11 @@
 import React from "react";
+import Layout from "./src/components/Layout";
 
 //  onRenderBody is called by Gatsby during SSR for each page.
 //  Use this to inject critical styles and font loading tags as early as possible.
 export const onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
-    React.createElement("meta",{
+    React.createElement("meta", {
       name: "theme-color",
       content: "#013220",
       key: "theme-color",
@@ -13,7 +14,7 @@ export const onRenderBody = ({ setHeadComponents }) => {
     //  TypeError can't access property classList of null was caused by hydration running in <head> before <body> existed in the DOM.
     //  fonts-loaded was never added and the body stayed invisible on every reload.
     //  Background color and rules are kept to prevent white flash on first paint without blocking content visibility.
-    React.createElement("style",{
+    React.createElement("style", {
       key: "critical-style",
       dangerouslySetInnerHTML: {
         __html: `
@@ -28,24 +29,23 @@ export const onRenderBody = ({ setHeadComponents }) => {
         `,
       },
     }),
-    // Preconnect to Google Fonts servers to reduce latency
-    React.createElement("link",{
-      rel: "preconnect",
-      href: "https://fonts.googleapis.com",
-      key: "gf-preconnect-1",
-    }),
-    React.createElement("link",{
-      rel: "preconnect",
-      href: "https://fonts.gstatic.com",
+    // Preload the above-the-fold font weights (self-hosted) so they're
+    // discovered before the CSSOM parse reaches the @font-face rules.
+    React.createElement("link", {
+      rel: "preload",
+      href: "/fonts/Roboto-Regular.woff2",
+      as: "font",
+      type: "font/woff2",
       crossOrigin: "anonymous",
-      key: "gf-preconnect-2",
+      key: "preload-roboto-regular",
     }),
-    // Google Fonts stylesheet: display=swap shows fallback font immediately,
-    // swaps to Roboto when loaded. No blank page, no FOUT blocking.
-    React.createElement("link",{
-      href: "https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap",
-      rel: "stylesheet",
-      key: "gf-stylesheet",
+    React.createElement("link", {
+      rel: "preload",
+      href: "/fonts/RobotoMono-Regular.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+      key: "preload-roboto-mono-regular",
     }),
   ]);
 };
@@ -57,11 +57,10 @@ export const onPreRenderHTML = ({
   replaceHeadComponents,
 }) => {
   const headComponents = getHeadComponents();
-  headComponents.sort((a,b) => {  //  Prioritize styled-components styles and critical inline styles at the top
-    const aIsStyle =
-      a.type === "style" || (a.props && a.props["data-styled"]);
-    const bIsStyle =
-      b.type === "style" || (b.props && b.props["data-styled"]);
+  headComponents.sort((a, b) => {
+    //  Prioritize styled-components styles and critical inline styles at the top
+    const aIsStyle = a.type === "style" || (a.props && a.props["data-styled"]);
+    const bIsStyle = b.type === "style" || (b.props && b.props["data-styled"]);
 
     if (aIsStyle && !bIsStyle) return -1;
     if (!aIsStyle && bIsStyle) return 1;
@@ -69,3 +68,9 @@ export const onPreRenderHTML = ({
   });
   replaceHeadComponents(headComponents);
 };
+
+// Must mirror gatsby-browser.js's wrapPageElement exactly so the SSR'd
+// markup matches what the client hydrates.
+export const wrapPageElement = ({ element, props }) => (
+  <Layout location={props.location}>{element}</Layout>
+);

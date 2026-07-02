@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/Layout";
 import ProjectsContent from "../components/ProjectsContent";
 import { SEO } from "../components/SEO";
 import { META } from "../utils/constants";
@@ -54,10 +53,6 @@ export function Head() {
   );
 }
 
-export default function ProjectsPage({ data, location }: ProjectsPageProps) {
-  return (
-    <Layout location={location}>
-      <ProjectsContent data={data} />
-    </Layout>
-  );
+export default function ProjectsPage({ data }: ProjectsPageProps) {
+  return <ProjectsContent data={data} />;
 }
