@@ -4,10 +4,10 @@ import ProfileListItem from "../ProfileListItem";
 import JobListItem from "../JobListItem";
 import ProfileList from "../ProfileList";
 import { ContentWrapper } from "../../style/shared";
-import { MainWrapper,ListsSection,SkillsList } from "./style";
+import { MainWrapper, ListsSection, SkillsList } from "./style";
 
 const ProfileContent = ({ data }) => {
-  const { jobs,skills } = data;
+  const { jobs, skills } = data;
 
   return (
     <ContentWrapper>
@@ -34,7 +34,7 @@ const ProfileContent = ({ data }) => {
             <ProfileList
               title="Experience"
               list={() =>
-                jobs.edges.map(({ job },i) => <JobListItem key={i} {...job} />)
+                jobs.edges.map(({ job }, i) => <JobListItem key={i} {...job} />)
               }
             />
           )}
@@ -42,7 +42,7 @@ const ProfileContent = ({ data }) => {
             <SkillsList
               title="Technology"
               list={() =>
-                skills.edges.map(({ skill },i) => (
+                skills.edges.map(({ skill }, i) => (
                   <ProfileListItem key={i} {...skill} />
                 ))
               }
