@@ -3,59 +3,7 @@ import type { IGatsbyImageData } from "gatsby-plugin-image";
 import { ContentWrapper } from "../../style/shared";
 import ProjectsFeaturedSection from "../ProjectsFeaturedSection";
 import ProjectsListSection from "../ProjectsListSection";
-
-//  New index.tsx with image data handling.
-//  Replaces the previous version that only had direct access to image paths.
-//  This version normalizes image paths and creates a map for efficient lookup.
-
-//  Base project type with with raw data from GraphQL query excluding image data.
-//  Required fields is title. Optional fields is category, year, url, featured, and imageRelativePath (the new field that holds the relative path to the image).
-//  Update scehema fields here first when adding new fields to the project schema in GraphQL query. This type is used for the projects data before image data is added.
-//  One canonical source of truth for project content
-type BaseProject = {
-  title: string;
-  category?: string[];
-  year?: string;
-  url?: string;
-  featured?: boolean;
-  imageRelativePath?: string | null;
-};
-
-//  UI data
-//  Extends BaseProject with Gatsby image payload for use with image rendering components.
-//  The imageData field is optional because not all projects have an image.
-//  The component should be able to handle cases where image data is missing without breaking.
-//  This type is used for after image data is added.
-type ProjectWithImageData = BaseProject & {
-  imageData?: IGatsbyImageData;
-};
-
-//  Collection wrapper
-//  GraphQl lists are commonly wrapped in an edges/node structure. This type represents a single edge.
-//  Used to avoid ahhoc edges array and to provide a clear structure for the project data as it flows through the component.
-type ProjectEdge = {
-  project: ProjectWithImageData;
-};
-
-//  Query payload
-//  Models full response shape for Projects page query.
-//  Creates a clear contract for the data prop passed into the ProjectsContent component.
-//  Fewer runtime errors and better experience working with the data prop. The shape is defined and documented in one place.
-type ProjectsQueryData = {
-  projects?: {
-    edges?: {
-      project: BaseProject;
-    }[];
-  };
-  projectImages?: {
-    nodes: {
-      relativePath: string;
-      childImageSharp?: {
-        gatsbyImageData: IGatsbyImageData;
-      } | null;
-    }[];
-  };
-};
+import type { ProjectEdge, ProjectsQueryData } from "../../types";
 
 //  Clean relative paths just in case there is an error.
 function cleanRelativePath(path?: string | null): string {

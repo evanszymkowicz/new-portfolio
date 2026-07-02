@@ -1,5 +1,6 @@
 import React from "react";
 import EmailMe from "../EmailMe";
+import { SITE_CONFIG } from "../../utils/constants";
 import { Wrapper, Nav, NavItem, NavLink } from "./style";
 
 const Menu = () => (
@@ -7,7 +8,7 @@ const Menu = () => (
     <Nav>
       <NavItem>
         <a
-          href="https://github.com/evanszymkowicz"
+          href={SITE_CONFIG.social.github}
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -16,7 +17,7 @@ const Menu = () => (
       </NavItem>
       <NavItem>
         <a
-          href="https://www.linkedin.com/in/evanszymkowicz/"
+          href={SITE_CONFIG.social.linkedin}
           rel="noopener noreferrer"
           target="_blank"
         >

@@ -8,6 +8,7 @@ export const SITE_CONFIG = {
     twitter: "@evanszymkowicz", // Update with your actual Twitter handle
     github: "https://github.com/evanszymkowicz",
     linkedin: "https://www.linkedin.com/in/evanszymkowicz", // Update with actual URL
+    email: "ews-tech.pages.dev@protonmail.com",
   },
 };
 
