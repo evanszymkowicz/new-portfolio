@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import EmailMe from "../EmailMe";
 import DividerImage from "./divider.svg";
 import { colors, fonts, media } from "../../style/theme";
+import { focusVisible } from "../../style/shared";
 
 export const Wrapper = styled.section`
   max-width: 80%;
@@ -41,9 +42,7 @@ export const FilterButton = styled.button`
     color: ${colors.grey};
   }
 
-  &:focus {
-    outline: 0;
-  }
+  ${focusVisible}
 
   ${(props) =>
     props.$active
