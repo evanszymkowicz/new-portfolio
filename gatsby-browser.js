@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "./src/components/Layout";
+import { GlobalStyle } from "./src/style/global";
 
 let hasRefreshedOnUpdate = false;
 
@@ -60,6 +61,12 @@ export const onServiceWorkerRedundant = () => {
 // Mounts Layout once via Gatsby's router-level wrapper instead of inside
 // each page, so route changes swap only `element` and Layout's effects
 // (e.g. the PWA install-prompt listeners) don't re-run on every navigation.
+// GlobalStyle is rendered here too (must mirror gatsby-ssr.js exactly so client
+// hydration matches the server-rendered markup) rather than in wrapRootElement
+// or Layout.tsx — see gatsby-ssr.js for why.
 export const wrapPageElement = ({ element, props }) => (
-  <Layout location={props.location}>{element}</Layout>
+  <>
+    <GlobalStyle />
+    <Layout location={props.location}>{element}</Layout>
+  </>
 );
