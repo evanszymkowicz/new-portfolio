@@ -6,8 +6,7 @@ const EmailMe = ({ className = "", text }) => (
   <a
     className={className}
     rel="noopener"
-    href={`mailto:${SITE_CONFIG.social.email}`}
-  >
+    href={`mailto:${SITE_CONFIG.social.email}`}>
     {text}
   </a>
 );

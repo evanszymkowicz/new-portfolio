@@ -42,8 +42,7 @@ export default function ProjectsFeaturedSection({
                 className="image-link"
                 href={url}
                 target="_blank"
-                rel="noopener noreferrer"
-              >
+                rel="noopener noreferrer">
                 <div className="card">
                   <div className="image-wrap">{imageElement}</div>
                 </div>
@@ -67,8 +66,7 @@ export default function ProjectsFeaturedSection({
                   className="cta"
                   href={url}
                   target="_blank"
-                  rel="noopener noreferrer"
-                >
+                  rel="noopener noreferrer">
                   More Info
                 </a>
               ) : null}
@@ -90,8 +88,7 @@ export default function ProjectsFeaturedSection({
       showThumbs={false}
       showStatus={false}
       interval={10000}
-      autoPlay
-    >
+      autoPlay>
       {projectsList}
     </StyledCarousel>
   ) : (

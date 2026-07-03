@@ -15,19 +15,15 @@ const ProfileContent = ({ data }) => {
       <MainWrapper>
         <ProfileIntroSection
           content={() => (
-            <>
-              <p>
-                {" "}
-                <a
-                  href={SITE_CONFIG.social.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  See what I am building{" "}
-                </a>
-                or contact me to work together.
-              </p>
-            </>
+            <p>
+              <a
+                href={SITE_CONFIG.social.github}
+                target="_blank"
+                rel="noopener noreferrer">
+                See what I am building
+              </a>{" "}
+              or contact me to work together.
+            </p>
           )}
         />
         <ListsSection>
