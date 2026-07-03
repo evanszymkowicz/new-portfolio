@@ -6,8 +6,7 @@ const ToggleMenu = ({ $open, ...props }) => (
     $open={$open}
     aria-label="Toggle menu"
     aria-expanded={$open}
-    {...props}
-  >
+    {...props}>
     <span />
     <span />
     <span />

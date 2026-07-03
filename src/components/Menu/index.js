@@ -10,8 +10,7 @@ const Menu = () => (
         <a
           href={SITE_CONFIG.social.github}
           rel="noopener noreferrer"
-          target="_blank"
-        >
+          target="_blank">
           GitHub
         </a>
       </NavItem>
@@ -19,8 +18,7 @@ const Menu = () => (
         <a
           href={SITE_CONFIG.social.linkedin}
           rel="noopener noreferrer"
-          target="_blank"
-        >
+          target="_blank">
           LinkedIn
         </a>
       </NavItem>
