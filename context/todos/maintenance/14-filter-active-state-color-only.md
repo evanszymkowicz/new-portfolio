@@ -4,7 +4,7 @@
 
 ## Issue
 
-`src/components/ProjectsListSection/index.js:18-38` — the `web`/`code`/`email` category filter buttons only change text color (`FilterButton` `$active` prop, `src/components/ProjectsListSection/style.js:26-56`) with no `aria-pressed` state or non-color indicator. Compounded by the contrast issue in [[07-low-text-contrast]].
+`src/components/ProjectsListSection/index.js:18-38` — the `web`/`code`/`email` category filter buttons only change text color (`FilterButton` `$active` prop, `src/components/ProjectsListSection/style.js` — active `colors.darkYellow`, inactive `colors.creamMuted`) with no `aria-pressed` state or non-color indicator. Compounded by the contrast issue in [[07-low-text-contrast]].
 
 ## Fix
 

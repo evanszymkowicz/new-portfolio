@@ -4,7 +4,9 @@
 
 ## Issue
 
-No skip link implementation exists anywhere in `src` (confirmed via grep). `src/components/Layout.tsx` renders `<main>` directly after `GlobalStyle`/nav; a keyboard user must tab through the whole header/nav before reaching content on every page.
+No skip link implementation exists anywhere in `src` (confirmed via grep).
+
+**Correction (2026-07-06 re-audit):** the original rationale was inverted — `Layout.tsx` renders `<main>` *before* `<Navigation>` in the DOM, so keyboard users actually reach content first and hit the nav last. A skip link is still worthwhile (the visual layout implies nav-first, and it lets users jump *to* the nav landmark too), but it's a best-practice improvement, not a fix for a tab-order problem.
 
 ## Fix
 

@@ -4,13 +4,15 @@
 
 ## Issue
 
-The same dotted-underline decoration is hand-composed in three styled files:
+The same dotted-underline decoration is hand-composed in five places (list expanded by the 2026-07-06 re-audit):
 
 - `src/components/JobListItem/style.js:5` — `border-bottom: 1px dotted ${colors.darkRed}`
-- `src/components/ProfileIntroSection/style.js:83`
-- `src/components/ProjectsListSection/style.js:89`
+- `src/components/ProfileIntroSection/style.js` (`Content` link styles)
+- `src/components/ProjectsListSection/style.js` (`StyledEmailMe`)
+- `src/pages/404.jsx` (`BackToHome`)
+- `src/components/ProjectsListItem/style.js` (`Wrapper`, dotted `colors.silver` variant)
 
-with a hover variant in two of them.
+with a hover variant in several of them.
 
 ## Fix
 

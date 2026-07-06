@@ -4,7 +4,7 @@
 
 ## Issue
 
-`src/components/ProjectsListSection/style.js:27` sets `color: $active ? "#f2b211" : "#7c9a8f"` (raw hexes), then lines 48-55 override with `$active ? colors.darkYellow (#FDB813) : colors.grey`. The line-27 values are dead and use different hexes than the tokens — confusing and a latent bug if the override is ever removed.
+`src/components/ProjectsListSection/style.js:27` sets `color: $active ? "#f2b211" : "#7c9a8f"` (raw hexes), then a later block overrides with `$active ? colors.darkYellow (#FDB813) : colors.creamMuted`. The line-27 values are dead and use different hexes than the tokens — confusing and a latent bug if the override is ever removed.
 
 ## Fix
 
