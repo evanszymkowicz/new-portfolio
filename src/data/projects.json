@@ -1,18 +1,28 @@
 [
   {
+    "title": "DevMemory: Store your Developer Knowledge",
+    "category": ["website", "code"],
+    "year": "2026",
+    "url": "https://devmem-chi.vercel.app/",
+    "featured": false,
+    "imageRelativePath": "projects/DevMemory/devmemory.png",
+    "featuredCategories": ["code"]
+  },
+  {
+    "title": "Homestand",
+    "category": ["website", "code"],
+    "year": "2026",
+    "url": "https://homestand.pages.dev",
+    "featured": true,
+    "imageRelativePath": "projects/Homestand/homestand.png"
+  },
+  {
     "title": "Administration for Children & Families",
     "category": ["website"],
     "year": "2025",
     "url": "https://acf.gov/",
     "imageRelativePath": "projects/ACF/acf.png",
     "featured": true
-  },
-  {
-    "title": "DevMemory: Store your Developer Knowledge",
-    "category": ["website", "code"],
-    "year": "2026",
-    "url": "https://devmem-chi.vercel.app/",
-    "featured": false
   },
   {
     "title": "National Heart, Lung, and Blood Institute",
@@ -52,32 +62,48 @@
     "featured": false
   },
   {
-    "title": "Promotional Email Campaign",
+    "title": "Animated Email",
     "category": ["email"],
-    "year": "2019",
-    "url": "https://github.com/evanszymkowicz/tmobile-email",
-    "featured": false
+    "year": "2020",
+    "featured": true,
+    "url": "https://evanszymkowicz.github.io/emails/animation-email.html",
+    "imageRelativePath": "projects/AnimatedEmail/animatedemail.png",
+    "featuredCategories": ["email"]
   },
   {
-    "title": "Monthly Newsletter",
+    "title": "New Product Campaign",
     "category": ["email"],
     "year": "2019",
-    "url": "https://github.com/evanszymkowicz/augnewsletter-email",
-    "featured": false
+    "url": "https://evanszymkowicz.github.io/emails/tmobile-email.html",
+    "featured": false,
+    "imageRelativePath": "projects/NewProductCampaign/newproductcampaign.png"
   },
   {
-    "title": "Upcoming Schedule Email",
+    "title": "August Newsletter",
     "category": ["email"],
     "year": "2019",
-    "url": "https://github.com/evanszymkowicz/upcoming-schedule-email",
-    "featured": false
+    "url": "https://evanszymkowicz.github.io/emails/augnewsletter-email.html",
+    "featured": true,
+    "imageRelativePath": "projects/AugustNewsletter/augustnewsletter.png",
+    "featuredCategories": ["email"]
   },
   {
-    "title": "Weekly Promotional Email",
+    "title": "This Week in Big 12 Football on ESPN+",
     "category": ["email"],
     "year": "2019",
-    "url": "https://github.com/evanszymkowicz/restaurant-emails",
-    "featured": false
+    "url": "https://evanszymkowicz.github.io/emails/upcoming-schedule-email-collegefootball-090719.html",
+    "featured": true,
+    "imageRelativePath": "projects/ThisWeekInBig12FootballOnESPNPlus/thisweekinbig12footballonespnplus.png",
+    "featuredCategories": ["email"]
+  },
+  {
+    "title": "This Week's Specials",
+    "category": ["email"],
+    "year": "2019",
+    "url": "https://evanszymkowicz.github.io/emails/restaurant-emails.html",
+    "featured": true,
+    "imageRelativePath": "projects/ThursdaySpecials/thursdayspecials.png",
+    "featuredCategories": ["email"]
   },
   {
     "title": "Interactive Strategies",
@@ -90,7 +116,7 @@
     "title": "Washington Design Center",
     "category": ["website"],
     "year": "2019",
-    "featured": true,
+    "featured": false,
     "url": "https://dc-design.netlify.app",
     "imageRelativePath": "projects/WashingtonDesignCenter/designcenter.png"
   }

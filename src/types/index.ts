@@ -20,6 +20,7 @@ export interface Project {
   // Using Gatsby's image data type for optimized images
   imageRelativePath?: string; // Relative path to the image in the project
   imageData?: IGatsbyImageData; // Gatsby image data for optimized rendering
+  featuredCategories?: string[];
 }
 
 export interface ProjectEdge {
