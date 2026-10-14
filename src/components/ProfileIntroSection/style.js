@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Image from "../Image";
 import { colors, media } from "../../style/theme";
 
 export const Wrapper = styled.section`
@@ -14,46 +13,6 @@ export const Wrapper = styled.section`
   `}
 `;
 
-export const StyledImage = styled(Image)`
-  grid-area: 1 / 4 / last-line / end;
-  background: ${colors.darkGreen};
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: "";
-    padding-top: 150%;
-    display: block;
-    ${media.sm`
-      padding-top: 100%;
-    `}
-  }
-
-  img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    top: -100%;
-    right: -100%;
-    bottom: -100%;
-    left: -100%;
-    mix-blend-mode: lighten;
-    opacity: 0.5;
-    display: block;
-    object-fit: cover;
-    ${media.sm`
-      opacity: .5;
-    `}
-  }
-
-  ${media.sm`
-    grid-area: 1 / 1 / 1 / 1;
-    &:before {
-      padding-top: 100%;
-    }
-  `}
-`;
 export const InfoWrapper = styled.header`
   grid-row: 1 / 3;
   grid-column: 1 / 6;

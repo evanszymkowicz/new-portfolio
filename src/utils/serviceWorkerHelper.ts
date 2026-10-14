@@ -1,19 +1,3 @@
-// Extend Navigator interface for standalone property
-declare global {
-  interface Navigator {
-    standalone?: boolean;
-  }
-}
-
-// Check if app is running standalone (installed as PWA)
-export const isStandalone = () => {
-  return (
-    window.matchMedia("(display-mode: standalone)").matches ||
-    window.navigator.standalone ||
-    document.referrer.includes("android-app://")
-  );
-};
-
 let installPromptInitialized = false;
 
 // Prompt user to install PWA

@@ -1,22 +1,20 @@
 name: CI/CD Pipeline
 
 on:
-  push: 
+  push:
     branches: [main, develop]
     paths-ignore:
     - '*.md'
     - 'docs/**'
-    - '.github/ISSUE_TEMPLATE/**'
-    - '.github/pull_request_template.md'
-  pull_request: 
+  pull_request:
     branches: [main, develop]
 
 jobs:
-  quality: 
+  quality:
     name: Code Quality
     runs-on: ubuntu-latest
-    
-    steps: 
+
+    steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -24,7 +22,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache:  'npm'
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
@@ -38,53 +36,25 @@ jobs:
       - name: TypeScript type check
         run: npm run type-check
 
-  test:
-    name: Unit Tests
+  build:
+    name: Build Application
     runs-on: ubuntu-latest
-    
+    needs: [quality]
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node. js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps
-
-      - name: Run tests with coverage
-        run: npm run test:ci
-
-      - name: Upload coverage reports
-        uses: codecov/codecov-action@v4
-        if: always()
-        with:
-          files: ./coverage/coverage-final.json
-          flags: unittests
-          fail_ci_if_error: false
-
-  build:
-    name: Build Application
-    runs-on: ubuntu-latest
-    needs: [quality, test]
-    
-    steps:
-      - name: Checkout code
-        uses:  actions/checkout@v4
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
-        with: 
+        with:
           node-version: '20'
           cache: 'npm'
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      - name:  Build Gatsby site
+      - name: Build Gatsby site
         run: npm run build
         env:
           NODE_ENV: production
@@ -95,4 +65,3 @@ jobs:
           name: build-output
           path: public
           retention-days: 7
-

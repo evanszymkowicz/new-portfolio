@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+#
+# Pre-commit: lint and format-check staged src/ files.
+# Enable once per clone: git config core.hooksPath .githooks
+#
+# Deliberately scoped to src/ — it matches the `npm run lint` glob and skips
+# generated output (public/, .cache/) and config files that don't need gating.
+
+set -e
+
+files=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '^src/.*\.(js|jsx|ts|tsx)$' || true)
+
+[ -z "$files" ] && exit 0
+
+# Skip cleanly on a fresh clone with no node_modules.
+[ -x node_modules/.bin/eslint ] || exit 0
+
+echo "$files" | tr '\n' '\0' | xargs -0 node_modules/.bin/eslint
+
+echo "$files" | tr '\n' '\0' | xargs -0 node_modules/.bin/prettier --check
+
+exit 0

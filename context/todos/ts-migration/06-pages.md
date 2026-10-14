@@ -10,7 +10,7 @@
 ## Details
 
 - Both are simple static pages, unlike `index.tsx`/`profile.tsx`/`projects.tsx` they likely take no GraphQL props — confirm via their current content before assuming a `PageProps` type is even needed.
-- Each should still export a `Head` function using `<SEO>` per the project's SEO pattern (`CLAUDE.md`) — verify they already do, and if not, that's a pre-existing gap to flag separately rather than scope-creep into this conversion.
+- Each should still export a `Head` function using `<SEO>` per the project's SEO pattern (`AGENTS.md`) — verify they already do, and if not, that's a pre-existing gap to flag separately rather than scope-creep into this conversion.
 
 ## Verify
 

@@ -1,6 +1,6 @@
 # TypeScript Modernization TODOs
 
-Plan for finishing the JS → TS migration referenced in `CLAUDE.md` ("~94% JS / 6% TS ... new work should be TypeScript"). As of 2026-07-03, 33 source files are still `.js`/`.jsx` against 14 `.tsx`/`.ts`.
+Plan for finishing the JS → TS migration referenced in `AGENTS.md` ("~94% JS / 6% TS ... new work should be TypeScript"). As of 2026-07-03, 33 source files are still `.js`/`.jsx` against 14 `.tsx`/`.ts`.
 
 Sections are ordered by dependency: convert what everything else imports first (theme/style/utils), then leaf-out through chrome, content sections, pages, and finally cleanup. Each section is a self-contained PR-sized unit.
 

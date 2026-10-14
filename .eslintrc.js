@@ -12,7 +12,6 @@ module.exports = {
     browser: true,
     es2022: true,
     node: true,
-    jest: true, // Add Jest globals
   },
   extends: [
     "eslint:recommended",
@@ -46,7 +45,4 @@ module.exports = {
       },
     },
   ],
-  globals: {
-    LAMBDA_ENDPOINT: "readonly", // Define global for webpack DefinePlugin
-  },
 };

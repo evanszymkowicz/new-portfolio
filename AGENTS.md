@@ -1,41 +1,22 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for AI agents working in this repository. Harness- and model-agnostic.
 
-## Context Files
+## Project
 
-Read these for the full working context:
+Evan Szymkowicz's portfolio site. A static Gatsby build: four pages, JSON content, styled
+components, deployed to Cloudflare Pages.
 
-- @context/coding-standards.md — TypeScript, React, Gatsby, Styled Components, testing, and quality conventions
-- @context/ai-interaction.md — how to collaborate, verification steps, and git/commit rules
+## Read before starting work
 
-## Commands
-
-```bash
-npm run dev             # Start dev server at localhost:8000
-npm run build           # Production build
-npm run serve           # Serve production build locally
-npm run clean           # Clear Gatsby cache (run when seeing stale build issues)
-
-npm run type-check      # TypeScript check (no emit)
-npm run lint            # ESLint across src/
-npm run lint:fix        # ESLint with auto-fix
-npm run format          # Prettier format src/
-
-npm test                # Run Jest tests
-npm run test:watch      # Jest in watch mode
-npm run test:coverage   # Jest with coverage report
-npm run test:ci         # Jest for CI (--ci --coverage --maxWorkers=2)
-```
-
-To run a single test file:
-```bash
-npx jest src/components/__tests__/layout.test.tsx
-```
+- `context/coding-standards.md` — TypeScript, React, Gatsby, Styled Components, and quality conventions.
+- `context/ai-interaction.md` — how to work in this repo: verification steps, git/commit rules.
+- `context/todos/ts-migration/` — the unfinished JS→TS migration, broken out by section.
+- `CHEATSHEET.md` — every command in this repo, deduplicated. Read it when you need to run something.
 
 ## Architecture
 
-**Framework**: Gatsby 5 with React 18 and TypeScript. The codebase is mid-migration — most components are `.js`, but new work should be `.tsx`/`.ts`. Pages are in `src/pages/`, components in `src/components/`.
+**Framework**: Gatsby 5 with React 18 and TypeScript. The codebase is mid-migration — 33 files are still `.js`/`.jsx` against 12 `.ts`/`.tsx`, but new work must be `.tsx`/`.ts`. Pages are in `src/pages/`, components in `src/components/`.
 
 **Data flow**: Content lives in `src/data/*.json` (jobs, projects, skills). Gatsby's `gatsby-transformer-json` exposes these as GraphQL at build time. Pages query GraphQL and pass typed data props down to content components. The canonical types are in `src/types/index.ts`.
 
@@ -45,14 +26,18 @@ npx jest src/components/__tests__/layout.test.tsx
 
 **Images**: `gatsby-plugin-image` + `gatsby-transformer-sharp` handle optimized images. Project images are stored in `static/images/projects/<ProjectName>/`. The `imageRelativePath` field in `projects.json` is matched against `childImageSharp.gatsbyImageData` inside `ProjectsContent/index.tsx` using a normalized path map.
 
-**Projects page**: `ProjectsContent` splits projects into `featured` (carousel via `ProjectsFeaturedSection`) and non-featured list (filterable by category in `ProjectsListSection`). Category filter state is lifted into `ProjectsContent`.
+**Projects page**: `ProjectsContent` splits projects into `featured` and non-featured lists (filterable by category in `ProjectsListSection`). `ProjectsFeaturedSection` renders both a CSS grid and a `react-responsive-carousel` and lets a media query pick one — do not reintroduce JS resize state for this. Category filter state is lifted into `ProjectsContent`.
 
 **Layout**: `Layout.tsx` wraps every page with `Navigation` (bottom nav) and calls `promptInstall()` on mount for the PWA install prompt. Navigation uses `location.pathname` to highlight the active route.
 
-**Testing**: Tests live in `__tests__/` subdirectories co-located with components, or in `src/components/__tests__/` for shared tests. Import from `src/test-utils/index.tsx` instead of `@testing-library/react` directly to get the custom render wrapper. Gatsby internals are mocked in `__mocks__/gatsby.js`.
+**Deployment**: Cloudflare Pages via Wrangler CLI (`wrangler.toml`). GitHub Actions runs CI (lint/type-check/build) on PRs and deploys on pushes to `main`; preview deployments run on PRs.
 
-**Deployment**: Cloudflare Pages via Wrangler CLI (`wrangler.toml`). GitHub Actions runs three workflows: CI (lint/type-check/test/build), Preview (PR preview URLs), and Deploy (push to `main`).
+## Hooks
+
+`.githooks/pre-commit` runs ESLint and a Prettier check against staged `src/` files. Enable once
+per clone: `git config core.hooksPath .githooks`. No harness hook support is required.
 
 ## Known state
 
-- The codebase is ~94% JS / 6% TS. New components should be TypeScript.
+- The JS→TS migration is unfinished; see `context/todos/ts-migration/`. New components must be TypeScript.
+- There is no test suite and no e2e suite. Verification is `npm run lint`, `npm run type-check`, `npm run build`, and a browser pass for UI changes.

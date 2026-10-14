@@ -1,7 +1,6 @@
 # Evan Szymkowicz Portfolio
 
 [![CI/CD Pipeline](https://github.com/evanszymkowicz/new-portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/evanszymkowicz/new-portfolio/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/evanszymkowicz/new-portfolio/branch/main/graph/badge.svg)](https://codecov.io/gh/evanszymkowicz/new-portfolio)
 
 Modern portfolio website built with Gatsby 5, React 18, and TypeScript.
 
@@ -11,8 +10,8 @@ Modern portfolio website built with Gatsby 5, React 18, and TypeScript.
 - **UI Library**: React 18.3
 - **Styling**: Styled Components 6
 - **Language**: TypeScript + JavaScript
-- **Testing**: Jest + React Testing Library
-- **CI/CD**: GitHub Actions + Cloudfare pages + Wranger CLI + Dependabot
+- **Quality**: ESLint + Prettier + `tsc --noEmit`
+- **CI/CD**: GitHub Actions + Cloudflare Pages + Wrangler CLI
 
 ## Installation Steps
 
@@ -27,11 +26,9 @@ npm run clean        # Clean Gatsby cache
 ## New in 2025:
 
 - TypeScript 5.9 (type safety)
-- Jest 30 (unit testing)
 - GitHub Actions (automation)
 - Cloudflare Pages (hosting)
 - Wrangler CLI (deployment)
-- Dependabot (dependency management)
 - Progressive Web App (PWA)
 
 ## 2025 Modernization Roadmap
@@ -174,25 +171,12 @@ npm run clean        # Clean Gatsby cache
 
 ### Future Items:
 
-1. **Code Optimization**:
-   - There is a mix of function and class based components and styling
-   - Code can be refactored to use optional chaining and nullish coalescing
-   - Limited type safety
+1. **Finish the TS migration**:
+   - Remaining `.js` components → `.tsx`
 
-2. **Remove Duplicate Files**:
-   - src/utils/constants.js
+2. **E2E Testing with Playwright**:
+   - Test structure and CI integration
 
-3. **Modernize Styled Components**:
-   - Retire object reduce and use fromEntries across component library
-
-4. **Atomic Design System**:
-   - Low priority feature.
-   - Would not normally make sense for a site of this size.
-   - Implement design tokens
-   - Add Storybook
-
-5. **E2E Testing with Playwright**:
-   - Playwright Setup
-   - Test structure
-   - Create test examples
-   - CI integration
+> Retired 2026-10: Jest/RTL, Lighthouse CI, CodeQL, Dependabot, the class-based
+> `Image` component, the `/offline` page, and the `.js` duplicate of
+> `constants.ts` — all removed as speculative or dead. See `git log`.

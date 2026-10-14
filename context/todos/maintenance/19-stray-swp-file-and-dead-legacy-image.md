@@ -10,7 +10,7 @@
 
 ## Fix
 
-Delete the `.swp` file, remove the unused `Image`/`StyledImage` import and dead `ProjectInfos` markup. Matches the project's existing "retire migration artifacts" standard (same pattern as `*.legacy.js` cleanup already called out in `CLAUDE.md`).
+Delete the `.swp` file, remove the unused `Image`/`StyledImage` import and dead `ProjectInfos` markup. Matches the project's existing "retire migration artifacts" standard (same pattern as `*.legacy.js` cleanup already called out in `AGENTS.md`).
 
 ## Found by
 

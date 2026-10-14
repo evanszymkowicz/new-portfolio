@@ -4,12 +4,11 @@ import { colors, media } from "../../style/theme";
 
 export const Wrapper = styled.section`
   display: grid;
-  /* two columns so featured items form a 2x2 grid (rows flow automatically) */
   grid-template-columns: repeat(2, 360px);
   gap: 3rem;
   margin: 2.5rem auto;
   justify-content: center;
-  max-width: calc(360px * 2 + 3rem); /* two columns + gap */
+  max-width: calc(360px * 2 + 3rem);
   padding: 0 2rem;
 
   ${media.lg`
@@ -19,15 +18,7 @@ export const Wrapper = styled.section`
   `}
 
   ${media.md`
-    grid-template-columns: repeat(2, minmax(260px, 1fr));
-    gap: 2rem;
-    max-width: 1000px;
-  `}
-
-  ${media.sm`
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: 100%;
+    display: none;
   `}
 `;
 
@@ -90,7 +81,12 @@ export const ProjectFeatured = styled.div`
 `;
 
 export const StyledCarousel = styled(Carousel)`
+  display: none;
   margin: 2rem 0;
+
+  ${media.md`
+    display: block;
+  `}
 
   .carousel-status {
     display: none;
