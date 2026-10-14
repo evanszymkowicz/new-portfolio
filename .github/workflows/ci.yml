@@ -1,11 +1,18 @@
-name: CI/CD Pipeline
+name: CI
 
 on:
   push:
     branches: [main, develop]
     paths-ignore:
+<<<<<<< Updated upstream
     - '*.md'
     - 'docs/**'
+=======
+      - '*.md'
+      - 'docs/**'
+      - '.github/ISSUE_TEMPLATE/**'
+      - '.github/pull_request_template.md'
+>>>>>>> Stashed changes
   pull_request:
     branches: [main, develop]
 
@@ -13,6 +20,7 @@ jobs:
   quality:
     name: Code Quality
     runs-on: ubuntu-latest
+<<<<<<< Updated upstream
 
     steps:
       - name: Checkout code
@@ -35,10 +43,22 @@ jobs:
 
       - name: TypeScript type check
         run: npm run type-check
+=======
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm install --legacy-peer-deps
+      - run: npm run lint
+      - run: npm run type-check
+>>>>>>> Stashed changes
 
   build:
     name: Build Application
     runs-on: ubuntu-latest
+<<<<<<< Updated upstream
     needs: [quality]
 
     steps:
@@ -65,3 +85,28 @@ jobs:
           name: build-output
           path: public
           retention-days: 7
+=======
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm install --legacy-peer-deps
+      - run: npm run test:ci
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: [quality, test]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm install --legacy-peer-deps
+      - run: npm run build
+        env:
+          NODE_ENV: production
+>>>>>>> Stashed changes

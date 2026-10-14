@@ -4,13 +4,21 @@
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
-    "build:production": "gatsby build --prefix-paths",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "type-check": "tsc --noEmit",
     "lint": "eslint './src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint './src/**/*.{js,jsx,ts,tsx}' --fix",
+<<<<<<< Updated upstream
     "format": "prettier --write './src/**/*.{js,jsx,ts,tsx,json,css,md}'"
+=======
+    "format": "prettier --write './src/**/*.{js,jsx,ts,tsx,json,css,md}'",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:ci": "jest --ci --coverage --maxWorkers=2",
+    "lighthouse": "lhci autorun"
+>>>>>>> Stashed changes
   },
   "dependencies": {
     "babel-plugin-styled-components": "^2.1.4",

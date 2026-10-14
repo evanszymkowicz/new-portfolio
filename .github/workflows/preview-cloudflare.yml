@@ -27,15 +27,6 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      # 👇 ADD THIS STEP HERE (after dependencies, before build)
-      - name: Cache Wrangler
-        uses: actions/cache@v5
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-wrangler-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-wrangler-
-
       - name: Build Gatsby site
         run: npm run build
         env:
