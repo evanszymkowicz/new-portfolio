@@ -10,7 +10,7 @@
   },
   {
     "title": "Homestand",
-    "category": ["Client Delivery", "My Work"],
+    "category": ["My Work"],
     "year": "2026",
     "url": "https://homestand.pages.dev",
     "featured": true,
@@ -63,16 +63,16 @@
   },
   {
     "title": "Animated Email",
-    "category": ["Email"],
+    "category": ["HTML Emails"],
     "year": "2020",
     "featured": true,
     "url": "https://evanszymkowicz.github.io/emails/animation-email.html",
     "imageRelativePath": "projects/AnimatedEmail/animatedemail.png",
-    "featuredCategories": ["Email"]
+    "featuredCategories": ["HTML Emails"]
   },
   {
     "title": "New Product Campaign",
-    "category": ["Email"],
+    "category": ["HTML Emails"],
     "year": "2019",
     "url": "https://evanszymkowicz.github.io/emails/tmobile-email.html",
     "featured": false,
@@ -80,30 +80,30 @@
   },
   {
     "title": "August Newsletter",
-    "category": ["Email"],
+    "category": ["HTML Emails"],
     "year": "2019",
     "url": "https://evanszymkowicz.github.io/emails/augnewsletter-email.html",
     "featured": true,
     "imageRelativePath": "projects/AugustNewsletter/augustnewsletter.png",
-    "featuredCategories": ["Email"]
+    "featuredCategories": ["HTML Emails"]
   },
   {
     "title": "This Week in Big 12 Football on ESPN+",
-    "category": ["Email"],
+    "category": ["HTML Emails"],
     "year": "2019",
     "url": "https://evanszymkowicz.github.io/emails/upcoming-schedule-email-collegefootball-090719.html",
     "featured": true,
     "imageRelativePath": "projects/ThisWeekInBig12FootballOnESPNPlus/thisweekinbig12footballonespnplus.png",
-    "featuredCategories": ["Email"]
+    "featuredCategories": ["HTML Emails"]
   },
   {
     "title": "This Week's Specials",
-    "category": ["Email"],
+    "category": ["HTML Emails"],
     "year": "2019",
     "url": "https://evanszymkowicz.github.io/emails/restaurant-emails.html",
     "featured": true,
     "imageRelativePath": "projects/ThursdaySpecials/thursdayspecials.png",
-    "featuredCategories": ["Email"]
+    "featuredCategories": ["HTML Emails"]
   },
   {
     "title": "Interactive Strategies",
@@ -117,6 +117,7 @@
     "category": ["Client Delivery"],
     "year": "2019",
     "featured": false,
+    "featuredCategories": ["Client Delivery"],
     "url": "https://dc-design.netlify.app",
     "imageRelativePath": "projects/WashingtonDesignCenter/designcenter.png"
   }
