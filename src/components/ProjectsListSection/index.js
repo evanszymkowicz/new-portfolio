@@ -26,9 +26,9 @@ const ProjectsListSection = ({ projects, category, setCategory }) => (
           My Work
         </FilterButton>
         <FilterButton
-          $active={category === "Email"}
-          onClick={() => setCategory("Email")}>
-          Email
+          $active={category === "HTML Emails"}
+          onClick={() => setCategory("HTML Emails")}>
+          HTML Emails
         </FilterButton>
         {category && (
           <FilterButton onClick={() => setCategory(null)}>all</FilterButton>
