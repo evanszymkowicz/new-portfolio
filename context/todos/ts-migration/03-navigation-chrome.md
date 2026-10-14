@@ -12,7 +12,7 @@
 
 ## Details
 
-- `Navigation` reads `location.pathname` to highlight the active route (per `CLAUDE.md`) — type its props against whatever Gatsby passes in (`PageProps["location"]` or a narrowed `{ pathname: string }`), don't accept `any`.
+- `Navigation` reads `location.pathname` to highlight the active route (per `AGENTS.md`) — type its props against whatever Gatsby passes in (`PageProps["location"]` or a narrowed `{ pathname: string }`), don't accept `any`.
 - `Menu`/`Footer` consume `SITE_CONFIG.social` (already typed in `src/utils/constants.ts`) — no new types needed there, just fix the import path/extension.
 - `ToggleMenu` takes an `$open` transient prop and fires a toggle callback — type as `{ $open: boolean; onToggle: () => void }` (confirm actual prop names against current usage before typing).
 - `Logo` is a simple link-wrapped image — low risk, type any `href`/`className` props.

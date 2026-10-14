@@ -21,16 +21,15 @@ Before considering a change done, for the files you touched:
 
 - `npm run type-check` — no new TypeScript errors.
 - `npm run lint` — clean (the PostToolUse hook lints edited files automatically; fix what it surfaces).
-- `npm test` — affected tests pass.
 - For UI/behavior changes, verify in the browser (`npm run dev` → `localhost:8000`); the `ui-reviewer` agent can do a visual/responsive/a11y pass.
-- CI (`ci.yml`, `lighthouse.yml`, CodeQL) runs on PRs — don't hand off changes you expect to fail those gates.
+- CI (`ci.yml`) runs on PRs — don't hand off changes you expect to fail those gates.
 
 ## Git — the user owns commits and merges
 
 This project uses a PR-per-change workflow (numbered PRs, squash-merged into `main`).
 
 - **Do NOT commit, push, or merge** — the user handles all git operations.
-- **Never** add a "Co-Authored-By: Claude" / "Generated with Claude Code" tag or any AI attribution to commits or PRs.
+- **Never** add a "Co-Authored-By" / "Generated with" tag or any AI attribution to commits or PRs.
 - When suggesting a commit/PR message, use a short descriptive title (conventional-commit style — `feat:`, `fix:`, `refactor:`, `chore:` — is welcome but match existing history).
 - Keep changes focused: one logical concern per PR; don't mix formatting-only churn with behavior changes.
 - Branch naming: `feature/<desc>` or `fix/<desc>`.

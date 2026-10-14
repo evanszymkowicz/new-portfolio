@@ -1,13 +1,13 @@
 import React from "react";
 import { ListTitle } from "./style";
 
-const ProfileList = ({ title, list, className }) => {
+const ProfileList = ({ title, children, className }) => {
   return (
     <article className={className}>
       <header>
         <ListTitle>{title}</ListTitle>
       </header>
-      <ul>{list()}</ul>
+      <ul>{children}</ul>
     </article>
   );
 };

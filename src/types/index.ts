@@ -1,25 +1,13 @@
 import type { IGatsbyImageData } from "gatsby-plugin-image";
 
-// Project types
-// export interface ProjectImage {
-//   src: string;
-//   sources: {
-//     media: string;
-//     srcset: string;
-//   }[];
-// }
-
 export interface Project {
   title: string;
   category: string[];
   year: string;
   url?: string;
   featured: boolean;
-
-  // New:
-  // Using Gatsby's image data type for optimized images
-  imageRelativePath?: string; // Relative path to the image in the project
-  imageData?: IGatsbyImageData; // Gatsby image data for optimized rendering
+  imageRelativePath?: string;
+  imageData?: IGatsbyImageData;
   featuredCategories?: string[];
 }
 
@@ -28,24 +16,6 @@ export interface ProjectEdge {
 }
 
 export interface ProjectsData {
-  projects: {
-    edges: ProjectEdge[];
-  };
-
-  //  New: updated GraphQl query to include image data
-  projectImages?: {
-    nodes: Array<{
-      relativePath: string;
-      childImageSharp?: {
-        gatsbyImageData: IGatsbyImageData;
-      };
-    }>;
-  };
-}
-
-// Query payload for ProjectsContent, defensive against missing/null fields
-// (unlike ProjectsData, which models the page-level query result as always present).
-export interface ProjectsQueryData {
   projects?: {
     edges?: ProjectEdge[];
   };

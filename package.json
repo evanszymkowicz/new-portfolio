@@ -4,7 +4,6 @@
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
-    "build:production": "gatsby build --prefix-paths",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "type-check": "tsc --noEmit",
@@ -15,9 +14,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:ci": "jest --ci --coverage --maxWorkers=2",
-    "lighthouse": "lhci autorun",
-    "lighthouse:local": "npm run build && lhci autorun",
-    "lighthouse:report": "node scripts/lighthouse-report.js"
+    "lighthouse": "lhci autorun"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^2.1.4",
@@ -31,11 +28,9 @@
     "gatsby-source-filesystem": "^5.15.0",
     "gatsby-transformer-json": "^5.15.0",
     "gatsby-transformer-sharp": "^5.15.0",
-    "jsdom": "^27.4.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-responsive-carousel": "^3.2.23",
-    "schema-dts": "^1.1.5",
     "styled-components": "^6.3.5",
     "styled-reset": "^5.0.0"
   },

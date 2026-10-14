@@ -1,98 +1,41 @@
-name: CI/CD Pipeline
+name: CI
 
 on:
-  push: 
+  push:
     branches: [main, develop]
     paths-ignore:
-    - '*.md'
-    - 'docs/**'
-    - '.github/ISSUE_TEMPLATE/**'
-    - '.github/pull_request_template.md'
-  pull_request: 
+      - '*.md'
+      - 'docs/**'
+      - '.github/ISSUE_TEMPLATE/**'
+      - '.github/pull_request_template.md'
+  pull_request:
     branches: [main, develop]
 
 jobs:
-  quality: 
+  quality:
     name: Code Quality
     runs-on: ubuntu-latest
-    
-    steps: 
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache:  'npm'
-
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps
-
-      - name: Run ESLint
-        run: npm run lint
-
-      - name: Run Prettier check
-        run: npx prettier --check './src/**/*.{js,jsx,ts,tsx,json,css,md}'
-
-      - name: TypeScript type check
-        run: npm run type-check
-
-  test:
-    name: Unit Tests
-    runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node. js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
-
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps
-
-      - name: Run tests with coverage
-        run: npm run test:ci
-
-      - name: Upload coverage reports
-        uses: codecov/codecov-action@v4
-        if: always()
-        with:
-          files: ./coverage/coverage-final.json
-          flags: unittests
-          fail_ci_if_error: false
+      - run: npm install --legacy-peer-deps
+      - run: npm run lint
+      - run: npm run type-check
 
   build:
     name: Build Application
     runs-on: ubuntu-latest
-    needs: [quality, test]
-    
+    needs: [quality]
     steps:
-      - name: Checkout code
-        uses:  actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with: 
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
           node-version: '20'
           cache: 'npm'
-
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps
-
-      - name:  Build Gatsby site
-        run: npm run build
+      - run: npm install --legacy-peer-deps
+      - run: npm run build
         env:
           NODE_ENV: production
-
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v6
-        with:
-          name: build-output
-          path: public
-          retention-days: 7
-

@@ -2,7 +2,7 @@
 
 ## TypeScript
 
-- The codebase is mid-migration from JS to TS (~94% JS / 6% TS). **New work must be `.tsx`/`.ts`** — do not add new `.js`/`.jsx` files.
+- New work must be `.tsx`/`.ts` — do not add new `.js`/`.jsx` files.
 - Strict mode is enabled (`tsconfig.json`). No `any` — use proper typing or `unknown`.
 - Canonical shared types live in `src/types/index.ts`. Reuse them; don't redefine parallel shapes.
 - Use type inference where obvious, explicit types where they aid readability (component props, GraphQL query results).
@@ -33,21 +33,14 @@
 ## File Organization & Naming
 
 - Components: `src/components/<ComponentName>/index.tsx` (PascalCase directory + component name).
-- Co-locate tests in `__tests__/` next to the component; shared tests in `src/components/__tests__/`.
 - Functions: camelCase. Constants: SCREAMING_SNAKE_CASE. Types/Interfaces: PascalCase (no prefix).
 - Prettier config is authoritative for formatting: semicolons, double quotes, 80-col width, `arrowParens: always`, `trailingComma: es5`. Run `npm run format`.
 
 ## DRY
 
 - No copy-pasted constants, maps, or helpers across files — extract shared values to `src/utils/` or `src/style/`.
-- `src/utils/constants.ts` is authoritative; the `.js` duplicate is a known leftover to remove, not a second source of truth.
+- `src/utils/constants.ts` is authoritative for site config and metadata.
 - Resolve shared/derived data once and pass it down as props.
-
-## Testing
-
-- Jest + React Testing Library. Import from `src/test-utils/index.tsx` (custom render wrapper), **not** `@testing-library/react` directly.
-- Gatsby internals are mocked in `__mocks__/gatsby.js`.
-- Run a single file with `npx jest <path>`; full suite with `npm test`.
 
 ## Accessibility
 

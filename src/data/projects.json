@@ -1,16 +1,16 @@
 [
   {
     "title": "DevMemory: Store your Developer Knowledge",
-    "category": ["website", "code"],
+    "category": ["My Work"],
     "year": "2026",
     "url": "https://devmem-chi.vercel.app/",
     "featured": false,
     "imageRelativePath": "projects/DevMemory/devmemory.png",
-    "featuredCategories": ["code"]
+    "featuredCategories": ["My Work"]
   },
   {
     "title": "Homestand",
-    "category": ["website", "code"],
+    "category": ["Client Delivery", "My Work"],
     "year": "2026",
     "url": "https://homestand.pages.dev",
     "featured": true,
@@ -18,7 +18,7 @@
   },
   {
     "title": "Administration for Children & Families",
-    "category": ["website"],
+    "category": ["Client Delivery"],
     "year": "2025",
     "url": "https://acf.gov/",
     "imageRelativePath": "projects/ACF/acf.png",
@@ -26,7 +26,7 @@
   },
   {
     "title": "National Heart, Lung, and Blood Institute",
-    "category": ["website"],
+    "category": ["Client Delivery"],
     "year": "2024",
     "url": "https://www.nhlbi.nih.gov/",
     "imageRelativePath": "projects/NHLBI/nhlbi.png",
@@ -34,7 +34,7 @@
   },
   {
     "title": "DocGuide",
-    "category": ["website"],
+    "category": ["Client Delivery"],
     "year": "2023",
     "url": "https://docguide.com/",
     "imageRelativePath": "projects/DocGuide/docguide.png",
@@ -42,37 +42,37 @@
   },
   {
     "title": "OVHCloud US",
-    "category": ["website"],
+    "category": ["Client Delivery"],
     "year": "2021",
     "url": "https://us.ovhcloud.com/contact-sales/",
     "featured": false
   },
   {
     "title": "Sparks Group",
-    "category": ["website"],
+    "category": ["Client Delivery"],
     "year": "2020",
     "url": "https://sparks-by-evan.netlify.app",
     "featured": false
   },
   {
     "title": "ALLRISE DC",
-    "category": ["website"],
+    "category": ["Client Delivery"],
     "year": "2020",
     "url": "https://www.allrisedc.org/",
     "featured": false
   },
   {
     "title": "Animated Email",
-    "category": ["email"],
+    "category": ["Email"],
     "year": "2020",
     "featured": true,
     "url": "https://evanszymkowicz.github.io/emails/animation-email.html",
     "imageRelativePath": "projects/AnimatedEmail/animatedemail.png",
-    "featuredCategories": ["email"]
+    "featuredCategories": ["Email"]
   },
   {
     "title": "New Product Campaign",
-    "category": ["email"],
+    "category": ["Email"],
     "year": "2019",
     "url": "https://evanszymkowicz.github.io/emails/tmobile-email.html",
     "featured": false,
@@ -80,41 +80,41 @@
   },
   {
     "title": "August Newsletter",
-    "category": ["email"],
+    "category": ["Email"],
     "year": "2019",
     "url": "https://evanszymkowicz.github.io/emails/augnewsletter-email.html",
     "featured": true,
     "imageRelativePath": "projects/AugustNewsletter/augustnewsletter.png",
-    "featuredCategories": ["email"]
+    "featuredCategories": ["Email"]
   },
   {
     "title": "This Week in Big 12 Football on ESPN+",
-    "category": ["email"],
+    "category": ["Email"],
     "year": "2019",
     "url": "https://evanszymkowicz.github.io/emails/upcoming-schedule-email-collegefootball-090719.html",
     "featured": true,
     "imageRelativePath": "projects/ThisWeekInBig12FootballOnESPNPlus/thisweekinbig12footballonespnplus.png",
-    "featuredCategories": ["email"]
+    "featuredCategories": ["Email"]
   },
   {
     "title": "This Week's Specials",
-    "category": ["email"],
+    "category": ["Email"],
     "year": "2019",
     "url": "https://evanszymkowicz.github.io/emails/restaurant-emails.html",
     "featured": true,
     "imageRelativePath": "projects/ThursdaySpecials/thursdayspecials.png",
-    "featuredCategories": ["email"]
+    "featuredCategories": ["Email"]
   },
   {
     "title": "Interactive Strategies",
-    "category": ["website"],
+    "category": ["Client Delivery"],
     "year": "2019",
     "url": "https://interactive-strategies.netlify.app/",
     "featured": false
   },
   {
     "title": "Washington Design Center",
-    "category": ["website"],
+    "category": ["Client Delivery"],
     "year": "2019",
     "featured": false,
     "url": "https://dc-design.netlify.app",
