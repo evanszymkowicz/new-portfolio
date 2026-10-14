@@ -26,7 +26,7 @@ jobs:
       - run: npm run type-check
 
   build:
-    name: Build
+    name: Build Application
     runs-on: ubuntu-latest
     needs: [quality]
     steps:
