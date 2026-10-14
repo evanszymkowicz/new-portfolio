@@ -48,18 +48,32 @@ export default function ProjectsContent({
     });
   }, [data.projects?.edges, data.projectImages?.nodes]);
 
-  //  Split projects into featured vs non-featured.
-  const featured = edgesWithImages.filter((e) => Boolean(e.project.featured));
-  const others = edgesWithImages.filter((e) => !e.project.featured);
+  const featured = edgesWithImages.filter(({ project }) => {
+    const featuredCats = project.featuredCategories ?? [];
+    if (!category) {
+      return project.featured && featuredCats.length === 0;
+    }
+    if (featuredCats.includes(category)) {
+      return true;
+    }
+    return (
+      project.featured &&
+      featuredCats.length === 0 &&
+      project.category?.includes(category)
+    );
+  });
+
+  //  Everything not in the current featured list goes to the grid/list below.
+  const featuredTitles = new Set(featured.map(({ project }) => project.title));
+  const others = edgesWithImages.filter(
+    ({ project }) => !featuredTitles.has(project.title)
+  );
 
   //  Type safe category filter.
   //  Explicit type (category: string | null).
   const filterByCategory = (list: ProjectEdge[]) => {
     if (!category) return list;
-    return list.filter(({ project }) => {
-      const cats = project.category ?? [];
-      return cats.map((c: string) => c.toLowerCase()).includes(category);
-    });
+    return list.filter(({ project }) => project.category?.includes(category));
   };
 
   return (

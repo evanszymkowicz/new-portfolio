@@ -16,6 +16,7 @@ export const query = graphql`
           url
           featured
           imageRelativePath
+          featuredCategories
         }
       }
     }

@@ -17,12 +17,7 @@ export default function ProjectImage({
 
   return (
     <ImageWrapper className={className}>
-      <StyledGatsbyImage
-        image={imageData}
-        alt={alt}
-        objectFit="cover"
-        objectPosition="center"
-      />
+      <StyledGatsbyImage image={imageData} alt={alt} objectFit="cover" />
     </ImageWrapper>
   );
 }
