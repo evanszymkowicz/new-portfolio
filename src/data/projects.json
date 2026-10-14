@@ -10,7 +10,7 @@
   },
   {
     "title": "Homestand",
-    "category": ["Client Delivery", "My Work"],
+    "category": ["My Work"],
     "year": "2026",
     "url": "https://homestand.pages.dev",
     "featured": true,
@@ -117,6 +117,7 @@
     "category": ["Client Delivery"],
     "year": "2019",
     "featured": false,
+    "featuredCategories": ["Client Delivery"],
     "url": "https://dc-design.netlify.app",
     "imageRelativePath": "projects/WashingtonDesignCenter/designcenter.png"
   }
