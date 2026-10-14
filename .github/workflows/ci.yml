@@ -4,15 +4,10 @@ on:
   push:
     branches: [main, develop]
     paths-ignore:
-<<<<<<< Updated upstream
-    - '*.md'
-    - 'docs/**'
-=======
       - '*.md'
       - 'docs/**'
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/pull_request_template.md'
->>>>>>> Stashed changes
   pull_request:
     branches: [main, develop]
 
@@ -20,30 +15,6 @@ jobs:
   quality:
     name: Code Quality
     runs-on: ubuntu-latest
-<<<<<<< Updated upstream
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps
-
-      - name: Run ESLint
-        run: npm run lint
-
-      - name: Run Prettier check
-        run: npx prettier --check './src/**/*.{js,jsx,ts,tsx,json,css,md}'
-
-      - name: TypeScript type check
-        run: npm run type-check
-=======
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -53,39 +24,10 @@ jobs:
       - run: npm install --legacy-peer-deps
       - run: npm run lint
       - run: npm run type-check
->>>>>>> Stashed changes
 
-  build:
-    name: Build Application
+  test:
+    name: Unit Tests
     runs-on: ubuntu-latest
-<<<<<<< Updated upstream
-    needs: [quality]
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps
-
-      - name: Build Gatsby site
-        run: npm run build
-        env:
-          NODE_ENV: production
-
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v6
-        with:
-          name: build-output
-          path: public
-          retention-days: 7
-=======
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -109,4 +51,3 @@ jobs:
       - run: npm run build
         env:
           NODE_ENV: production
->>>>>>> Stashed changes
