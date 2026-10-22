@@ -67,7 +67,7 @@
     "year": "2020",
     "featured": true,
     "url": "https://evanszymkowicz.github.io/emails/animation-email.html",
-    "imageRelativePath": "projects/AnimatedEmail/animatedemail.png",
+    "imageRelativePath": "projects/CAVA/cava.png",
     "featuredCategories": ["HTML Emails"]
   },
   {
@@ -76,7 +76,7 @@
     "year": "2019",
     "url": "https://evanszymkowicz.github.io/emails/tmobile-email.html",
     "featured": false,
-    "imageRelativePath": "projects/NewProductCampaign/newproductcampaign.png"
+    "imageRelativePath": "projects/TMobile/tmobile.png"
   },
   {
     "title": "August Newsletter",
@@ -84,7 +84,7 @@
     "year": "2019",
     "url": "https://evanszymkowicz.github.io/emails/augnewsletter-email.html",
     "featured": true,
-    "imageRelativePath": "projects/AugustNewsletter/augustnewsletter.png",
+    "imageRelativePath": "projects/Heroku/heroku.png",
     "featuredCategories": ["HTML Emails"]
   },
   {
@@ -93,7 +93,7 @@
     "year": "2019",
     "url": "https://evanszymkowicz.github.io/emails/upcoming-schedule-email-collegefootball-090719.html",
     "featured": true,
-    "imageRelativePath": "projects/ThisWeekInBig12FootballOnESPNPlus/thisweekinbig12footballonespnplus.png",
+    "imageRelativePath": "projects/ESPNPlus/espnplus.png",
     "featuredCategories": ["HTML Emails"]
   },
   {
@@ -102,7 +102,7 @@
     "year": "2019",
     "url": "https://evanszymkowicz.github.io/emails/restaurant-emails.html",
     "featured": true,
-    "imageRelativePath": "projects/ThursdaySpecials/thursdayspecials.png",
+    "imageRelativePath": "projects/GlensGardenMarket/glensgardenmarket.png",
     "featuredCategories": ["HTML Emails"]
   },
   {
