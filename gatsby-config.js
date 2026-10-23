@@ -6,6 +6,8 @@ module.exports = {
     author: "Evan Szymkowicz",
     image: "/images/profile/evan-szymkowicz.jpeg",
   },
+  jsxRuntime: "automatic",
+
   plugins: [
     // Filesystem source for JSON data
     {
@@ -39,7 +41,7 @@ module.exports = {
         displayName: process.env.NODE_ENV !== "production",
         fileName: false,
         minify: true, //  Reduce CSS size
-        transpileTemplateLiterals: true,  //  For better compatibility with older browsers
+        transpileTemplateLiterals: true, //  For better compatibility with older browsers
         pure: true, //  Enable dead code elimination for unused styles
       },
     },
@@ -64,9 +66,7 @@ module.exports = {
       resolve: "gatsby-plugin-offline",
       options: {
         workboxConfig: {
-          globPatterns: [
-            "**/*.{js,css,html,png,jpg,jpeg,svg,gif,webp,woff,woff2,ttf}",
-          ],
+          globPatterns: ["**/*.{js,css,html,woff,woff2,ttf}"],
           runtimeCaching: [
             {
               urlPattern: /^https?:.*\/page-data\/.*\.json$/,
@@ -80,14 +80,6 @@ module.exports = {
               urlPattern:
                 /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
               handler: "StaleWhileRevalidate",
-            },
-            {
-              urlPattern: /^https?:\/\/fonts\.googleapis\.com\/.*$/,
-              handler: "StaleWhileRevalidate",
-            },
-            {
-              urlPattern: /^https?:\/\/fonts\.gstatic\.com\/.*$/,
-              handler: "CacheFirst",
             },
           ],
         },

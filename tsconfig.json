@@ -23,6 +23,6 @@
       "@style/*": ["style/*"]
     }
   },
-  "include": ["src/**/*", "gatsby-*. ts", "gatsby-*.tsx"],
+  "include": ["src/**/*", "gatsby-*.ts", "gatsby-*.tsx"],
   "exclude": ["node_modules", "public", ". cache"]
 }
