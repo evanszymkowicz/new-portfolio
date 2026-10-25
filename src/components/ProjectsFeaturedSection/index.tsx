@@ -1,6 +1,6 @@
-import React from "react";
+import { useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Wrapper, ProjectFeatured, StyledCarousel } from "./style";
+import { Wrapper, ProjectFeatured, StyledCarousel, PauseButton } from "./style";
 import ProjectImage from "../ProjectImage";
 import type { FeaturedProjectEdge } from "../../types";
 
@@ -11,6 +11,8 @@ type ProjectsFeaturedSectionProps = {
 export default function ProjectsFeaturedSection({
   projects = [],
 }: ProjectsFeaturedSectionProps) {
+  const [playing, setPlaying] = useState(true);
+
   const projectsList = (projects || []).map(({ project }) => {
     const { title, imageData, url } = project;
     const imageElement = imageData ? (
@@ -46,9 +48,16 @@ export default function ProjectsFeaturedSection({
         showThumbs={false}
         showStatus={false}
         interval={10000}
-        autoPlay>
+        autoPlay={playing}>
         {projectsList}
       </StyledCarousel>
+      <PauseButton
+        onClick={() => setPlaying(!playing)}
+        aria-label={
+          playing ? "Pause project carousel" : "Play project carousel"
+        }>
+        {playing ? "Pause" : "Play"}
+      </PauseButton>
     </>
   );
 }

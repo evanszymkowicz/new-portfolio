@@ -3,11 +3,9 @@ import Layout from "./src/components/Layout";
 import { GlobalStyle } from "./src/style/global";
 
 let hasRefreshedOnUpdate = false;
+let controllerListenerAdded = false;
 
 export const onServiceWorkerUpdateReady = () => {
-  // Gatsby calls this when the new SW has installed.
-  console.log("Service Worker update ready: activating and refreshing...");
-
   if (typeof window === "undefined" || !("serviceWorker" in navigator)) {
     return;
   }
@@ -18,52 +16,22 @@ export const onServiceWorkerUpdateReady = () => {
         registration.waiting.postMessage({ type: "SKIP_WAITING" });
       }
 
-      // Ensure we refresh once the new SW takes control.
+      if (controllerListenerAdded) {
+        return;
+      }
+      controllerListenerAdded = true;
+
       navigator.serviceWorker.addEventListener("controllerchange", () => {
         if (hasRefreshedOnUpdate) return;
         hasRefreshedOnUpdate = true;
         window.location.reload();
       });
-
-      // Fallback: if controllerchange doesn't fire quickly for some reason, reload anyway.
-      setTimeout(() => {
-        if (hasRefreshedOnUpdate) return;
-        hasRefreshedOnUpdate = true;
-        window.location.reload();
-      }, 1000);
     })
-    .catch((err) => {
-      console.error("Service Worker ready() failed:", err);
-      // If SW is in a weird state, a simple reload is often the best recovery.
-      if (!hasRefreshedOnUpdate) {
-        hasRefreshedOnUpdate = true;
-        window.location.reload();
-      }
+    .catch(() => {
+      // Ignore: the browser will handle a broken service worker state.
     });
 };
 
-export const onServiceWorkerActive = () => {
-  console.log("Service Worker: Now active");
-};
-
-export const onServiceWorkerInstalled = () => {
-  console.log("Service Worker: Installed");
-};
-
-export const onServiceWorkerUpdateFound = () => {
-  console.log("Service Worker: Update found");
-};
-
-export const onServiceWorkerRedundant = () => {
-  console.log("Service Worker: Redundant");
-};
-
-// Mounts Layout once via Gatsby's router-level wrapper instead of inside
-// each page, so route changes swap only `element` and Layout's effects
-// (e.g. the PWA install-prompt listeners) don't re-run on every navigation.
-// GlobalStyle is rendered here too (must mirror gatsby-ssr.js exactly so client
-// hydration matches the server-rendered markup) rather than in wrapRootElement
-// or Layout.tsx — see gatsby-ssr.js for why.
 export const wrapPageElement = ({ element, props }) => (
   <>
     <GlobalStyle />

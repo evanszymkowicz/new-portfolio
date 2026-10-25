@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import type { IGatsbyImageData } from "gatsby-plugin-image";
 import { ContentWrapper } from "../../style/shared";
 import ProjectsFeaturedSection from "../ProjectsFeaturedSection";
@@ -41,6 +41,10 @@ export default function ProjectsContent({
   const [category, setCategory] = useState<string | null>(null);
   const edgesWithImages = buildEdges(data);
 
+  const categories = Array.from(
+    new Set(edgesWithImages.flatMap(({ project }) => project.category ?? []))
+  ).sort();
+
   const featured = edgesWithImages.filter(({ project }) => {
     const featuredCats = project.featuredCategories ?? [];
     if (!category) {
@@ -71,6 +75,7 @@ export default function ProjectsContent({
       <ProjectsFeaturedSection projects={filterByCategory(featured)} />
       <ProjectsListSection
         projects={filterByCategory(others)}
+        categories={categories}
         category={category}
         setCategory={setCategory}
       />

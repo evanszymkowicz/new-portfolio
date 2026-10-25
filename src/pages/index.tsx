@@ -1,4 +1,3 @@
-import React from "react";
 import { graphql } from "gatsby";
 import ProfileContent from "../components/ProfileContent";
 import { SEO } from "../components/SEO";
@@ -13,14 +12,6 @@ export const query = graphql`
           company
           position
           year
-        }
-      }
-    }
-    skills: allSkillsJson {
-      edges {
-        skill: node {
-          name
-          url
         }
       }
     }
@@ -47,5 +38,5 @@ export function Head() {
 }
 
 export default function IndexPage({ data }: ProfilePageProps) {
-  return <ProfileContent data={data} />;
+  return <ProfileContent data={data} showSkills={false} />;
 }

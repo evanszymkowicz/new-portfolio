@@ -1,4 +1,3 @@
-import React from "react";
 import EmailMe from "../EmailMe";
 import { SITE_CONFIG } from "../../utils/constants";
 import { Wrapper, Nav, NavItem, NavLink } from "./style";

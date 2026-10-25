@@ -1,4 +1,3 @@
-import React from "react";
 import Intro from "../Intro";
 import { Wrapper, InfoWrapper, Content } from "./style";
 

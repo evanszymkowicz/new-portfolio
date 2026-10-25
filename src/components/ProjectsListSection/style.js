@@ -15,7 +15,7 @@ export const Wrapper = styled.section`
   `}
 `;
 
-export const ProjectsTitle = styled.h1`
+export const ProjectsTitle = styled.h2`
   font-size: 1.6rem;
   color: ${colors.darkYellow};
 `;
@@ -25,9 +25,8 @@ export const ButtonsWrapper = styled.div`
 `;
 
 export const FilterButton = styled.button`
-  color: ${({ $active }) => ($active ? "#f2b211" : "#7c9a8f")};
   border: 0;
-  background: 0;
+  background: transparent;
   padding: 0;
   margin: 0;
   appearance: none;
