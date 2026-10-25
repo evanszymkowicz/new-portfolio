@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Link,
   Wrapper,
@@ -14,7 +13,6 @@ const ProjectsListItem = ({ project }) => {
     <Wrapper $hasLink={!!url}>
       <header>
         <ProjectTitle>{title}</ProjectTitle>
-        <ProjectInfos></ProjectInfos>
       </header>
       <ProjectInfos>
         <ProjectYear>{year}</ProjectYear>

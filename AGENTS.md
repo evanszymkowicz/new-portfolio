@@ -28,7 +28,7 @@ components, deployed to Cloudflare Pages.
 
 **Projects page**: `ProjectsContent` splits projects into `featured` and non-featured lists (filterable by category in `ProjectsListSection`). `ProjectsFeaturedSection` renders both a CSS grid and a `react-responsive-carousel` and lets a media query pick one — do not reintroduce JS resize state for this. Category filter state is lifted into `ProjectsContent`.
 
-**Layout**: `Layout.tsx` wraps every page with `Navigation` (bottom nav) and calls `promptInstall()` on mount for the PWA install prompt. Navigation uses `location.pathname` to highlight the active route.
+**Layout**: `Layout.tsx` wraps every page with `Navigation` (bottom nav) and renders `<InstallPrompt />` for the PWA install prompt. Navigation uses `location.pathname` to highlight the active route.
 
 **Deployment**: Cloudflare Pages via Wrangler CLI (`wrangler.toml`). GitHub Actions runs CI (lint/type-check/build) on PRs and deploys on pushes to `main`; preview deployments run on PRs.
 

@@ -39,7 +39,7 @@ npm run clean        # Clean Gatsby cache
    - Installed TypeScript 5.9+.
    - Created `tsconfig.json` with Gatsby-specific features.
    - Migrated three pages to TypeScript: (`index.tsx`, `profile.tsx`, `projects.tsx`)
-   - Added three type definitions (`@types/react`, `@types/node`, `@types/jest`)
+   - Added type definitions (`@types/react`, `@types/node`)
    - Added `npm run type-check`
    - Integrated TypeScript checking to the new CI/CD pipleine
    - Configured path aliases (`@/*` to `src/*`)
@@ -65,49 +65,25 @@ npm run clean        # Clean Gatsby cache
    - Search engine ready
    - Social media/sharing previews
 
-3. **Set Up Testing**:
-   - Configured Jest 30.2.0
-   - Installed React Testing Library 16.3.0
-   - JSDOM
-   - Coverage reporting (HTML/JSON)
-   - Created testing scripts:
-     - `npm test`
-     - `npm run test:watch`
-     - `npm run test:coverage`
-     - `npm run test:ci`
-   - CSS module mocking
-   - Static asset mocking
-
-   **Impact**: New testing infrastructure
-
-4. **CI/CI Pipeline**:
-   - `Workflow No. 1`: CI Pipeline
-     - ESlint for code quality checks
+3. **CI/CD Pipeline**:
+   - `CI` workflow
+     - ESLint for code quality checks
      - Prettier for code formatting
      - TypeScript type checking
-     - Jest unit tests
-     - Coverage reporting
      - Build verification
-     - Runs on push to `main`
-     - Runs on all PRs
-   - `Workflow No. 2`: Preview Deployment
+     - Runs on push to `main` and on PRs
+     - Deploys to Cloudflare Pages after a successful `main` build
+   - `Preview Deployment` workflow
      - Automatic preview URLs for PRs
-     - Branch preview enviornments
-   - `Workflow No. 3`: Deployment
-     - Automated deployment to Cloudfare
-     - Wranger CLI integration
-     - Commit tracking
-     - Manual triggers
-     - Deployment summaries
-     - Runs on push to `main`
+     - Branch preview environments
    - GitHub Automation:
      - Pull request template with checklist
      - Bug report issue template
      - Feature request issue template
-     - Dependabot weekly updates (GitHub Actions)
+     - Dependabot weekly npm updates and monthly GitHub Actions updates
 
    **Impact**:
-   - CI/CD with three automated workflows
+   - CI/CD with two automated workflows
 
 ### Medium Priorty Items:
 
@@ -125,16 +101,7 @@ npm run clean        # Clean Gatsby cache
     **Impact**:
     - No legacy polyfills
 
-3.  **Add Lighthouse Checks**:
-    - Site optimized for Lightouse
-    - `gatsby-plugin-image` for optimized images
-    - Created PWA manifest
-    - Service worker for offline support
-    - Sitemap for SEO
-    - Structured data
-    - Automated Lighthouse CI in GitHub actions
-
-4.  **Deploy to Cloudfare**:
+3.  **Deploy to Cloudfare**:
     - Automatic deployments on push to `main`
     - Preview deployments for PRs
     - Global edge locations
@@ -177,6 +144,7 @@ npm run clean        # Clean Gatsby cache
 2. **E2E Testing with Playwright**:
    - Test structure and CI integration
 
-> Retired 2026-10: Jest/RTL, Lighthouse CI, CodeQL, Dependabot, the class-based
-> `Image` component, the `/offline` page, and the `.js` duplicate of
-> `constants.ts` — all removed as speculative or dead. See `git log`.
+> Retired 2026-10: Jest/RTL, Lighthouse CI, CodeQL, the class-based `Image`
+> component, the `/offline` page, and the `.js` duplicate of `constants.ts` — all
+> removed as speculative or dead. Dependabot was reinstated with a weekly cadence.
+> See `git log`.

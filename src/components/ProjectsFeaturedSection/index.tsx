@@ -1,6 +1,6 @@
-import React from "react";
+import { useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Wrapper, ProjectFeatured, StyledCarousel } from "./style";
+import { Wrapper, ProjectFeatured, StyledCarousel, PauseButton } from "./style";
 import ProjectImage from "../ProjectImage";
 import type { FeaturedProjectEdge } from "../../types";
 
@@ -11,44 +11,55 @@ type ProjectsFeaturedSectionProps = {
 export default function ProjectsFeaturedSection({
   projects = [],
 }: ProjectsFeaturedSectionProps) {
-  const projectsList = (projects || []).map(({ project }) => {
-    const { title, imageData, url } = project;
-    const imageElement = imageData ? (
-      <ProjectImage imageData={imageData} alt={title} />
-    ) : null;
+  const [playing, setPlaying] = useState(true);
 
-    return (
-      <ProjectFeatured key={title}>
-        {url ? (
-          <a
-            className="image-link"
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer">
+  const renderProjects = (keyPrefix: string) =>
+    (projects || []).map(({ project }) => {
+      const { title, imageData, url } = project;
+      const imageElement = imageData ? (
+        <ProjectImage imageData={imageData} alt={title} />
+      ) : null;
+
+      return (
+        <ProjectFeatured key={`${keyPrefix}-${title}`}>
+          {url ? (
+            <a
+              className="image-link"
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer">
+              <div className="card">
+                <div className="image-wrap">{imageElement}</div>
+              </div>
+            </a>
+          ) : (
             <div className="card">
               <div className="image-wrap">{imageElement}</div>
             </div>
-          </a>
-        ) : (
-          <div className="card">
-            <div className="image-wrap">{imageElement}</div>
-          </div>
-        )}
-      </ProjectFeatured>
-    );
-  });
+          )}
+        </ProjectFeatured>
+      );
+    });
 
   return (
     <>
-      <Wrapper>{projectsList}</Wrapper>
+      <Wrapper>{renderProjects("grid")}</Wrapper>
       <StyledCarousel
         showArrows={false}
         showThumbs={false}
         showStatus={false}
         interval={10000}
-        autoPlay>
-        {projectsList}
+        autoPlay={playing}>
+        {renderProjects("carousel")}
       </StyledCarousel>
+      <PauseButton
+        type="button"
+        onClick={() => setPlaying(!playing)}
+        aria-label={
+          playing ? "Pause project carousel" : "Play project carousel"
+        }>
+        {playing ? "Pause" : "Play"}
+      </PauseButton>
     </>
   );
 }

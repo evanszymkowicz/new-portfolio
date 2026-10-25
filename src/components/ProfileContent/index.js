@@ -1,4 +1,3 @@
-import React from "react";
 import ProfileIntroSection from "../ProfileIntroSection";
 import ProfileListItem from "../ProfileListItem";
 import JobListItem from "../JobListItem";
@@ -19,7 +18,7 @@ const introContent = (
   </p>
 );
 
-const ProfileContent = ({ data }) => {
+const ProfileContent = ({ data, showSkills = true }) => {
   const { jobs, skills } = data;
 
   return (
@@ -27,14 +26,14 @@ const ProfileContent = ({ data }) => {
       <MainWrapper>
         <ProfileIntroSection content={introContent} />
         <ListsSection>
-          {jobs.edges.length > 0 && (
+          {jobs?.edges.length > 0 && (
             <ProfileList title="Experience">
               {jobs.edges.map(({ job }, i) => (
                 <JobListItem key={i} {...job} />
               ))}
             </ProfileList>
           )}
-          {skills.edges.length > 0 && (
+          {showSkills && skills?.edges.length > 0 && (
             <SkillsList title="Technology">
               {skills.edges.map(({ skill }, i) => (
                 <ProfileListItem key={i} {...skill} />

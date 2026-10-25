@@ -22,10 +22,17 @@ export const Wrapper = styled.div`
   }
 
   a {
+    position: relative;
     width: 1.65rem;
     ${media.lg`
       width: 1.45rem;
     `}
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: -11px;
+    }
   }
 
   svg {

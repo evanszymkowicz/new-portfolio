@@ -1,10 +1,12 @@
 import styled, { css } from "styled-components";
 import { colors, fonts, media } from "../../style/theme";
+import { focusVisible } from "../../style/shared";
 
 export const Link = styled.a`
   text-decoration: none;
   color: inherit;
   display: block;
+  ${focusVisible}
 `;
 
 export const Wrapper = styled.article`

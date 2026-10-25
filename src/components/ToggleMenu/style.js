@@ -6,11 +6,13 @@ export const Wrapper = styled.button`
   display: none;
   border: 0;
   background: transparent;
-  padding: 0;
-  margin: 0;
+  padding: 10px;
+  margin: -10px;
   cursor: pointer;
   width: 1.5rem;
   height: 1.5rem;
+  min-width: 44px;
+  min-height: 44px;
   position: relative;
 
   ${media.md`

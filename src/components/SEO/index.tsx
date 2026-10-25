@@ -1,4 +1,4 @@
-import React from "react";
+import type { ReactNode } from "react";
 import { META, SITE_CONFIG } from "../../utils/constants";
 
 interface SEOProps {
@@ -10,7 +10,7 @@ interface SEOProps {
   author?: string;
   keywords?: string[];
   lang?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
 const { siteUrl, author: defaultAuthor, social } = SITE_CONFIG;

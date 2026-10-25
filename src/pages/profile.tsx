@@ -1,4 +1,3 @@
-import React from "react";
 import { graphql } from "gatsby";
 import ProfileContent from "../components/ProfileContent";
 import { SEO } from "../components/SEO";

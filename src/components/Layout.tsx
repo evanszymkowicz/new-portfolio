@@ -1,20 +1,37 @@
-import React, { ReactNode, useEffect } from "react";
-import Navigation from "./Navigation";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
-import { promptInstall } from "../utils/serviceWorkerHelper";
+import Navigation from "./Navigation";
+import InstallPrompt from "./InstallPrompt";
+import { colors, fonts } from "../style/theme";
 
 // GlobalStyle is rendered once from wrapPageElement (gatsby-ssr.js / gatsby-browser.js),
-// not here. Layout is re-mounted on every client-side page transition (each page
-// nests it separately), so a GlobalStyle instance placed here gets torn down and
-// never reliably reinstated after the first client-side navigation. wrapPageElement
-// sits at a stable position in Gatsby's route tree that survives page swaps, while
-// still composing inside gatsby-plugin-styled-components' StyleSheetManager so SSR
-// output is unaffected.
+// not here. Layout is rendered through wrapPageElement, which sits at a stable position
+// in Gatsby's route tree and survives client-side page transitions, so effects here run
+// once per app lifecycle rather than on every navigation.
 
 const LayoutWrapper = styled.div`
+  position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
+`;
+
+const SkipLink = styled.a`
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  background: ${colors.darkYellow};
+  color: ${colors.darkGreen};
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  text-decoration: none;
+  font-family: ${fonts.mono};
+
+  &:focus {
+    transform: translateY(0);
+  }
 `;
 
 // Uses a minimal location type rather than the full browser Location interface.
@@ -30,15 +47,12 @@ interface LayoutProps {
 }
 
 export default function Layout({ children, location }: LayoutProps) {
-  useEffect(() => {
-    // install prompt
-    promptInstall();
-  }, []);
-
   return (
     <LayoutWrapper>
-      <main>{children}</main>
+      <SkipLink href="#main">Skip to content</SkipLink>
+      <main id="main">{children}</main>
       <Navigation location={location} />
+      <InstallPrompt />
     </LayoutWrapper>
   );
 }

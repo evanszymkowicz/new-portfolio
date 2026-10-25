@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
 import { SEO } from "../components/SEO";
@@ -10,7 +9,7 @@ const Title = styled.h1`
   text-align: center;
 `;
 
-const Subtitle = styled.h1`
+const Subtitle = styled.p`
   text-align: center;
   font-size: 1.1rem;
   font-family: ${fonts.mono};

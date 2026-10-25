@@ -1,4 +1,3 @@
-import React from "react";
 import { ListItem } from "../../style/shared";
 
 const ProfileListItem = ({ name, url }) => (

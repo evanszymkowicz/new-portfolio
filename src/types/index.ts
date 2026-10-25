@@ -60,7 +60,7 @@ export interface ProfileData {
   jobs: {
     edges: JobEdge[];
   };
-  skills: {
+  skills?: {
     edges: SkillEdge[];
   };
 }
