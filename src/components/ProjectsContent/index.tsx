@@ -50,7 +50,7 @@ export default function ProjectsContent({
     if (!category) {
       return project.featured && featuredCats.length === 0;
     }
-    if (featuredCats.includes(category)) {
+    if (project.featured && featuredCats.includes(category)) {
       return true;
     }
     return (
@@ -66,7 +66,7 @@ export default function ProjectsContent({
   );
 
   const filterByCategory = (list: ProjectEdge[]) => {
-    if (!category) return list;
+    if (category === null) return list;
     return list.filter(({ project }) => project.category?.includes(category));
   };
 

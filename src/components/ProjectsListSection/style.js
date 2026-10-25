@@ -27,12 +27,13 @@ export const ButtonsWrapper = styled.div`
 export const FilterButton = styled.button`
   border: 0;
   background: transparent;
-  padding: 0;
-  margin: 0;
+  padding: 0.5rem 0;
+  margin: -0.5rem 0;
   appearance: none;
   font-size: 0.9rem;
   font-family: ${fonts.mono};
   cursor: pointer;
+  min-height: 44px;
 
   &:not(:last-child)::after {
     content: "-";
@@ -70,7 +71,7 @@ export const QuestionWrapper = styled.footer`
    This avoids invalid characters if DividerImage is raw SVG content. */
 export const StyledDivider = styled.img.attrs({
   src: DividerImage,
-  alt: "divider",
+  alt: "",
 })`
   width: 38px;
   height: 5px;

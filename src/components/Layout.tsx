@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import styled from "styled-components";
 import Navigation from "./Navigation";
 import InstallPrompt from "./InstallPrompt";
-import { colors } from "../style/theme";
+import { colors, fonts } from "../style/theme";
 
 // GlobalStyle is rendered once from wrapPageElement (gatsby-ssr.js / gatsby-browser.js),
 // not here. Layout is rendered through wrapPageElement, which sits at a stable position
@@ -12,23 +12,25 @@ import { colors } from "../style/theme";
 const LayoutWrapper = styled.div`
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 `;
 
 const SkipLink = styled.a`
   position: absolute;
-  top: -40px;
+  top: 0;
   left: 0;
+  transform: translateY(-100%);
   background: ${colors.darkYellow};
   color: ${colors.darkGreen};
   padding: 0.5rem 1rem;
   z-index: 100;
   text-decoration: none;
-  font-family: monospace;
+  font-family: ${fonts.mono};
 
   &:focus {
-    top: 0;
+    transform: translateY(0);
   }
 `;
 

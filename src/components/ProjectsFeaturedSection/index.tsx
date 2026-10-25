@@ -13,45 +13,47 @@ export default function ProjectsFeaturedSection({
 }: ProjectsFeaturedSectionProps) {
   const [playing, setPlaying] = useState(true);
 
-  const projectsList = (projects || []).map(({ project }) => {
-    const { title, imageData, url } = project;
-    const imageElement = imageData ? (
-      <ProjectImage imageData={imageData} alt={title} />
-    ) : null;
+  const renderProjects = (keyPrefix: string) =>
+    (projects || []).map(({ project }) => {
+      const { title, imageData, url } = project;
+      const imageElement = imageData ? (
+        <ProjectImage imageData={imageData} alt={title} />
+      ) : null;
 
-    return (
-      <ProjectFeatured key={title}>
-        {url ? (
-          <a
-            className="image-link"
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer">
+      return (
+        <ProjectFeatured key={`${keyPrefix}-${title}`}>
+          {url ? (
+            <a
+              className="image-link"
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer">
+              <div className="card">
+                <div className="image-wrap">{imageElement}</div>
+              </div>
+            </a>
+          ) : (
             <div className="card">
               <div className="image-wrap">{imageElement}</div>
             </div>
-          </a>
-        ) : (
-          <div className="card">
-            <div className="image-wrap">{imageElement}</div>
-          </div>
-        )}
-      </ProjectFeatured>
-    );
-  });
+          )}
+        </ProjectFeatured>
+      );
+    });
 
   return (
     <>
-      <Wrapper>{projectsList}</Wrapper>
+      <Wrapper>{renderProjects("grid")}</Wrapper>
       <StyledCarousel
         showArrows={false}
         showThumbs={false}
         showStatus={false}
         interval={10000}
         autoPlay={playing}>
-        {projectsList}
+        {renderProjects("carousel")}
       </StyledCarousel>
       <PauseButton
+        type="button"
         onClick={() => setPlaying(!playing)}
         aria-label={
           playing ? "Pause project carousel" : "Play project carousel"

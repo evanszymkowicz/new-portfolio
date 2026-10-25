@@ -26,6 +26,13 @@ export const onServiceWorkerUpdateReady = () => {
         hasRefreshedOnUpdate = true;
         window.location.reload();
       });
+
+      // Fallback: if controllerchange doesn't fire, reload anyway.
+      setTimeout(() => {
+        if (hasRefreshedOnUpdate) return;
+        hasRefreshedOnUpdate = true;
+        window.location.reload();
+      }, 1000);
     })
     .catch(() => {
       // Ignore: the browser will handle a broken service worker state.

@@ -29,21 +29,24 @@ const ProjectsListSection = ({
         {categories.map((cat) => (
           <FilterButton
             key={cat}
+            aria-pressed={category === cat}
             $active={category === cat}
             onClick={() => setCategory(cat)}>
             {cat}
           </FilterButton>
         ))}
         {category && (
-          <FilterButton onClick={() => setCategory(null)}>all</FilterButton>
+          <FilterButton aria-pressed="false" onClick={() => setCategory(null)}>
+            all
+          </FilterButton>
         )}
       </ButtonsWrapper>
     </header>
-    <main>
+    <div>
       {projects.map(({ project }, i) => (
         <ProjectsListItem key={i} project={project} />
       ))}
-    </main>
+    </div>
     <QuestionWrapper>
       <StyledDivider height={6} width={43} />
       <h2>Want to know more?</h2>

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Carousel } from "react-responsive-carousel";
 import { colors, fonts, media } from "../../style/theme";
+import { focusVisible } from "../../style/shared";
 
 export const Wrapper = styled.section`
   display: grid;
@@ -50,33 +51,10 @@ export const ProjectFeatured = styled.div`
     display: block;
   }
 
-  /* optional bottom area for CTA when there's no image */
-  .card-footer {
-    padding: 1rem;
-    background: transparent;
-    text-align: center;
-  }
-
   a.image-link {
     display: block;
     color: inherit;
     text-decoration: none;
-  }
-
-  a.cta {
-    display: inline-block;
-    padding: 0.75rem 1.25rem;
-    text-align: center;
-    background-color: ${colors.darkYellow};
-    color: ${colors.darkGreen};
-    font-weight: 700;
-    border-radius: 4px;
-    margin: 0.5rem auto;
-    transition: background-color 0.15s;
-  }
-
-  a.cta:hover {
-    background-color: ${colors.silver};
   }
 `;
 
@@ -103,6 +81,7 @@ export const PauseButton = styled.button`
   cursor: pointer;
   font-family: ${fonts.mono};
   font-size: 0.9rem;
+  ${focusVisible}
 
   ${media.md`
     display: block;

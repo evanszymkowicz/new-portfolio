@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { fonts } from "../../style/theme";
+import { fonts, breakpoints, colors } from "../../style/theme";
+import { focusVisible } from "../../style/shared";
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -12,8 +13,8 @@ const Button = styled.button`
   bottom: 20px;
   right: 20px;
   padding: 12px 24px;
-  background: #0066cc;
-  color: #ffffff;
+  background: ${colors.cream};
+  color: ${colors.darkGreen};
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -21,6 +22,12 @@ const Button = styled.button`
   font-family: ${fonts.sans};
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+  ${focusVisible}
+
+  @media (max-width: ${breakpoints.md}) {
+    top: 20px;
+    bottom: auto;
+  }
 `;
 
 export default function InstallPrompt() {
@@ -61,10 +68,12 @@ export default function InstallPrompt() {
       return;
     }
 
-    await promptEvent.prompt();
-    const { outcome } = await promptEvent.userChoice;
-
-    if (outcome === "accepted" || outcome === "dismissed") {
+    try {
+      await promptEvent.prompt();
+      await promptEvent.userChoice;
+    } catch {
+      // The browser may reject the prompt; hide the button so it doesn't stick.
+    } finally {
       deferredPrompt.current = null;
       setVisible(false);
     }
@@ -75,7 +84,7 @@ export default function InstallPrompt() {
   }
 
   return (
-    <Button onClick={handleClick} aria-label="Install this app">
+    <Button type="button" onClick={handleClick} aria-label="Install this app">
       📱 Install App
     </Button>
   );

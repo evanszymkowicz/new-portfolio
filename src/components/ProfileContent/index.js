@@ -26,14 +26,14 @@ const ProfileContent = ({ data, showSkills = true }) => {
       <MainWrapper>
         <ProfileIntroSection content={introContent} />
         <ListsSection>
-          {jobs.edges.length > 0 && (
+          {jobs?.edges.length > 0 && (
             <ProfileList title="Experience">
               {jobs.edges.map(({ job }, i) => (
                 <JobListItem key={i} {...job} />
               ))}
             </ProfileList>
           )}
-          {showSkills && skills.edges.length > 0 && (
+          {showSkills && skills?.edges.length > 0 && (
             <SkillsList title="Technology">
               {skills.edges.map(({ skill }, i) => (
                 <ProfileListItem key={i} {...skill} />
