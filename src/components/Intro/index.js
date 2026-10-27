@@ -1,8 +1,8 @@
 import { Wrapper, Title } from "./style";
 
-const Intro = ({ fixed, ...props }) => {
+const Intro = (props) => {
   return (
-    <Wrapper $fixed={fixed} {...props}>
+    <Wrapper {...props}>
       <Title>
         <span>Evan Szymkowicz</span>
       </Title>

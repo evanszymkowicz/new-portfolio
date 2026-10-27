@@ -12,7 +12,6 @@ components, deployed to Cloudflare Pages.
 - `context/coding-standards.md` — TypeScript, React, Gatsby, Styled Components, and quality conventions.
 - `context/ai-interaction.md` — how to work in this repo: verification steps, git/commit rules.
 - `context/todos/ts-migration/` — the unfinished JS→TS migration, broken out by section.
-- `CHEATSHEET.md` — every command in this repo, deduplicated. Read it when you need to run something.
 
 ## Architecture
 

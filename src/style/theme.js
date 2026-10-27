@@ -8,7 +8,6 @@ export const colors = {
   silver: "#C0C0C0",
   cream: "#F5E9C8",
   creamMuted: "#C2A878",
-  black: "#000000",
 };
 
 export const fonts = {
@@ -39,12 +38,8 @@ const rule = (d, v) => `${d}: ${v};`;
 
 export const spaces = {
   p500: "5rem",
-  p400: "4rem",
   p300: "3rem",
   p200: "2rem",
-  p100: "1rem",
-  p50: ".5rem",
-  p25: ".25rem",
 };
 
 export const getOuterSpace = (p) => css`

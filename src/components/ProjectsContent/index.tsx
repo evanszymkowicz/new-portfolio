@@ -50,7 +50,7 @@ export default function ProjectsContent({
     if (!category) {
       return project.featured && featuredCats.length === 0;
     }
-    if (project.featured && featuredCats.includes(category)) {
+    if (featuredCats.includes(category)) {
       return true;
     }
     return (
@@ -60,10 +60,7 @@ export default function ProjectsContent({
     );
   });
 
-  const featuredTitles = new Set(featured.map(({ project }) => project.title));
-  const others = edgesWithImages.filter(
-    ({ project }) => !featuredTitles.has(project.title)
-  );
+  const others = edgesWithImages.filter(({ project }) => !project.featured);
 
   const filterByCategory = (list: ProjectEdge[]) => {
     if (category === null) return list;

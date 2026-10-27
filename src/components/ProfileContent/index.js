@@ -46,6 +46,4 @@ const ProfileContent = ({ data, showSkills = true }) => {
   );
 };
 
-ProfileContent.displayName = "ProfileContent";
-
 export default ProfileContent;

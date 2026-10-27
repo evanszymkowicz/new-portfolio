@@ -4,7 +4,7 @@
     "category": ["My Work"],
     "year": "2026",
     "url": "https://devmem-chi.vercel.app/",
-    "featured": false,
+    "featured": true,
     "imageRelativePath": "projects/DevMemory/devmemory.png",
     "featuredCategories": ["My Work"]
   },
@@ -45,7 +45,9 @@
     "category": ["Client Delivery"],
     "year": "2021",
     "url": "https://us.ovhcloud.com/contact-sales/",
-    "featured": false
+    "featured": true,
+    "imageRelativePath": "projects/OVHCloud/ovhcloud.png",
+    "featuredCategories": ["Client Delivery"]
   },
   {
     "title": "Sparks Group",
@@ -114,10 +116,9 @@
   },
   {
     "title": "Washington Design Center",
-    "category": ["Client Delivery"],
+    "category": ["My Work"],
     "year": "2019",
     "featured": false,
-    "featuredCategories": ["Client Delivery"],
     "url": "https://dc-design.netlify.app",
     "imageRelativePath": "projects/WashingtonDesignCenter/designcenter.png"
   }
