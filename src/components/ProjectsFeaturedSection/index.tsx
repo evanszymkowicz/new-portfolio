@@ -18,7 +18,9 @@ export default function ProjectsFeaturedSection({
       .filter(({ project }) => project.imageData)
       .map(({ project }) => {
         const { title, imageData, url } = project;
-        const imageElement = <ProjectImage imageData={imageData!} alt={title} />;
+        const imageElement = (
+          <ProjectImage imageData={imageData!} alt={title} />
+        );
 
         return (
           <ProjectFeatured key={`${keyPrefix}-${title}`}>
