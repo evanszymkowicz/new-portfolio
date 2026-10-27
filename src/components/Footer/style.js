@@ -17,18 +17,9 @@ export const Item = styled.div`
   color: ${colors.silver};
   font-size: 0.85rem;
   line-height: 1em;
-  ${(props) =>
-    props.$position === "left"
-      ? css`
-          transform: rotate(-90deg) translateX(-50%);
-          transform-origin: left;
-          ${getOuterSpace("left")}
-        `
-      : css`
-          transform: rotate(90deg) translateX(50%);
-          transform-origin: right;
-          ${getOuterSpace("right")}
-        `}
+  transform: rotate(-90deg) translateX(-50%);
+  transform-origin: left;
+  ${getOuterSpace("left")}
 
   ${media.md`
     position: static;

@@ -16,13 +16,7 @@
     "incremental": true,
     "isolatedModules": true,
     "baseUrl": "./src",
-    "paths": {
-      "@components/*": ["components/*"],
-      "@utils/*": ["utils/*"],
-      "@data/*": ["data/*"],
-      "@style/*": ["style/*"]
-    }
   },
   "include": ["src/**/*", "gatsby-*.ts", "gatsby-*.tsx"],
-  "exclude": ["node_modules", "public", ". cache"]
+  "exclude": ["node_modules", "public", ".cache"]
 }

@@ -1,5 +1,3 @@
-export const IS_PROD = process.env.NODE_ENV === "production";
-
 export const SITE_CONFIG = {
   siteUrl: "https://www.evanwolf.tech",
   author: "Evan Szymkowicz",

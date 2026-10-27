@@ -5,7 +5,7 @@ const ProfileIntroSection = ({ content }) => {
   return (
     <Wrapper>
       <InfoWrapper>
-        <Intro fixed={false} />
+        <Intro />
         <Content>{content}</Content>
       </InfoWrapper>
     </Wrapper>

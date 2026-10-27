@@ -1,10 +1,11 @@
-import styled, { css } from "styled-components";
-import { colors, media, getOuterSpace } from "../../style/theme";
+import styled from "styled-components";
+import { colors, media } from "../../style/theme";
 
 export const Wrapper = styled.div`
   font-size: 1.7rem;
   max-width: 36rem;
   line-height: 1.3em;
+  text-align: left;
   ${media.md`
     max-width: 32rem;
   `}
@@ -15,24 +16,6 @@ export const Wrapper = styled.div`
   ${media.xs`
     font-size: 1.35rem;
   `}
-
-  ${(props) =>
-    props.$fixed
-      ? css`
-          ${getOuterSpace("padding")};
-          position: absolute;
-          top: 0;
-          right: 0;
-          text-align: right;
-          ${media.md`
-        text-align: left;
-        left: 0;
-        right: auto;
-      `}
-        `
-      : css`
-          text-align: left;
-        `}
 `;
 
 export const Title = styled.h1`

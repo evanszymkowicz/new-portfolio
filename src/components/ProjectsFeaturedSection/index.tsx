@@ -14,32 +14,34 @@ export default function ProjectsFeaturedSection({
   const [playing, setPlaying] = useState(true);
 
   const renderProjects = (keyPrefix: string) =>
-    (projects || []).map(({ project }) => {
-      const { title, imageData, url } = project;
-      const imageElement = imageData ? (
-        <ProjectImage imageData={imageData} alt={title} />
-      ) : null;
+    (projects || [])
+      .filter(({ project }) => project.imageData)
+      .map(({ project }) => {
+        const { title, imageData, url } = project;
+        const imageElement = (
+          <ProjectImage imageData={imageData!} alt={title} />
+        );
 
-      return (
-        <ProjectFeatured key={`${keyPrefix}-${title}`}>
-          {url ? (
-            <a
-              className="image-link"
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer">
+        return (
+          <ProjectFeatured key={`${keyPrefix}-${title}`}>
+            {url ? (
+              <a
+                className="image-link"
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer">
+                <div className="card">
+                  <div className="image-wrap">{imageElement}</div>
+                </div>
+              </a>
+            ) : (
               <div className="card">
                 <div className="image-wrap">{imageElement}</div>
               </div>
-            </a>
-          ) : (
-            <div className="card">
-              <div className="image-wrap">{imageElement}</div>
-            </div>
-          )}
-        </ProjectFeatured>
-      );
-    });
+            )}
+          </ProjectFeatured>
+        );
+      });
 
   return (
     <>
