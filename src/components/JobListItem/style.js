@@ -29,7 +29,8 @@ export const Wrapper = styled.div`
     color: ${colors.silver};
   }
 
-  &:hover {
+  &:hover,
+  &.revealed {
     .position {
       transform: translateY(-100%);
     }
@@ -38,15 +39,4 @@ export const Wrapper = styled.div`
       transform: translateY(0);
     }
   }
-
-  ${media.md`
-    .position {
-      transform: translateY(0);
-    }
-
-    .year {
-      position: static;
-      transform: translateY(0);
-    }
-  `}
 `;
