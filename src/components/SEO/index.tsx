@@ -28,8 +28,7 @@ export function SEO({
 }: SEOProps) {
   const seo = {
     title: title || `${defaultAuthor} | Software Developer`,
-    description:
-      description || "Washington, D.C. based developer and creative.",
+    description: description || "Software Developer based inWashington, D.C.",
     image: `${siteUrl}${image || META.common.image}`,
     url: `${siteUrl}${pathname}`,
   };
