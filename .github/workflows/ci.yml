@@ -33,7 +33,7 @@ jobs:
       - run: npm run type-check
 
   build:
-    name: Build Application
+    name: Build
     runs-on: ubuntu-latest
     needs: quality
     timeout-minutes: 15

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Carousel } from "react-responsive-carousel";
-import { colors, fonts, media } from "../../style/theme";
-import { focusVisible } from "../../style/shared";
+import { colors, media } from "../../style/theme";
 
 export const Wrapper = styled.section`
   display: grid;
@@ -69,21 +68,4 @@ export const StyledCarousel = styled(Carousel)`
   .carousel-status {
     display: none;
   }
-`;
-
-export const PauseButton = styled.button`
-  display: none;
-  margin: 1rem auto;
-  background: transparent;
-  border: 1px solid ${colors.creamMuted};
-  color: ${colors.cream};
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  font-family: ${fonts.mono};
-  font-size: 0.9rem;
-  ${focusVisible}
-
-  ${media.md`
-    display: block;
-  `}
 `;

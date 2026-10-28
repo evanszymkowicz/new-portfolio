@@ -25,10 +25,6 @@ export const Wrapper = styled.article`
         background: rgba(253, 184, 19, 0.05);
       }
     `}
-
-  ${media.sm`
-    grid-template-columns: 1fr;
-  `}
 `;
 
 export const ProjectTitle = styled.h3`
